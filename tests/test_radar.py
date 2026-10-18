@@ -62,6 +62,34 @@ class RadarTests(unittest.TestCase):
         self.assertEqual(jobs[2][2]['timestamp'], '1700000000')
         self.assertTrue(jobs[2][2]['sign'])
 
+    def test_wechat_brief_has_sections_metrics_and_links(self):
+        digest = {'title': '技术雷达', 'text': 'legacy', 'brief': {
+            'date': '2026-10-18', 'url': 'https://example.com/daily.html',
+            'counts': [8, 8, 6],
+            'repos': [{'name': 'owner/repo', 'url': 'https://github.com/owner/repo', 'description': 'Create interactive illustrations of complex systems.', 'language': 'JavaScript', 'stars': 15526, 'forks': 1188}],
+            'stories': [{'title': 'A developer story', 'url': 'https://example.com/story', 'score': 193, 'comments': 92, 'discuss_url': 'https://news.ycombinator.com/item?id=1'}],
+            'advisories': [{'ghsa_id': 'GHSA-test', 'cve_id': 'CVE-2026-1234', 'summary': 'Authentication bypass in a package.', 'url': 'https://github.com/advisories/test'}]}}
+        text = notify.wechat_markdown(digest)
+        for item in ['开源发现', '开发者在聊', '安全提醒', '15,526', '92 条评论', 'CVE-2026-1234', '修复建议', 'https://example.com/daily.html']:
+            self.assertIn(item, text)
+        payload = notify.deliveries(digest, {'WECHAT_WEBHOOK': 'https://example.com/hook'})[0][2]
+        self.assertEqual(payload['markdown']['content'], text)
+        self.assertLessEqual(len(text.encode('utf-8')), 4096)
+
+    def test_wechat_budget_handles_chinese_and_long_urls(self):
+        digest = {'text': 'legacy', 'brief': {'date': '2026-10-18', 'url': 'https://example.com/daily', 'counts': [8, 8, 6], 'repos': [{'name': '<script>**项目**', 'url': 'https://example.com/' + 'x' * 5000, 'description': '中文简介' * 500, 'stars': 1, 'forks': 0}]}}
+        text = notify.wechat_markdown(digest)
+        self.assertLessEqual(len(text.encode('utf-8')), 4096)
+        self.assertIn('阅读完整早报', text)
+        self.assertNotIn('<script>', text)
+        self.assertEqual(notify.wechat_markdown({'text': 'old artifact'}), 'old artifact')
+        self.assertEqual(notify.safe_link('text', 'javascript:alert(1)'), 'text')
+
+    def test_excerpt_keeps_sentence_and_word_boundaries(self):
+        self.assertEqual(notify.excerpt('First sentence. Another very long sentence after it.', 25), 'First sentence.')
+        self.assertEqual(notify.excerpt('An agent skill for creating detailed illustrations', 24), 'An agent skill for…')
+        self.assertEqual(notify.excerpt('短句。第二句内容比较长。继续长。', 8), '短句。第二句内…')
+
     def test_provider_failure_does_not_stop_other_channels_or_leak_secrets(self):
         class Response:
             def __init__(self, data): self.data = data

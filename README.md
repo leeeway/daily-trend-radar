@@ -44,7 +44,7 @@
 | Telegram | `TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID` | Bot token 与接收聊天 ID，先与 Bot 发起对话 |
 | 微信（Server酱） | `SERVERCHAN_SENDKEY` | 自行在 Server酱绑定微信并取得 SendKey，额度和通道规则以服务商为准 |
 
-推送选取开源、热议、安全各一条，附完整日报链接。部署成功后才发送，某个通道失败仍继续尝试其他通道，并将工作流标记为失败以便排查。手动运行默认不推送，勾选 notify 后才推送；日报内容没有变化时跳过推送。自动推送可能受服务端超时影响，不承诺恰好一次送达。
+企微推送使用分区 Markdown：开源与热议各两条、安全一条，附 Star 数、评论量、来源和修复建议链接；描述保留来源原文，长文按词或句子截取。其余通道保持各一条的简版。企微内容按 UTF-8 字节预算控制长度，完整日报链接始终保留。部署成功后才发送，某个通道失败仍继续尝试其他通道，并将工作流标记为失败以便排查。手动运行默认不推送，勾选 notify 后才推送；日报内容没有变化时跳过推送。自动推送可能受服务端超时影响，不承诺恰好一次送达。
 
 协议参考：[飞书](https://open.feishu.cn/document/client-docs/bot-v3/add-custom-bot)、[钉钉](https://open.dingtalk.com/document/robots/customize-robot-security-settings)、[企业微信](https://developer.work.weixin.qq.com/document/path/91770)、[Telegram](https://core.telegram.org/bots/api#sendmessage)。
 

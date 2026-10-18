@@ -192,7 +192,21 @@ def main():
     if advisories:
         picks.append("安全关注：" + advisories[0]['ghsa_id'] + " " + advisories[0]['summary'][:100])
     picks.append(f"阅读全文：{site_url}/daily/{today_str}.html")
-    Path("notification.json").write_text(json.dumps({"title": picks[0], "text": "\n\n".join(picks)}, ensure_ascii=False), encoding="utf-8")
+    notification = {
+        "title": picks[0],
+        "text": "\n\n".join(picks),
+        "brief": {
+            "date": today_str,
+            "url": f"{site_url}/daily/{today_str}.html",
+            "repos": repos[:2],
+            "stories": hn_items[:2],
+            "advisories": advisories[:1],
+            "counts": [len(repos), len(hn_items), len(advisories)],
+        },
+    }
+    Path("notification.json").write_text(
+        json.dumps(notification, ensure_ascii=False), encoding="utf-8"
+    )
 
     print(f"[+] Successfully generated {archive_path} and updated README.md")
 
