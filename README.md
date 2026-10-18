@@ -1,0 +1,94 @@
+# 📡 Daily Trend Radar ⚡
+
+[![Daily Sync](https://github.com/leeeway/daily-trend-radar/actions/workflows/daily-sync.yml/badge.svg)](https://github.com/leeeway/daily-trend-radar/actions/workflows/daily-sync.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Latest Digest](https://img.shields.io/badge/Latest-2026-10-18-brightgreen.svg)](archives/2026-10-18.md)
+[![Update Frequency: Daily](https://img.shields.io/badge/Updates-Daily-orange.svg)](#)
+
+> **自动化技术热点雷达**：基于 GitHub Actions 每日自动抓取、清洗与聚合全网最新开源热点、Hacker News 科技话题与核心安全漏洞情报。
+
+---
+
+### 📅 最新一期简报速览：[2026-10-18](archives/2026-10-18.md)
+
+# 📡 Daily Trend Radar · 2026-10-18
+
+> 自动追踪全球开发者趋势、最新爆款开源项目与关键安全威胁情报。
+
+*生成时间: 2026-10-18 · 数据来源: GitHub API & HackerNews*
+
+---
+
+## 🔥 GitHub 近期新晋热门开源项目 (Breakout Repos)
+| 项目名 | 语言 | ⭐ Stars | 🍴 Forks | 简介 |
+| :--- | :--- | :--- | :--- | :--- |
+| [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) | `JavaScript` | **15526** | 1188 | An agent skill for creating detailed, interactive isometric illustrations of real-world... |
+| [openai/math](https://github.com/openai/math) | `Lean` | **15132** | 1751 | 暂无项目描述 |
+| [storytold/wordcraft](https://github.com/storytold/wordcraft) | `Rust` | **14184** | 3740 | An open-source, clean-room reimplementation of Microsoft Word in pure Rust |
+| [storytold/cadcraft](https://github.com/storytold/cadcraft) | `Rust` | **5664** | 2536 | CADCraft: computer-aided design and drafting — an open-source, clean-room AutoCAD-style... |
+| [storytold/gridcraft](https://github.com/storytold/gridcraft) | `Rust` | **5664** | 2608 | GridCraft: an open-source, clean-room spreadsheet (Microsoft Excel-style) in pure Rust.... |
+| [tangency-labs/solidcraft](https://github.com/tangency-labs/solidcraft) | `Rust` | **4665** | 560 | SolidCraft: an open-source parametric 3D CAD application built in pure Rust. Desktop, w... |
+| [ARahim3/DigUp](https://github.com/ARahim3/DigUp) | `Swift` | **4661** | 334 | Search your computer by what's in your files: photos, PDFs, documents, recordings, vide... |
+| [alchaincyf/huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) | `JavaScript` | **4286** | 462 | 艺术动画skill：35种艺术风格、9种解说语法，用代码让画动起来。 |
+
+---
+
+## 🌐 Hacker News 全球极客前沿热议
+1. **[DeepSeek search and fetch – $0.75 per 1000 successful requests](https://api-docs.deepseek.com/guides/search/)**  
+   👍 193 points · 💬 [92 条讨论](https://news.ycombinator.com/item?id=50138531)
+2. **[Show HN: Sphinx – A hook that quizzes you on your AI's code before shipping](https://sphinx-six-theta.vercel.app/)**  
+   👍 133 points · 💬 [33 条讨论](https://news.ycombinator.com/item?id=50137950)
+3. **[How the Elizabeth Holmes documentary “You Can See Everything” is deceiving](https://www.readtheprofile.com/p/elizabeth-holmes-documentary-you-can-see-everything)**  
+   👍 143 points · 💬 [147 条讨论](https://news.ycombinator.com/item?id=50137620)
+4. **[Bleached corals thrive within days when touching healthy neighbour](https://www.nature.com/articles/d41586-026-03266-x)**  
+   👍 463 points · 💬 [99 条讨论](https://news.ycombinator.com/item?id=50126253)
+5. **[Parser Combinators](https://t3.at/blog/2026-10-17-parser-combinators/)**  
+   👍 12 points · 💬 [1 条讨论](https://news.ycombinator.com/item?id=50139067)
+6. **[Lean now ships with verified kernels](https://leodemoura.github.io/blog/2026-10-15-lean-now-ships-with-verified-kernels/)**  
+   👍 139 points · 💬 [47 条讨论](https://news.ycombinator.com/item?id=50114758)
+7. **[Teal – A statically-typed dialect of Lua](https://teal-language.org/)**  
+   👍 32 points · 💬 [6 条讨论](https://news.ycombinator.com/item?id=50124730)
+8. **[Dam removals are bringing fish back across the northeastern United States](https://www.smithsonianmag.com/science-nature/dam-removals-are-bringing-fish-back-across-the-northeastern-united-states-striking-down-one-tiny-barrier-at-a-time-180989679/)**  
+   👍 281 points · 💬 [66 条讨论](https://news.ycombinator.com/item?id=50126312)
+
+---
+
+## 🛡️ 最新高危与严重漏洞告警 (Security Advisories)
+| 漏洞编号 | 严重等级 | 关联 CVE | 简要描述 |
+| :--- | :--- | :--- | :--- |
+| [GHSA-768h-xwv2-fwp3](https://github.com/advisories/GHSA-768h-xwv2-fwp3) | 🔴 CRITICAL | `CVE-2026-111911` | phpMyFAQ 4.0.0 before 4.1.9 contains an authentication bypass vulnerability where WebAuthn... |
+| [GHSA-xchc-mccm-x286](https://github.com/advisories/GHSA-xchc-mccm-x286) | 🔴 CRITICAL | `CVE-2026-104736` | The LearnPress plugin for WordPress is vulnerable to PHP Object Injection in versions up to, and... |
+| [GHSA-3xwr-ghgc-2994](https://github.com/advisories/GHSA-3xwr-ghgc-2994) | 🔴 CRITICAL | `CVE-2026-110653` | The Appointment Booking Plugin – LatePoint - Calendar & Scheduling for WordPress plugin for... |
+| [GHSA-93gm-r5p2-wxq7](https://github.com/advisories/GHSA-93gm-r5p2-wxq7) | 🔴 CRITICAL | `CVE-2026-111823` | Mage OSS through 0.9.80 before 76c4f46 can proceed with session creation upon encountering an... |
+| [GHSA-v9cj-6fp2-33q4](https://github.com/advisories/GHSA-v9cj-6fp2-33q4) | 🔴 CRITICAL | `CVE-2026-102608` | ZoneMinder is a free, open source closed-circuit television software application. Prior to 1.38.3... |
+| [GHSA-w5f2-9q9c-ff4h](https://github.com/advisories/GHSA-w5f2-9q9c-ff4h) | 🔴 CRITICAL | `CVE-2026-105192` | LMCache: Remote code execution via unsafe deserialization in multiprocess mode transport |
+
+---
+
+*本简报由 GitHub Actions 自动化定时生成并归档。*
+
+---
+
+### 📚 往期归档 (Recent Archives)
+
+<details>
+<summary><b>点击展开往期历史日报（最近 10 期）</b></summary>
+
+- 📅 [2026-10-18 技术雷达](archives/2026-10-18.md)
+
+</details>
+
+---
+
+## ⚙️ 自动化运作原理
+
+本项目完全运行在 GitHub Actions 免费云端沙箱中，具备以下特点：
+- **定时巡检与抓取**：每天通过 Cron 调度，调用 GitHub API 与开放数据源聚合资讯。
+- **时间抖动防机械化**：执行前注入随机延迟（Jitter），防止固定死时间打卡。
+- **持久化归档**：每次更新自动生成独立归档文件于 `archives/` 目录下，并动态更新 README。
+
+---
+
+## 📄 许可证
+
+本项目基于 [MIT License](LICENSE) 开源。
