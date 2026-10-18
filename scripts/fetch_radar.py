@@ -12,11 +12,15 @@ import json
 import os
 import urllib.request
 import urllib.error
+from zoneinfo import ZoneInfo
+from pathlib import Path
 
 USER_AGENT = "DailyTrendRadar/1.0 (+https://github.com/leeeway/daily-trend-radar)"
 
 def fetch_json(url, headers=None, timeout=12):
     req_headers = {"User-Agent": USER_AGENT}
+    if url.startswith("https://api.github.com/") and os.getenv("GITHUB_TOKEN"):
+        req_headers["Authorization"] = "Bearer " + os.environ["GITHUB_TOKEN"]
     if headers:
         req_headers.update(headers)
     req = urllib.request.Request(url, headers=req_headers)
@@ -29,7 +33,7 @@ def fetch_json(url, headers=None, timeout=12):
 
 def get_github_trending():
     """获取近期高增长与新突破开源项目"""
-    two_weeks_ago = (datetime.date.today() - datetime.timedelta(days=14)).strftime("%Y-%m-%d")
+    two_weeks_ago = (datetime.datetime.now(ZoneInfo("Asia/Shanghai")).date() - datetime.timedelta(days=14)).strftime("%Y-%m-%d")
     url = f"https://api.github.com/search/repositories?q=created:>{two_weeks_ago}&sort=stars&order=desc&per_page=8"
     data = fetch_json(url)
     items = []
@@ -121,7 +125,7 @@ def generate_markdown(today_str, repos, hn_items, advisories):
             summary = adv['summary'].replace("|", "-")
             md.append(f"| [{adv['ghsa_id']}]({adv['url']}) | {sev_badge} | `{adv['cve_id']}` | {summary} |")
     else:
-        md.append("- 今日暂无高危公告记录。\n")
+        md.append("- 未获取到严重漏洞公告；可能是数据源不可用，请查看运行日志。\n")
     md.append("\n---\n")
     md.append("*本简报由 GitHub Actions 自动化定时生成并归档。*")
 
@@ -140,57 +144,26 @@ def update_readme(today_str, archive_rel_path, archive_content):
 
     recent_list_str = "\n".join(recent_archives[:10]) if recent_archives else "- 暂无历史归档"
 
-    readme_content = f"""# 📡 Daily Trend Radar ⚡
+    readme_path = Path("README.md")
+    existing = readme_path.read_text(encoding="utf-8")
+    start, end = "<!-- radar:start -->", "<!-- radar:end -->"
+    block = f"{start}\n\n最新日报：[{today_str}]({archive_rel_path})\n\n{recent_list_str}\n\n{end}"
+    if start in existing and end in existing:
+        before, rest = existing.split(start, 1)
+        _, after = rest.split(end, 1)
+        readme_path.write_text(before + block + after, encoding="utf-8")
 
-[![Daily Sync](https://github.com/leeeway/daily-trend-radar/actions/workflows/daily-sync.yml/badge.svg)](https://github.com/leeeway/daily-trend-radar/actions/workflows/daily-sync.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Latest Digest](https://img.shields.io/badge/Latest-{today_str}-brightgreen.svg)]({archive_rel_path})
-[![Update Frequency: Daily](https://img.shields.io/badge/Updates-Daily-orange.svg)](#)
-
-> **自动化技术热点雷达**：基于 GitHub Actions 每日自动抓取、清洗与聚合全网最新开源热点、Hacker News 科技话题与核心安全漏洞情报。
-
----
-
-### 📅 最新一期简报速览：[{today_str}]({archive_rel_path})
-
-{archive_content}
-
----
-
-### 📚 往期归档 (Recent Archives)
-
-<details>
-<summary><b>点击展开往期历史日报（最近 10 期）</b></summary>
-
-{recent_list_str}
-
-</details>
-
----
-
-## ⚙️ 自动化运作原理
-
-本项目完全运行在 GitHub Actions 免费云端沙箱中，具备以下特点：
-- **定时巡检与抓取**：每天通过 Cron 调度，调用 GitHub API 与开放数据源聚合资讯。
-- **时间抖动防机械化**：执行前注入随机延迟（Jitter），防止固定死时间打卡。
-- **持久化归档**：每次更新自动生成独立归档文件于 `archives/` 目录下，并动态更新 README。
-
----
-
-## 📄 许可证
-
-本项目基于 [MIT License](LICENSE) 开源。
-"""
-    with open("README.md", "w", encoding="utf-8") as f:
-        f.write(readme_content)
 
 def main():
-    today_str = datetime.date.today().strftime("%Y-%m-%d")
+    today_str = datetime.datetime.now(ZoneInfo("Asia/Shanghai")).date().strftime("%Y-%m-%d")
     print(f"[*] Starting Daily Trend Radar fetch for {today_str}...")
 
     repos = get_github_trending()
     hn_items = get_hackernews_top()
     advisories = get_security_advisories()
+
+    if not repos and not hn_items and not advisories:
+        raise RuntimeError("All sources failed or returned no data; preserving existing archives")
 
     total_items = len(repos) + len(hn_items) + len(advisories)
     print(f"[*] Fetched {len(repos)} breakout repos, {len(hn_items)} HN stories, {len(advisories)} advisories.")
@@ -207,6 +180,19 @@ def main():
     # 输出用于 Git Commit 的说明
     with open("commit_summary.txt", "w", encoding="utf-8") as f:
         f.write(f"docs(radar): sync tech digest [{today_str}] ({total_items} updates)")
+
+    site_url = os.getenv("SITE_URL", "https://leeeway.github.io/daily-trend-radar").rstrip("/")
+    # Keep the message below provider size limits: three short picks and a reading link.
+    picks = [f"技术雷达 · {today_str}"]
+    if repos:
+        picks.append("开源精选：" + repos[0]['name'][:100])
+        picks.append(repos[0]['description'][:120])
+    if hn_items:
+        picks.append("今日热议：" + hn_items[0]['title'][:120])
+    if advisories:
+        picks.append("安全关注：" + advisories[0]['ghsa_id'] + " " + advisories[0]['summary'][:100])
+    picks.append(f"阅读全文：{site_url}/daily/{today_str}.html")
+    Path("notification.json").write_text(json.dumps({"title": picks[0], "text": "\n\n".join(picks)}, ensure_ascii=False), encoding="utf-8")
 
     print(f"[+] Successfully generated {archive_path} and updated README.md")
 

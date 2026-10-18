@@ -1,0 +1,24 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+
+# Environment and secrets
+.env
+*.local
+
+# OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Generated site and notification scratch data
+dist/
+commit_summary.txt
+notification.json

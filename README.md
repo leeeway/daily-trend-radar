@@ -1,94 +1,78 @@
-# 📡 Daily Trend Radar ⚡
+# 📡 leeway 技术雷达
 
-[![Daily Sync](https://github.com/leeeway/daily-trend-radar/actions/workflows/daily-sync.yml/badge.svg)](https://github.com/leeeway/daily-trend-radar/actions/workflows/daily-sync.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-[![Latest Digest](https://img.shields.io/badge/Latest-2026-10-18-brightgreen.svg)](archives/2026-10-18.md)
-[![Update Frequency: Daily](https://img.shields.io/badge/Updates-Daily-orange.svg)](#)
+每天自动收集开源项目、Hacker News 热议与严重安全公告，生成可订阅的技术早报和每周回顾。
 
-> **自动化技术热点雷达**：基于 GitHub Actions 每日自动抓取、清洗与聚合全网最新开源热点、Hacker News 科技话题与核心安全漏洞情报。
+- **站点**：[leeeway.github.io/daily-trend-radar](https://leeeway.github.io/daily-trend-radar/)
+- **个人主页**：[lwblog.cn](https://lwblog.cn/)
+- **RSS**：[feed.xml](https://leeeway.github.io/daily-trend-radar/feed.xml)
 
----
+<!-- radar:start -->
 
-### 📅 最新一期简报速览：[2026-10-18](archives/2026-10-18.md)
+最新日报：[2026-10-18](archives/2026-10-18.md)
 
-# 📡 Daily Trend Radar · 2026-10-18
+<!-- radar:end -->
 
-> 自动追踪全球开发者趋势、最新爆款开源项目与关键安全威胁情报。
+## 运作方式
 
-*生成时间: 2026-10-18 · 数据来源: GitHub API & HackerNews*
+北京时间每天 09:15 由 GitHub Actions 调度（实际运行可能延迟），依次抓取数据、生成 Markdown、自动提交、构建 HTML、发布 GitHub Pages，最后发送手机推送。代码提交只构建站点；手动运行可以选择是否推送。
 
----
+- 开源：最近 14 天创建的仓库，按累计 Stars 排名前 8；不是官方 Trending 或每日 Star 增量榜。
+- 热议：Hacker News 当前热门前 8 条。
+- 安全：GitHub Critical 级别公告 6 条。
+- 周报：按 ISO 周聚合已有日报，同一来源链接去重，周内持续更新；是资讯汇编，不冒充人工或 AI 点评。
+- 全部数据源失败时终止，保留已有文章；单个源失败会在当日日报显示缺失。
 
-## 🔥 GitHub 近期新晋热门开源项目 (Breakout Repos)
-| 项目名 | 语言 | ⭐ Stars | 🍴 Forks | 简介 |
-| :--- | :--- | :--- | :--- | :--- |
-| [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy) | `JavaScript` | **15526** | 1188 | An agent skill for creating detailed, interactive isometric illustrations of real-world... |
-| [openai/math](https://github.com/openai/math) | `Lean` | **15132** | 1751 | 暂无项目描述 |
-| [storytold/wordcraft](https://github.com/storytold/wordcraft) | `Rust` | **14184** | 3740 | An open-source, clean-room reimplementation of Microsoft Word in pure Rust |
-| [storytold/cadcraft](https://github.com/storytold/cadcraft) | `Rust` | **5664** | 2536 | CADCraft: computer-aided design and drafting — an open-source, clean-room AutoCAD-style... |
-| [storytold/gridcraft](https://github.com/storytold/gridcraft) | `Rust` | **5664** | 2608 | GridCraft: an open-source, clean-room spreadsheet (Microsoft Excel-style) in pure Rust.... |
-| [tangency-labs/solidcraft](https://github.com/tangency-labs/solidcraft) | `Rust` | **4665** | 560 | SolidCraft: an open-source parametric 3D CAD application built in pure Rust. Desktop, w... |
-| [ARahim3/DigUp](https://github.com/ARahim3/DigUp) | `Swift` | **4661** | 334 | Search your computer by what's in your files: photos, PDFs, documents, recordings, vide... |
-| [alchaincyf/huashu-art-motion](https://github.com/alchaincyf/huashu-art-motion) | `JavaScript` | **4286** | 462 | 艺术动画skill：35种艺术风格、9种解说语法，用代码让画动起来。 |
+## 启用 GitHub Pages
 
----
+在仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。工作流位于 `.github/workflows/daily-sync.yml`。
 
-## 🌐 Hacker News 全球极客前沿热议
-1. **[DeepSeek search and fetch – $0.75 per 1000 successful requests](https://api-docs.deepseek.com/guides/search/)**  
-   👍 193 points · 💬 [92 条讨论](https://news.ycombinator.com/item?id=50138531)
-2. **[Show HN: Sphinx – A hook that quizzes you on your AI's code before shipping](https://sphinx-six-theta.vercel.app/)**  
-   👍 133 points · 💬 [33 条讨论](https://news.ycombinator.com/item?id=50137950)
-3. **[How the Elizabeth Holmes documentary “You Can See Everything” is deceiving](https://www.readtheprofile.com/p/elizabeth-holmes-documentary-you-can-see-everything)**  
-   👍 143 points · 💬 [147 条讨论](https://news.ycombinator.com/item?id=50137620)
-4. **[Bleached corals thrive within days when touching healthy neighbour](https://www.nature.com/articles/d41586-026-03266-x)**  
-   👍 463 points · 💬 [99 条讨论](https://news.ycombinator.com/item?id=50126253)
-5. **[Parser Combinators](https://t3.at/blog/2026-10-17-parser-combinators/)**  
-   👍 12 points · 💬 [1 条讨论](https://news.ycombinator.com/item?id=50139067)
-6. **[Lean now ships with verified kernels](https://leodemoura.github.io/blog/2026-10-15-lean-now-ships-with-verified-kernels/)**  
-   👍 139 points · 💬 [47 条讨论](https://news.ycombinator.com/item?id=50114758)
-7. **[Teal – A statically-typed dialect of Lua](https://teal-language.org/)**  
-   👍 32 points · 💬 [6 条讨论](https://news.ycombinator.com/item?id=50124730)
-8. **[Dam removals are bringing fish back across the northeastern United States](https://www.smithsonianmag.com/science-nature/dam-removals-are-bringing-fish-back-across-the-northeastern-united-states-striking-down-one-tiny-barrier-at-a-time-180989679/)**  
-   👍 281 points · 💬 [66 条讨论](https://news.ycombinator.com/item?id=50126312)
+提交代码到 `main` 会部署已有文章；在 **Actions → Daily Radar Sync → Run workflow** 可立即抓取一次。仓库必须允许 Actions 读写内容，且 `github-pages` 环境允许从 `main` 发布。
 
----
+默认网址为 `https://leeeway.github.io/daily-trend-radar/`。如果将来绑定子域名，在仓库 **Settings → Secrets and variables → Actions → Variables** 设置 `SITE_URL` 为完整 HTTPS 根网址，并在 Pages 设置自定义域名。不要把已有主站 `lwblog.cn` 的 DNS 改指 Pages。
 
-## 🛡️ 最新高危与严重漏洞告警 (Security Advisories)
-| 漏洞编号 | 严重等级 | 关联 CVE | 简要描述 |
-| :--- | :--- | :--- | :--- |
-| [GHSA-768h-xwv2-fwp3](https://github.com/advisories/GHSA-768h-xwv2-fwp3) | 🔴 CRITICAL | `CVE-2026-111911` | phpMyFAQ 4.0.0 before 4.1.9 contains an authentication bypass vulnerability where WebAuthn... |
-| [GHSA-xchc-mccm-x286](https://github.com/advisories/GHSA-xchc-mccm-x286) | 🔴 CRITICAL | `CVE-2026-104736` | The LearnPress plugin for WordPress is vulnerable to PHP Object Injection in versions up to, and... |
-| [GHSA-3xwr-ghgc-2994](https://github.com/advisories/GHSA-3xwr-ghgc-2994) | 🔴 CRITICAL | `CVE-2026-110653` | The Appointment Booking Plugin – LatePoint - Calendar & Scheduling for WordPress plugin for... |
-| [GHSA-93gm-r5p2-wxq7](https://github.com/advisories/GHSA-93gm-r5p2-wxq7) | 🔴 CRITICAL | `CVE-2026-111823` | Mage OSS through 0.9.80 before 76c4f46 can proceed with session creation upon encountering an... |
-| [GHSA-v9cj-6fp2-33q4](https://github.com/advisories/GHSA-v9cj-6fp2-33q4) | 🔴 CRITICAL | `CVE-2026-102608` | ZoneMinder is a free, open source closed-circuit television software application. Prior to 1.38.3... |
-| [GHSA-w5f2-9q9c-ff4h](https://github.com/advisories/GHSA-w5f2-9q9c-ff4h) | 🔴 CRITICAL | `CVE-2026-105192` | LMCache: Remote code execution via unsafe deserialization in multiprocess mode transport |
+## 手机推送（任选，可同时启用）
 
----
+在 **Settings → Secrets and variables → Actions → Secrets** 添加对应项；未配置的通道自动跳过。密钥不要提交到仓库。
 
-*本简报由 GitHub Actions 自动化定时生成并归档。*
+| 通道 | Secret 名称 | 配置说明 |
+| --- | --- | --- |
+| 企业微信群机器人 | `WECHAT_WEBHOOK` | 群机器人的完整 HTTPS Webhook 地址 |
+| 钉钉机器人 | `DINGTALK_WEBHOOK`、`DINGTALK_SECRET` | Webhook；启用加签时填写 Secret。若设置关键词，允许“技术雷达” |
+| 飞书群机器人 | `FEISHU_WEBHOOK`、`FEISHU_SECRET` | Webhook；启用签名校验时填写 Secret。若设置关键词，允许“技术雷达” |
+| Telegram | `TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID` | Bot token 与接收聊天 ID，先与 Bot 发起对话 |
+| 微信（Server酱） | `SERVERCHAN_SENDKEY` | 自行在 Server酱绑定微信并取得 SendKey，额度和通道规则以服务商为准 |
 
----
+推送选取开源、热议、安全各一条，附完整日报链接。部署成功后才发送，某个通道失败仍继续尝试其他通道，并将工作流标记为失败以便排查。手动运行默认不推送，勾选 notify 后才推送；日报内容没有变化时跳过推送。自动推送可能受服务端超时影响，不承诺恰好一次送达。
 
-### 📚 往期归档 (Recent Archives)
+协议参考：[飞书](https://open.feishu.cn/document/client-docs/bot-v3/add-custom-bot)、[钉钉](https://open.dingtalk.com/document/robots/customize-robot-security-settings)、[企业微信](https://developer.work.weixin.qq.com/document/path/91770)、[Telegram](https://core.telegram.org/bots/api#sendmessage)。
 
-<details>
-<summary><b>点击展开往期历史日报（最近 10 期）</b></summary>
+## 挂载到 lwblog.cn
 
-- 📅 [2026-10-18 技术雷达](archives/2026-10-18.md)
+现有主站是 Astro，雷达站可以独立托管，不需要修改代理或主站 DNS。具体接入代码见 [integrations/lwblog.md](integrations/lwblog.md)，包括导航链接、iframe 卡片和 Astro 服务端读取最新一期 JSON。
 
-</details>
+公开接口（随 Pages 部署更新）：
 
----
+| 路径 | 用途 |
+| --- | --- |
+| `/feed.xml` | RSS 订阅，最近 30 期日报 |
+| `/latest.json` | 最新一期标题、日期、URL 及最近 30 期索引 |
+| `/embed.html` | 响应式最新日报嵌入卡片 |
+| `/daily/YYYY-MM-DD.html` | 每日文章 |
+| `/weekly/YYYY-Www.html` | 周报与本周日报索引 |
+| `/weekly/YYYY-Www.md` | 可下载周报 Markdown |
 
-## ⚙️ 自动化运作原理
+## 本地运行
 
-本项目完全运行在 GitHub Actions 免费云端沙箱中，具备以下特点：
-- **定时巡检与抓取**：每天通过 Cron 调度，调用 GitHub API 与开放数据源聚合资讯。
-- **时间抖动防机械化**：执行前注入随机延迟（Jitter），防止固定死时间打卡。
-- **持久化归档**：每次更新自动生成独立归档文件于 `archives/` 目录下，并动态更新 README。
+```sh
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+python -m unittest discover -s tests -v
+python scripts/fetch_radar.py  # 联网抓取，可用 GITHUB_TOKEN 提升 GitHub API 配额
+python scripts/build_site.py
+python -m http.server 8000 --directory dist
+```
 
----
+预览 `http://localhost:8000/`。生成目录 `dist/` 不入库。网页内容在构建时清理 HTML 和危险链接，不依赖浏览器运行 Markdown 框架。
 
-## 📄 许可证
-
-本项目基于 [MIT License](LICENSE) 开源。
+MIT License，见 [LICENSE](LICENSE)。
