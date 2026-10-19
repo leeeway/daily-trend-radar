@@ -158,6 +158,13 @@ def main():
     today_str = datetime.datetime.now(ZoneInfo("Asia/Shanghai")).date().strftime("%Y-%m-%d")
     print(f"[*] Starting Daily Trend Radar fetch for {today_str}...")
 
+    archive_path = f"archives/{today_str}.md"
+    force = os.getenv("FORCE_REFRESH", "").lower() in ("1", "true", "yes")
+    is_schedule = os.getenv("GITHUB_EVENT_NAME") == "schedule"
+    if is_schedule and not force and os.path.exists(archive_path):
+        print(f"[*] Archive {archive_path} already exists for today. Skipping duplicate scheduled run.")
+        return
+
     repos = get_github_trending()
     hn_items = get_hackernews_top()
     advisories = get_security_advisories()
