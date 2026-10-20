@@ -3,6 +3,7 @@ import datetime as dt
 import importlib.util
 import io
 import json
+import os
 from pathlib import Path
 import tempfile
 import unittest
@@ -19,6 +20,8 @@ def module(name):
 site = module('build_site')
 notify = module('notify')
 fetch = module('fetch_radar')
+state = module('daily_state')
+watchdog = module('check_daily')
 
 class RadarTests(unittest.TestCase):
     def test_build_nested_pages_feeds_and_dedup(self):
@@ -89,6 +92,75 @@ class RadarTests(unittest.TestCase):
         self.assertEqual(notify.excerpt('First sentence. Another very long sentence after it.', 25), 'First sentence.')
         self.assertEqual(notify.excerpt('An agent skill for creating detailed illustrations', 24), 'An agent skill for…')
         self.assertEqual(notify.excerpt('短句。第二句内容比较长。继续长。', 8), '短句。第二句内…')
+
+    def test_fetch_recovery_reuses_durable_payload(self):
+        with tempfile.TemporaryDirectory() as tmp, contextlib.chdir(tmp), patch.dict(os.environ, {'RADAR_DATE': '2026-10-20', 'RECOVERY': 'true', 'FORCE_REFRESH': 'false'}):
+            Path('README.md').write_text('<!-- radar:start -->old<!-- radar:end -->')
+            Path('archives').mkdir()
+            # A legacy archive alone must not block recovery; create its missing payload.
+            Path('archives/2026-10-20.md').write_text('legacy')
+            repo = {'name':'owner/repo', 'url':'https://example.com/repo', 'description':'desc', 'stars':1, 'forks':0, 'language':'Python'}
+            with patch.object(fetch, 'get_github_trending', return_value=[repo]), patch.object(fetch, 'get_hackernews_top', return_value=[]), patch.object(fetch, 'get_security_advisories', return_value=[]), contextlib.redirect_stdout(io.StringIO()):
+                fetch.main()
+            stored = Path('data/digests/2026-10-20.json').read_text()
+            self.assertEqual(json.loads(stored)['brief']['date'], '2026-10-20')
+            Path('notification.json').unlink()
+            with patch.object(fetch, 'get_github_trending', side_effect=AssertionError('must not refetch')), contextlib.redirect_stdout(io.StringIO()):
+                fetch.main()
+            self.assertEqual(Path('notification.json').read_text(), stored)
+            self.assertTrue(Path('commit_summary.txt').is_file())
+
+    def test_receipts_retry_only_failed_channels(self):
+        class Response:
+            def __init__(self, code): self.code = code
+            def __enter__(self): return self
+            def __exit__(self, *args): pass
+            def read(self): return json.dumps({'errcode':self.code}).encode()
+        env = {'WECHAT_WEBHOOK':'https://example.com/wechat', 'FEISHU_WEBHOOK':'https://example.com/feishu'}
+        digest = {'title':'test', 'text':'test'}
+        with tempfile.TemporaryDirectory() as tmp, contextlib.redirect_stdout(io.StringIO()):
+            receipt = Path(tmp) / 'receipt.json'
+            with patch.object(notify.urllib.request, 'urlopen', side_effect=[Response(0), Response(1)]) as request:
+                self.assertEqual(notify.send(digest, env, receipt), ['飞书'])
+                self.assertEqual(request.call_count, 2)
+            self.assertIn('企业微信', json.loads(receipt.read_text())['delivered'])
+            with patch.object(notify.urllib.request, 'urlopen', return_value=Response(0)) as request:
+                self.assertEqual(notify.send(digest, env, receipt), [])
+                self.assertEqual(request.call_count, 1)
+                self.assertEqual(request.call_args[0][0].full_url, env['FEISHU_WEBHOOK'])
+            with patch.object(notify.urllib.request, 'urlopen') as request:
+                self.assertEqual(notify.send(digest, env, receipt), [])
+                request.assert_not_called()
+
+    def test_completion_requires_more_than_markdown(self):
+        with tempfile.TemporaryDirectory() as tmp, patch.dict(os.environ, {'RADAR_DATE':'2026-10-20'}):
+            root = Path(tmp)
+            (root / 'archives').mkdir()
+            (root / 'archives/2026-10-20.md').touch()
+            self.assertFalse(state.is_complete(root))
+            state.complete(root)
+            self.assertFalse(state.is_complete(root))
+            (root / 'data/digests').mkdir()
+            (root / 'data/digests/2026-10-20.json').write_text('{}')
+            self.assertTrue(state.is_complete(root))
+            self.assertFalse(state.is_complete(root, '2026-10-21'))
+
+    def test_publication_check_rejects_stale_index(self):
+        class Response:
+            def __enter__(self): return self
+            def __exit__(self, *args): pass
+            def read(self): return b'{"latest":{"date":"2026-10-19"}}'
+        with patch.object(state.urllib.request, 'urlopen', return_value=Response()), self.assertRaises(RuntimeError):
+            state.verify_site('https://example.com', '2026-10-20', attempts=1)
+
+    def test_source_transient_failure_retries(self):
+        class Response:
+            def __enter__(self): return self
+            def __exit__(self, *args): pass
+            def read(self): return b'{"items":[]}'
+        with patch.object(fetch.urllib.request, 'urlopen', side_effect=[TimeoutError(), Response()]) as request, patch.object(fetch.time, 'sleep'), contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(fetch.fetch_json('https://example.com'), {'items':[]})
+            self.assertEqual(request.call_count, 2)
 
     def test_provider_failure_does_not_stop_other_channels_or_leak_secrets(self):
         class Response:

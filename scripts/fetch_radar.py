@@ -9,6 +9,7 @@ Daily Trend Radar - 自动化数据抓取与报告生成器
 
 import datetime
 import json
+import time
 import os
 import urllib.request
 import urllib.error
@@ -24,12 +25,15 @@ def fetch_json(url, headers=None, timeout=12):
     if headers:
         req_headers.update(headers)
     req = urllib.request.Request(url, headers=req_headers)
-    try:
-        with urllib.request.urlopen(req, timeout=timeout) as response:
-            return json.loads(response.read().decode("utf-8"))
-    except Exception as e:
-        print(f"[Warning] Failed to fetch {url}: {e}")
-        return None
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=timeout) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except Exception as exc:
+            print(f"[Warning] Source request failed ({type(exc).__name__}), attempt {attempt + 1}/3")
+            if attempt < 2:
+                time.sleep(2 ** attempt)
+    return None
 
 def get_github_trending():
     """获取近期高增长与新突破开源项目"""
@@ -155,14 +159,17 @@ def update_readme(today_str, archive_rel_path, archive_content):
 
 
 def main():
-    today_str = datetime.datetime.now(ZoneInfo("Asia/Shanghai")).date().strftime("%Y-%m-%d")
+    today_str = datetime.date.fromisoformat(os.getenv("RADAR_DATE") or datetime.datetime.now(ZoneInfo("Asia/Shanghai")).date().isoformat()).isoformat()
     print(f"[*] Starting Daily Trend Radar fetch for {today_str}...")
 
     archive_path = f"archives/{today_str}.md"
     force = os.getenv("FORCE_REFRESH", "").lower() in ("1", "true", "yes")
-    is_schedule = os.getenv("GITHUB_EVENT_NAME") == "schedule"
-    if is_schedule and not force and os.path.exists(archive_path):
-        print(f"[*] Archive {archive_path} already exists for today. Skipping duplicate scheduled run.")
+    digest_path = Path("data/digests") / f"{today_str}.json"
+    automatic = os.getenv("GITHUB_EVENT_NAME") in ("schedule", "repository_dispatch") or os.getenv("RECOVERY") == "true"
+    if automatic and not force and os.path.exists(archive_path) and digest_path.exists():
+        print(f"[*] Reusing saved digest for {today_str}; deployment and delivery may still need recovery.")
+        Path("notification.json").write_text(digest_path.read_text(encoding="utf-8"), encoding="utf-8")
+        Path("commit_summary.txt").write_text(f"docs(radar): recover tech digest [{today_str}]", encoding="utf-8")
         return
 
     repos = get_github_trending()
@@ -211,9 +218,10 @@ def main():
             "counts": [len(repos), len(hn_items), len(advisories)],
         },
     }
-    Path("notification.json").write_text(
-        json.dumps(notification, ensure_ascii=False), encoding="utf-8"
-    )
+    payload = json.dumps(notification, ensure_ascii=False, indent=2) + "\n"
+    digest_path.parent.mkdir(parents=True, exist_ok=True)
+    digest_path.write_text(payload, encoding="utf-8")
+    Path("notification.json").write_text(payload, encoding="utf-8")
 
     print(f"[+] Successfully generated {archive_path} and updated README.md")
 

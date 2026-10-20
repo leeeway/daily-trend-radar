@@ -1,15 +1,22 @@
 name: Daily Radar Sync
 on:
   schedule:
-    # 避开整点/15分等全球高拥堵时段，设置双重调度策略：
-    # 1. 北京时间 08:47（UTC 00:47）：避开 01:00 UTC 早高峰，提前排队尽早发出
-    # 2. 北京时间 09:23（UTC 01:23）：二次兜底检查（当天已执行过会自动跳过，防止重复）
-    - cron: '47 0 * * *'
-    - cron: '23 1 * * *'
+    # 北京时间 08:47 首次尝试；其后每小时检查，成功完成后轻量跳过。
+    - cron: '47 0-15 * * *'
+  repository_dispatch:
+    types: [radar-recovery]
   workflow_dispatch:
     inputs:
       notify:
-        description: '发送已配置的手机推送'
+        description: '发送尚未成功送达的手机推送'
+        type: boolean
+        default: false
+      recovery:
+        description: '补偿模式：当天已全部完成则跳过'
+        type: boolean
+        default: false
+      force_refresh:
+        description: '重新抓取日报（已送达通道仍不重复推送）'
         type: boolean
         default: false
   push:
@@ -20,76 +27,79 @@ concurrency:
   group: radar-pages
   cancel-in-progress: false
 jobs:
-  build:
+  check:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    env:
-      TZ: Asia/Shanghai
-      SITE_URL: ${{ vars.SITE_URL || 'https://leeeway.github.io/daily-trend-radar' }}
+    timeout-minutes: 3
     outputs:
-      notify: ${{ steps.delivery.outputs.enabled }}
+      run: ${{ steps.check.outputs.run }}
+      date: ${{ steps.check.outputs.date }}
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
-      - run: pip install -r requirements.txt
-      - run: python -m unittest discover -s tests -v
-      - name: Fetch and archive daily digest
-        if: github.event_name != 'push'
+          ref: main # 排队/补跑取最新状态，避免读取触发时的旧快照
+      - id: check
         env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: python scripts/fetch_radar.py
-      - name: Commit report
-        id: delivery
-        if: github.event_name != 'push'
-        run: |
-          git config user.name "leeeway"
-          git config user.email "leeway9527@163.com"
-          git add archives/ README.md
-          if ! git diff --staged --quiet; then
-            git commit -m "$(cat commit_summary.txt)"
-            git push
-            echo "enabled=true" >> "$GITHUB_OUTPUT"
-          fi
-      - run: python scripts/build_site.py
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
-      - name: Preserve notification for post-deployment delivery
-        if: steps.delivery.outputs.enabled == 'true'
-        uses: actions/upload-artifact@v4
-        with:
-          name: radar-notification
-          path: notification.json
-          retention-days: 1
-  deploy:
-    needs: build
+          RECOVERY: ${{ inputs.recovery || false }}
+          FORCE_REFRESH: ${{ inputs.force_refresh || false }}
+          SITE_URL: ${{ vars.SITE_URL || 'https://leeeway.github.io/daily-trend-radar' }}
+        run: python3 scripts/daily_state.py check
+  daily:
+    needs: check
+    if: needs.check.outputs.run == 'true'
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     permissions:
+      contents: write
       pages: write
       id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - uses: actions/configure-pages@v5
-      - uses: actions/deploy-pages@v4
-        id: deployment
-  notify:
-    needs: [build, deploy]
-    if: needs.build.outputs.notify == 'true' && (github.event_name == 'schedule' || inputs.notify == true)
-    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+      RADAR_DATE: ${{ needs.check.outputs.date }}
+      RECOVERY: ${{ inputs.recovery || false }}
+      FORCE_REFRESH: ${{ inputs.force_refresh || false }}
+      SITE_URL: ${{ vars.SITE_URL || 'https://leeeway.github.io/daily-trend-radar' }}
+      NOTIFY_ENABLED: ${{ github.event_name == 'schedule' || github.event_name == 'repository_dispatch' || inputs.notify == true }}
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: main
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - uses: actions/download-artifact@v4
+      - run: pip install -r requirements.txt
+      - run: python -m unittest discover -s tests -v
+      - name: Fetch or recover today's digest
+        if: github.event_name != 'push'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: python scripts/fetch_radar.py
+      - name: Commit durable digest before deployment
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "leeeway"
+          git config user.email "leeway9527@163.com"
+          git add archives/ README.md data/digests/
+          if ! git diff --staged --quiet; then
+            git commit -m "$(cat commit_summary.txt)"
+            git pull --rebase origin main
+            git push
+          fi
+      - run: python scripts/build_site.py
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
         with:
-          name: radar-notification
-      - name: Send configured channels
+          path: dist
+      - uses: actions/deploy-pages@v4
+        id: deployment
+      - name: Verify today's public article and index
+        if: github.event_name != 'push'
+        run: python scripts/daily_state.py verify
+      - name: Deliver only unfinished channels
+        id: notification
+        if: github.event_name != 'push' && env.NOTIFY_ENABLED == 'true'
         env:
           WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
           DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
@@ -100,3 +110,24 @@ jobs:
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SERVERCHAN_SENDKEY: ${{ secrets.SERVERCHAN_SENDKEY }}
         run: python scripts/notify.py
+      - name: Record full completion
+        if: steps.notification.outcome == 'success'
+        run: python scripts/daily_state.py complete
+      - name: Persist receipts even when one channel fails
+        if: always() && (steps.notification.outcome == 'success' || steps.notification.outcome == 'failure')
+        run: |
+          git config user.name "leeeway"
+          git config user.email "leeway9527@163.com"
+          mkdir -p data/delivery data/status
+          git add data/delivery/ data/status/
+          if ! git diff --staged --quiet; then
+            git commit -m "chore(radar): persist delivery status [$RADAR_DATE]"
+            git pull --rebase origin main
+            git push
+          fi
+      - name: Report daily outcome
+        if: always()
+        run: |
+          echo "## Radar $RADAR_DATE" >> "$GITHUB_STEP_SUMMARY"
+          echo "Event: $GITHUB_EVENT_NAME · notification: ${{ steps.notification.outcome }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "A missing data/status/$RADAR_DATE.json means recovery is still required." >> "$GITHUB_STEP_SUMMARY"

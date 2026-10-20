@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Optional, independent delivery adapters. Never log webhook URLs or API responses."""
 import base64
+import datetime as dt
 import hashlib
 import hmac
 import json
@@ -113,10 +114,18 @@ def deliveries(digest, env):
     return jobs
 
 
-def send(digest, env=None):
+def send(digest, env=None, receipt_path=None):
     jobs = deliveries(digest, os.environ if env is None else env)
     failures = []
+    receipt_path = Path(receipt_path) if receipt_path else None
+    date = digest.get('brief', {}).get('date')
+    receipt = json.loads(receipt_path.read_text(encoding='utf-8')) if receipt_path and receipt_path.exists() else {'date': date, 'delivered': {}}
+    if receipt.get('date') != date:
+        raise ValueError('Delivery receipt date mismatch')
     for name, url, payload in jobs:
+        if name in receipt['delivered']:
+            print(f'[*] {name}: already delivered today; skipped')
+            continue
         try:
             if not url.startswith('https://'):
                 raise ValueError('HTTPS required')
@@ -125,6 +134,12 @@ def send(digest, env=None):
                 result = json.loads(response.read().decode())
             if (name == 'Telegram' and result.get('ok') is not True) or any(result.get(k, 0) != 0 for k in ('errcode','code','StatusCode')):
                 raise ValueError('Provider rejected message')
+            receipt['delivered'][name] = dt.datetime.now(dt.timezone.utc).isoformat()
+            if receipt_path:
+                receipt_path.parent.mkdir(parents=True, exist_ok=True)
+                temporary = receipt_path.with_suffix('.tmp')
+                temporary.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+                temporary.replace(receipt_path)
             print(f'[+] {name}: delivered')
         except Exception:
             # Exceptions can contain access_token or bot token. Do not print them.
@@ -135,5 +150,7 @@ def send(digest, env=None):
     return failures
 
 if __name__ == '__main__':
-    failures = send(json.loads(Path('notification.json').read_text(encoding='utf-8')))
+    digest = json.loads(Path('notification.json').read_text(encoding='utf-8'))
+    date = digest['brief']['date']
+    failures = send(digest, receipt_path=Path('data/delivery') / f'{date}.json')
     raise SystemExit(1 if failures else 0)

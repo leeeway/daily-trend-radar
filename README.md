@@ -17,7 +17,24 @@
 
 ## 运作方式
 
-北京时间每天 09:15 由 GitHub Actions 调度（实际运行可能延迟），依次抓取数据、生成 Markdown、自动提交、构建 HTML、发布 GitHub Pages，最后发送手机推送。代码提交只构建站点；手动运行可以选择是否推送。
+北京时间每天 **08:47** 首次尝试，随后每小时检查一次直到 **23:47**；日报、线上页面和已配置推送全部成功后，当天后续定时检查自动跳过。代码提交只构建站点；手动运行可选择推送、补偿模式和强制刷新。
+
+GitHub 的 cron 是尽力而为的调度，可能延迟或丢弃事件，不能保证准点或每天必达。[官方说明](https://docs.github.com/en/actions/how-tos/troubleshoot-workflows)。因此提供独立检查脚本，可在已登录 GitHub CLI 的常开设备运行：
+
+```sh
+python3 scripts/check_daily.py          # 只检查远端完成记录与公开站点
+python3 scripts/check_daily.py --repair # 缺失时通过 workflow_dispatch 补跑
+```
+
+检查脚本不依赖 GitHub 的 cron，不需要复制企微密钥；只用宿主机已有 `gh` 登录。当天完成时安静退出，已有近期任务排队/运行时不重复触发。若使用 Codex 本机会话自动化作为兜底，电脑和 Codex 必须运行；要做到全天候，需把同一脚本部署到常开服务器或独立云调度器。
+
+恢复机制：
+
+- `data/digests/YYYY-MM-DD.json` 保存当天结构化资讯，补跑可复用，旧日报没有结构化数据时会自动补建。
+- `data/delivery/YYYY-MM-DD.json` 保存各通道的成功回执，失败通道可单独重试，成功通道跳过。
+- `data/status/YYYY-MM-DD.json` 只在公开页面验证成功且所有配置通道发送成功后记录完成，包含运行链接和完成时间。
+- 抓取请求遇到临时错误最多重试三次；任务有超时限制，排队后读取最新 `main` 状态。
+- 发送成功与回执提交不具备跨服务事务：若服务商已接收但返回超时，或 runner 在保存回执前中断，仍可能重复发送；不承诺恰好一次送达。
 
 - 开源：最近 14 天创建的仓库，按累计 Stars 排名前 8；不是官方 Trending 或每日 Star 增量榜。
 - 热议：Hacker News 当前热门前 8 条。
@@ -45,7 +62,7 @@
 | Telegram | `TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID` | Bot token 与接收聊天 ID，先与 Bot 发起对话 |
 | 微信（Server酱） | `SERVERCHAN_SENDKEY` | 自行在 Server酱绑定微信并取得 SendKey，额度和通道规则以服务商为准 |
 
-企微推送使用分区 Markdown：开源与热议各两条、安全一条，附 Star 数、评论量、来源和修复建议链接；描述保留来源原文，长文按词或句子截取。其余通道保持各一条的简版。企微内容按 UTF-8 字节预算控制长度，完整日报链接始终保留。部署成功后才发送，某个通道失败仍继续尝试其他通道，并将工作流标记为失败以便排查。手动运行默认不推送，勾选 notify 后才推送；日报内容没有变化时跳过推送。自动推送可能受服务端超时影响，不承诺恰好一次送达。
+企微推送使用分区 Markdown：开源与热议各两条、安全一条，附 Star 数、评论量、来源和修复建议链接；描述保留来源原文，长文按词或句子截取。其余通道保持各一条的简版。企微内容按 UTF-8 字节预算控制长度，完整日报链接始终保留。部署成功后才发送，某个通道失败仍继续尝试其他通道，并将工作流标记为失败以便排查。手动运行默认不推送，勾选 notify 后只补发尚未成功的通道；即使日报文件没有变化，也能恢复此前失败的发布和推送。
 
 协议参考：[飞书](https://open.feishu.cn/document/client-docs/bot-v3/add-custom-bot)、[钉钉](https://open.dingtalk.com/document/robots/customize-robot-security-settings)、[企业微信](https://developer.work.weixin.qq.com/document/path/91770)、[Telegram](https://core.telegram.org/bots/api#sendmessage)。
 
