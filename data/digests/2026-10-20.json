@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-10-20",
+  "text": "技术雷达 · 2026-10-20\n\n开源精选：wheresryan22/anatomy\n\nAn agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems. Ge\n\n今日热议：Lula supporters protest against Meta to denounce its 'electoral interference'\n\n安全关注：GHSA-qq7h-r236-6vc5 Grav from 2.0.15 before 2.2.2 contains an allowlist bypass vulnerability that allows page editors...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-10-20.html",
+  "brief": {
+    "date": "2026-10-20",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-10-20.html",
+    "repos": [
+      {
+        "name": "wheresryan22/anatomy",
+        "url": "https://github.com/wheresryan22/anatomy",
+        "description": "An agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems. Generates polished SVGs with optional WebGL shaders and 3D effects.",
+        "stars": 17002,
+        "forks": 1295,
+        "language": "JavaScript"
+      },
+      {
+        "name": "storytold/wordcraft",
+        "url": "https://github.com/storytold/wordcraft",
+        "description": "An open-source, clean-room reimplementation of Microsoft Word in pure Rust",
+        "stars": 14802,
+        "forks": 3965,
+        "language": "Rust"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Lula supporters protest against Meta to denounce its 'electoral interference'",
+        "url": "https://efe.com/english/latest-news/2026-10-20/lula-supporters-protest-against-meta-to-denounce-its-electoral-interference/",
+        "score": 204,
+        "comments": 98,
+        "discuss_url": "https://news.ycombinator.com/item?id=50159993"
+      },
+      {
+        "title": "MiniMax M3.1 Flash",
+        "url": "https://www.minimax.io/blog/minimax-m31f",
+        "score": 402,
+        "comments": 173,
+        "discuss_url": "https://news.ycombinator.com/item?id=50154540"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-qq7h-r236-6vc5",
+        "cve_id": "CVE-2026-112780",
+        "summary": "Grav from 2.0.15 before 2.2.2 contains an allowlist bypass vulnerability that allows page editors...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-qq7h-r236-6vc5"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
