@@ -15,12 +15,14 @@ REPO = 'leeeway/daily-trend-radar'
 SITE = 'https://leeeway.github.io/daily-trend-radar'
 
 
-def gh(*args):
+def gh(*args, json_output=True):
     result = subprocess.run(['gh', *args], text=True, capture_output=True, timeout=40)
     if result.returncode:
         if 'HTTP 404' in result.stderr:
             return None
         raise RuntimeError('GitHub request failed; check gh authentication and network access')
+    if not json_output:
+        return {}
     return json.loads(result.stdout) if result.stdout.strip() else {}
 
 
@@ -62,7 +64,7 @@ def main():
             return
     if not args.repair:
         raise SystemExit(f'{date}: missing daily completion; run with --repair to recover')
-    gh('workflow', 'run', 'daily-sync.yml', '--repo', REPO, '--ref', 'main', '-f', 'notify=true', '-f', 'recovery=true')
+    gh('workflow', 'run', 'daily-sync.yml', '--repo', REPO, '--ref', 'main', '-f', 'notify=true', '-f', 'recovery=true', json_output=False)
     print(f'{date}: recovery dispatched; only unfinished notification channels will be sent')
 
 

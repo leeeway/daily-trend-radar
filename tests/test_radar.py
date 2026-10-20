@@ -153,6 +153,15 @@ class RadarTests(unittest.TestCase):
         with patch.object(state.urllib.request, 'urlopen', return_value=Response()), self.assertRaises(RuntimeError):
             state.verify_site('https://example.com', '2026-10-20', attempts=1)
 
+    def test_watchdog_handles_human_dispatch_output_and_auth_errors(self):
+        import subprocess
+        with patch.object(watchdog.subprocess, 'run', return_value=subprocess.CompletedProcess([], 0, 'Created workflow_dispatch event', '')):
+            self.assertEqual(watchdog.gh('workflow', 'run', json_output=False), {})
+        with patch.object(watchdog.subprocess, 'run', return_value=subprocess.CompletedProcess([], 1, '', 'HTTP 404: Not Found')):
+            self.assertIsNone(watchdog.gh('api', 'missing'))
+        with patch.object(watchdog.subprocess, 'run', return_value=subprocess.CompletedProcess([], 1, '', 'HTTP 401: Bad credentials')), self.assertRaises(RuntimeError):
+            watchdog.gh('api', 'unauthorized')
+
     def test_source_transient_failure_retries(self):
         class Response:
             def __enter__(self): return self
