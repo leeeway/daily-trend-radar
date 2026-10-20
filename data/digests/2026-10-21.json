@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-10-21",
+  "text": "技术雷达 · 2026-10-21\n\n开源精选：wheresryan22/anatomy\n\nAn agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems. Ge\n\n今日热议：Voxtral 3\n\n安全关注：GHSA-j6fh-9747-5rv9 Wavlink WL-WN530BE1-A firmware through M30BE1_V251117 contains an OS command injection...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-10-21.html",
+  "brief": {
+    "date": "2026-10-21",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-10-21.html",
+    "repos": [
+      {
+        "name": "wheresryan22/anatomy",
+        "url": "https://github.com/wheresryan22/anatomy",
+        "description": "An agent skill for creating detailed, interactive isometric illustrations of real-world machines and complex systems. Generates polished SVGs with optional WebGL shaders and 3D effects.",
+        "stars": 17459,
+        "forks": 1341,
+        "language": "JavaScript"
+      },
+      {
+        "name": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
+        "stars": 11116,
+        "forks": 985,
+        "language": "Python"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Voxtral 3",
+        "url": "https://mistral.ai/news/voxtral-3/",
+        "score": 276,
+        "comments": 70,
+        "discuss_url": "https://news.ycombinator.com/item?id=50168396"
+      },
+      {
+        "title": "DeepInfer: High-performance inference framework for DeepSeek models",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "score": 1912,
+        "comments": 735,
+        "discuss_url": "https://news.ycombinator.com/item?id=50163277"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-j6fh-9747-5rv9",
+        "cve_id": "CVE-2026-113802",
+        "summary": "Wavlink WL-WN530BE1-A firmware through M30BE1_V251117 contains an OS command injection...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-j6fh-9747-5rv9"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
