@@ -1,8 +1,8 @@
 name: Daily Radar Sync
 on:
   schedule:
-    # 北京时间 08:47 首次尝试；其后每小时检查，成功完成后轻量跳过。
-    - cron: '47 0-15 * * *'
+    # 北京时间 14:37 首次发布，18:37 / 22:37 补偿检查；完成后自动跳过。
+    - cron: '37 6,10,14 * * *'
   repository_dispatch:
     types: [radar-recovery]
   workflow_dispatch:

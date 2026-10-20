@@ -48,7 +48,7 @@ def main():
     parser.add_argument('--repair', action='store_true', help='Dispatch recovery when incomplete and no recent run is active')
     args = parser.parse_args()
     now = dt.datetime.now(ZoneInfo('Asia/Shanghai'))
-    if (now.hour, now.minute) < (8, 47):
+    if (now.hour, now.minute) < (14, 37):
         print('Before the daily publication window; no recovery needed')
         return
     date = now.date().isoformat()
