@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-10-23",
+  "text": "技术雷达 · 2026-10-23\n\n开源精选：Gathin23/cleanyourtv\n\nDebloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.\n\n今日热议：Quad9 (DNS Resolver) to Exit France\n\n安全关注：GHSA-673q-mjm6-r5xr Next.js: Unauthenticated Remote Code Execution in `use cache` functions returning typed arrays\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-10-23.html",
+  "brief": {
+    "date": "2026-10-23",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-10-23.html",
+    "repos": [
+      {
+        "name": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "description": "Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.",
+        "stars": 23278,
+        "forks": 2546,
+        "language": "Java"
+      },
+      {
+        "name": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
+        "stars": 19742,
+        "forks": 2100,
+        "language": "Python"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Quad9 (DNS Resolver) to Exit France",
+        "url": "https://quad9.net/news/blog/au-revoir-france/",
+        "score": 494,
+        "comments": 174,
+        "discuss_url": "https://news.ycombinator.com/item?id=50195959"
+      },
+      {
+        "title": "eMudhra to exit global SSL/TLS certificate business",
+        "url": "https://emudhra.com/en/press-release/emudhra-to-exit-global-ssl-tls-certificate-business",
+        "score": 676,
+        "comments": 487,
+        "discuss_url": "https://news.ycombinator.com/item?id=50195110"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-673q-mjm6-r5xr",
+        "cve_id": "N/A",
+        "summary": "Next.js: Unauthenticated Remote Code Execution in `use cache` functions returning typed arrays",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-673q-mjm6-r5xr"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
