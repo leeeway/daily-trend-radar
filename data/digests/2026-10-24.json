@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-10-24",
+  "text": "技术雷达 · 2026-10-24\n\n开源精选：Gathin23/cleanyourtv\n\nDebloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.\n\n今日热议：Kimi K3.1 Pro and K3.1 Pro Highspeed\n\n安全关注：GHSA-3v4f-xjg3-3j32 Relative path traversal during model archive extraction in Amazon Web Services Multi Model Server...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-10-24.html",
+  "brief": {
+    "date": "2026-10-24",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-10-24.html",
+    "repos": [
+      {
+        "name": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "description": "Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.",
+        "stars": 27362,
+        "forks": 3057,
+        "language": "Java"
+      },
+      {
+        "name": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
+        "stars": 20929,
+        "forks": 2306,
+        "language": "Python"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Kimi K3.1 Pro and K3.1 Pro Highspeed",
+        "url": "https://www.kimi.ai/blog/kimi-k3-1-pro",
+        "score": 286,
+        "comments": 151,
+        "discuss_url": "https://news.ycombinator.com/item?id=50212065"
+      },
+      {
+        "title": "Today, we hacked what we'd set out to hack: the iPhone",
+        "url": "https://blog.calif.io/p/iphone",
+        "score": 424,
+        "comments": 267,
+        "discuss_url": "https://news.ycombinator.com/item?id=50211474"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-3v4f-xjg3-3j32",
+        "cve_id": "CVE-2026-115812",
+        "summary": "Relative path traversal during model archive extraction in Amazon Web Services Multi Model Server...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-3v4f-xjg3-3j32"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
