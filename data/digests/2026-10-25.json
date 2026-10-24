@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-10-25",
+  "text": "技术雷达 · 2026-10-25\n\n开源精选：Gathin23/cleanyourtv\n\nDebloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.\n\n今日热议：Roku developer repositories moved from GitHub to GitLab\n\n安全关注：GHSA-9j6f-8rw3-93c4 Postiz signs its session, invitation and password reset tokens with one shared secret and without...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-10-25.html",
+  "brief": {
+    "date": "2026-10-25",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-10-25.html",
+    "repos": [
+      {
+        "name": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "description": "Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.",
+        "stars": 30883,
+        "forks": 3563,
+        "language": "Java"
+      },
+      {
+        "name": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
+        "stars": 21716,
+        "forks": 2466,
+        "language": "Python"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Roku developer repositories moved from GitHub to GitLab",
+        "url": "https://blog.roku.com/developer/gitlab-move",
+        "score": 93,
+        "comments": 42,
+        "discuss_url": "https://news.ycombinator.com/item?id=50222622"
+      },
+      {
+        "title": "FreeDNS",
+        "url": "https://freedns.afraid.org/",
+        "score": 130,
+        "comments": 32,
+        "discuss_url": "https://news.ycombinator.com/item?id=50222133"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-9j6f-8rw3-93c4",
+        "cve_id": "CVE-2026-115933",
+        "summary": "Postiz signs its session, invitation and password reset tokens with one shared secret and without...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-9j6f-8rw3-93c4"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
