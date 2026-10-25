@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-10-26",
+  "text": "技术雷达 · 2026-10-26\n\n开源精选：Gathin23/cleanyourtv\n\nDebloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.\n\n今日热议：Sabre Wulf Remastered\n\n安全关注：GHSA-9cjx-rmhj-qc37 Snipe-IT before 8.6.3 contains an authentication bypass in GoogleAuthController:...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-10-26.html",
+  "brief": {
+    "date": "2026-10-26",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-10-26.html",
+    "repos": [
+      {
+        "name": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "description": "Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.",
+        "stars": 34302,
+        "forks": 4083,
+        "language": "Java"
+      },
+      {
+        "name": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
+        "stars": 22307,
+        "forks": 2568,
+        "language": "Python"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Sabre Wulf Remastered",
+        "url": "https://gp-64.com/swr/",
+        "score": 21,
+        "comments": 3,
+        "discuss_url": "https://news.ycombinator.com/item?id=50233775"
+      },
+      {
+        "title": "fheroes2: A recreation of Heroes of Might and Magic II game engine",
+        "url": "https://github.com/ihhub/fheroes2",
+        "score": 167,
+        "comments": 56,
+        "discuss_url": "https://news.ycombinator.com/item?id=50230384"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-9cjx-rmhj-qc37",
+        "cve_id": "CVE-2026-116199",
+        "summary": "Snipe-IT before 8.6.3 contains an authentication bypass in GoogleAuthController:...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-9cjx-rmhj-qc37"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
