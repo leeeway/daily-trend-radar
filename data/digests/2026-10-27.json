@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-10-27",
+  "text": "技术雷达 · 2026-10-27\n\n开源精选：Gathin23/cleanyourtv\n\nDebloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.\n\n今日热议：Microsoft Announces Type Server Protocol, Extension of Language Server Protocol\n\n安全关注：GHSA-34qg-vwfc-f4rm There is a SQL injection vulnerability in Esri ArcGIS Server versions 12.1 and earlier on Windows...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-10-27.html",
+  "brief": {
+    "date": "2026-10-27",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-10-27.html",
+    "repos": [
+      {
+        "name": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "description": "Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.",
+        "stars": 38815,
+        "forks": 4656,
+        "language": "Python"
+      },
+      {
+        "name": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
+        "stars": 22984,
+        "forks": 2672,
+        "language": "Python"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Microsoft Announces Type Server Protocol, Extension of Language Server Protocol",
+        "url": "https://github.com/microsoft/pylance-release/blob/main/docs/tsp/type-server-protocol.md",
+        "score": 98,
+        "comments": 53,
+        "discuss_url": "https://news.ycombinator.com/item?id=50248371"
+      },
+      {
+        "title": "Sebastian Raschka's from-scratch video course on building reasoning models",
+        "url": "https://magazine.sebastianraschka.com/p/building-reasoning-models",
+        "score": 399,
+        "comments": 55,
+        "discuss_url": "https://news.ycombinator.com/item?id=50245138"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-34qg-vwfc-f4rm",
+        "cve_id": "CVE-2026-10757",
+        "summary": "There is a SQL injection vulnerability in Esri ArcGIS Server versions 12.1 and earlier on Windows...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-34qg-vwfc-f4rm"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
