@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-10-28",
+  "text": "技术雷达 · 2026-10-28\n\n开源精选：Gathin23/cleanyourtv\n\nDebloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.\n\n今日热议：Genie 4\n\n安全关注：GHSA-fj84-5f8p-58pp Adobe Connect is affected by an Improper Control of Generation of Code ('Code Injection')...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-10-28.html",
+  "brief": {
+    "date": "2026-10-28",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-10-28.html",
+    "repos": [
+      {
+        "name": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "description": "Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.",
+        "stars": 41451,
+        "forks": 5022,
+        "language": "Python"
+      },
+      {
+        "name": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
+        "stars": 23365,
+        "forks": 2731,
+        "language": "Python"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Genie 4",
+        "url": "https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/",
+        "score": 433,
+        "comments": 241,
+        "discuss_url": "https://news.ycombinator.com/item?id=50261319"
+      },
+      {
+        "title": "Ghostty 1.4.0",
+        "url": "https://ghostty.org/docs/install/release-notes/1-4-0",
+        "score": 331,
+        "comments": 114,
+        "discuss_url": "https://news.ycombinator.com/item?id=50261998"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-fj84-5f8p-58pp",
+        "cve_id": "CVE-2026-48360",
+        "summary": "Adobe Connect is affected by an Improper Control of Generation of Code ('Code Injection')...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-fj84-5f8p-58pp"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
