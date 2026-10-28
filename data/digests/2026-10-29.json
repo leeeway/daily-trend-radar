@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-10-29",
+  "text": "技术雷达 · 2026-10-29\n\n开源精选：Gathin23/cleanyourtv\n\nDebloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.\n\n今日热议：Why Is This Fingerprinting Script Creating Bioweapons?\n\n安全关注：GHSA-4j2g-4264-38mr A Missing authentication for critical function vulnerability in Juniper Networks Session Smart...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-10-29.html",
+  "brief": {
+    "date": "2026-10-29",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-10-29.html",
+    "repos": [
+      {
+        "name": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "description": "Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.",
+        "stars": 43568,
+        "forks": 5324,
+        "language": "Python"
+      },
+      {
+        "name": "deepseek-ai/DeepInfer",
+        "url": "https://github.com/deepseek-ai/DeepInfer",
+        "description": "DeepInfer: High-performance, large-scale inference framework for DeepSeek models",
+        "stars": 23869,
+        "forks": 2831,
+        "language": "Python"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Why Is This Fingerprinting Script Creating Bioweapons?",
+        "url": "https://nullpt.rs/fingerprinting-bioweapons",
+        "score": 195,
+        "comments": 32,
+        "discuss_url": "https://news.ycombinator.com/item?id=50276998"
+      },
+      {
+        "title": "Gemini 4 Carbon",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
+        "score": 520,
+        "comments": 439,
+        "discuss_url": "https://news.ycombinator.com/item?id=50276792"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-4j2g-4264-38mr",
+        "cve_id": "CVE-2026-103409",
+        "summary": "A Missing authentication for critical function vulnerability in Juniper Networks Session Smart...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-4j2g-4264-38mr"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
