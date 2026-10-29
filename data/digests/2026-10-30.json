@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-10-30",
+  "text": "技术雷达 · 2026-10-30\n\n开源精选：Gathin23/cleanyourtv\n\nDebloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.\n\n今日热议：We're releasing the weights of Mistral Large 4\n\n安全关注：GHSA-vfwm-g9g9-v2g5 IBM Langflow OSS 1.0.0 through 1.12.8 could allow a remote attacker to bypass security...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-10-30.html",
+  "brief": {
+    "date": "2026-10-30",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-10-30.html",
+    "repos": [
+      {
+        "name": "Gathin23/cleanyourtv",
+        "url": "https://github.com/Gathin23/cleanyourtv",
+        "description": "Debloat any Android or Google TV over Wi-Fi and get an Apple TV-style home.",
+        "stars": 45242,
+        "forks": 5546,
+        "language": "Python"
+      },
+      {
+        "name": "Zagitta/gpu-unlock",
+        "url": "https://github.com/Zagitta/gpu-unlock",
+        "description": "Your GeForce runs AI at half speed. This fixes it for 20/30/40 series cards. Up to 2× FP16 / BF16 / TF32 tensor throughput",
+        "stars": 12972,
+        "forks": 1270,
+        "language": "C"
+      }
+    ],
+    "stories": [
+      {
+        "title": "We're releasing the weights of Mistral Large 4",
+        "url": "https://mistral.ai/news/mistral-large-4-oss/",
+        "score": 866,
+        "comments": 242,
+        "discuss_url": "https://news.ycombinator.com/item?id=50289418"
+      },
+      {
+        "title": "H.264 Is Magic (2016)",
+        "url": "https://sidbala.com/h-264-is-magic/",
+        "score": 190,
+        "comments": 96,
+        "discuss_url": "https://news.ycombinator.com/item?id=50291054"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-vfwm-g9g9-v2g5",
+        "cve_id": "CVE-2026-93680",
+        "summary": "IBM Langflow OSS 1.0.0 through 1.12.8 could allow a remote attacker to bypass security...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-vfwm-g9g9-v2g5"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
