@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-10-31",
+  "text": "技术雷达 · 2026-10-31\n\n开源精选：Zagitta/gpu-unlock\n\nYour GeForce runs AI at half speed. This fixes it for 20/30/40 series cards. Up to 2× FP16 / BF16 / TF32 tensor throughp\n\n今日热议：My favourite PowerMac is a Nintendo Wii\n\n安全关注：GHSA-c9gr-394r-65gg In JetBrains Toolbox App before 3.9.1 and 3.8.2; IntelliJ IDEA before 2026.3 and 2026.2.4, the...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-10-31.html",
+  "brief": {
+    "date": "2026-10-31",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-10-31.html",
+    "repos": [
+      {
+        "name": "Zagitta/gpu-unlock",
+        "url": "https://github.com/Zagitta/gpu-unlock",
+        "description": "Your GeForce runs AI at half speed. This fixes it for 20/30/40 series cards. Up to 2× FP16 / BF16 / TF32 tensor throughput",
+        "stars": 13432,
+        "forks": 1319,
+        "language": "C"
+      },
+      {
+        "name": "pengchujin/aerial-tv",
+        "url": "https://github.com/pengchujin/aerial-tv",
+        "description": "给国产电视的一块干净桌面：参照 tvOS 设计的开源 Android TV 桌面，没有广告，开机自动接管。A tvOS-style launcher for Xiaomi, TCL and other China-market TVs.",
+        "stars": 8032,
+        "forks": 671,
+        "language": "Kotlin"
+      }
+    ],
+    "stories": [
+      {
+        "title": "My favourite PowerMac is a Nintendo Wii",
+        "url": "https://virtuallyfun.com/2026/10/29/my-favourite-powermac-is-a-nintendo-wii/",
+        "score": 105,
+        "comments": 21,
+        "discuss_url": "https://news.ycombinator.com/item?id=50307190"
+      },
+      {
+        "title": "Northflank Breached",
+        "url": "https://status.northflank.com",
+        "score": 229,
+        "comments": 143,
+        "discuss_url": "https://news.ycombinator.com/item?id=50305025"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-c9gr-394r-65gg",
+        "cve_id": "CVE-2026-118697",
+        "summary": "In JetBrains Toolbox App before 3.9.1 and 3.8.2; IntelliJ IDEA before 2026.3 and 2026.2.4, the...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-c9gr-394r-65gg"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
