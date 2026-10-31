@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-11-01",
+  "text": "技术雷达 · 2026-11-01\n\n开源精选：pengchujin/aerial-tv\n\n给国产电视的一块干净桌面：参照 tvOS 设计的开源 Android TV 桌面，没有广告，开机自动接管。A tvOS-style launcher for Xiaomi, TCL and other China-market TVs.\n\n今日热议：Molly (Signal fork) has not been updated since 3 months and is vulnerable\n\n安全关注：GHSA-p83w-vf54-73v4 AJ-Report through 1.7.1 signs share tokens with a hard-coded JWT secret, allowing attackers to...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-01.html",
+  "brief": {
+    "date": "2026-11-01",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-01.html",
+    "repos": [
+      {
+        "name": "pengchujin/aerial-tv",
+        "url": "https://github.com/pengchujin/aerial-tv",
+        "description": "给国产电视的一块干净桌面：参照 tvOS 设计的开源 Android TV 桌面，没有广告，开机自动接管。A tvOS-style launcher for Xiaomi, TCL and other China-market TVs.",
+        "stars": 8307,
+        "forks": 692,
+        "language": "Kotlin"
+      },
+      {
+        "name": "unclebob/ub-mode",
+        "url": "https://github.com/unclebob/ub-mode",
+        "description": "暂无项目描述",
+        "stars": 5638,
+        "forks": 308,
+        "language": "Other"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Molly (Signal fork) has not been updated since 3 months and is vulnerable",
+        "url": "https://piefed.world/post/1503394",
+        "score": 241,
+        "comments": 144,
+        "discuss_url": "https://news.ycombinator.com/item?id=50314666"
+      },
+      {
+        "title": "UK Green party drops longstanding opposition to nuclear power",
+        "url": "https://www.theguardian.com/politics/2026/oct/05/green-party-nuclear-power-policy",
+        "score": 87,
+        "comments": 51,
+        "discuss_url": "https://news.ycombinator.com/item?id=50318189"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-p83w-vf54-73v4",
+        "cve_id": "CVE-2026-120209",
+        "summary": "AJ-Report through 1.7.1 signs share tokens with a hard-coded JWT secret, allowing attackers to...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-p83w-vf54-73v4"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
