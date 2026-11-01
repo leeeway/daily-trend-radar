@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-11-02",
+  "text": "技术雷达 · 2026-11-02\n\n开源精选：pengchujin/aerial-tv\n\n给国产电视的一块干净桌面：参照 tvOS 设计的开源 Android TV 桌面，没有广告，开机自动接管。A tvOS-style launcher for Xiaomi, TCL and other China-market TVs.\n\n今日热议：Show HN: HackerBooks – HackerTube, but for books mentioned on HN\n\n安全关注：GHSA-fqhx-4vhr-rp48 Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-02.html",
+  "brief": {
+    "date": "2026-11-02",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-02.html",
+    "repos": [
+      {
+        "name": "pengchujin/aerial-tv",
+        "url": "https://github.com/pengchujin/aerial-tv",
+        "description": "给国产电视的一块干净桌面：参照 tvOS 设计的开源 Android TV 桌面，没有广告，开机自动接管。A tvOS-style launcher for Xiaomi, TCL and other China-market TVs.",
+        "stars": 8653,
+        "forks": 729,
+        "language": "Kotlin"
+      },
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 6765,
+        "forks": 674,
+        "language": "TypeScript"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Show HN: HackerBooks – HackerTube, but for books mentioned on HN",
+        "url": "https://hackerbooks.org",
+        "score": 387,
+        "comments": 114,
+        "discuss_url": "https://news.ycombinator.com/item?id=50326821"
+      },
+      {
+        "title": "Mathematics has changed. Let's act like it",
+        "url": "https://terrytao.wordpress.com/2026/11/01/mathematics-has-changed-lets-act-like-it/",
+        "score": 31,
+        "comments": 19,
+        "discuss_url": "https://news.ycombinator.com/item?id=50328251"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-fqhx-4vhr-rp48",
+        "cve_id": "CVE-2026-62048",
+        "summary": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-fqhx-4vhr-rp48"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
