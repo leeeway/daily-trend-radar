@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-11-03",
+  "text": "技术雷达 · 2026-11-03\n\n开源精选：deepseek-ai/dsh-superagent-prototype\n\nTowards a More Autonomous Agent System\n\n今日热议：Moving our warehouse off DuckDB\n\n安全关注：GHSA-pqwj-3fcg-h8pr Control Web Panel (CWP) before webpanel_version 1.12 contains an execution after redirect...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-03.html",
+  "brief": {
+    "date": "2026-11-03",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-03.html",
+    "repos": [
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 12255,
+        "forks": 1272,
+        "language": "TypeScript"
+      },
+      {
+        "name": "unclebob/ub-mode",
+        "url": "https://github.com/unclebob/ub-mode",
+        "description": "暂无项目描述",
+        "stars": 6494,
+        "forks": 366,
+        "language": "Other"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Moving our warehouse off DuckDB",
+        "url": "https://posthog.com/blog/moving-off-duckdb",
+        "score": 24,
+        "comments": 5,
+        "discuss_url": "https://news.ycombinator.com/item?id=50338747"
+      },
+      {
+        "title": "If you love a website, back it up",
+        "url": "https://blog.mistys-internet.website/post/2026/10/29/if-you-love-a-website-back-it-up/",
+        "score": 51,
+        "comments": 8,
+        "discuss_url": "https://news.ycombinator.com/item?id=50336518"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-pqwj-3fcg-h8pr",
+        "cve_id": "CVE-2026-73696",
+        "summary": "Control Web Panel (CWP) before webpanel_version 1.12 contains an execution after redirect...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-pqwj-3fcg-h8pr"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
