@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-11-04",
+  "text": "技术雷达 · 2026-11-04\n\n开源精选：deepseek-ai/dsh-superagent-prototype\n\nTowards a More Autonomous Agent System\n\n今日热议：AI is forcing us to pay off 40 years of technical debt\n\n安全关注：GHSA-3c43-m234-72qw SEPPmail Secure Email Gateway before 15.1.1 can evaluate attacker-influenced replacement text as...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-04.html",
+  "brief": {
+    "date": "2026-11-04",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-04.html",
+    "repos": [
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 18289,
+        "forks": 2002,
+        "language": "TypeScript"
+      },
+      {
+        "name": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "description": "Craft Anything: understand how any software works, and craft your own.",
+        "stars": 10341,
+        "forks": 1706,
+        "language": "Rust"
+      }
+    ],
+    "stories": [
+      {
+        "title": "AI is forcing us to pay off 40 years of technical debt",
+        "url": "https://spectrum.ieee.org/ai-in-cybersecurity-php2shell-vulnerability",
+        "score": 353,
+        "comments": 241,
+        "discuss_url": "https://news.ycombinator.com/item?id=50364336"
+      },
+      {
+        "title": "Nvidia RTX Spark encrypted firmware slows inference speed to 35% on Linux",
+        "url": "https://www.mindstudio.ai/blog/linux-nvidia-rtx-spark-laptop",
+        "score": 302,
+        "comments": 154,
+        "discuss_url": "https://news.ycombinator.com/item?id=50362905"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-3c43-m234-72qw",
+        "cve_id": "CVE-2026-114424",
+        "summary": "SEPPmail Secure Email Gateway before 15.1.1 can evaluate attacker-influenced replacement text as...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-3c43-m234-72qw"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
