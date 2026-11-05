@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-11-05",
+  "text": "技术雷达 · 2026-11-05\n\n开源精选：deepseek-ai/dsh-superagent-prototype\n\nTowards a More Autonomous Agent System\n\n今日热议：Residential proxies detected on White House network\n\n安全关注：GHSA-qj3v-fq33-546m In G4KLX DStarGateway and F4FXL DStarGateway before 7b75de6, dstarCallsignToAPRS in APRSUtils.cpp...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-05.html",
+  "brief": {
+    "date": "2026-11-05",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-05.html",
+    "repos": [
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 18915,
+        "forks": 2127,
+        "language": "TypeScript"
+      },
+      {
+        "name": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "description": "Craft Anything: understand how any software works, and craft your own.",
+        "stars": 13014,
+        "forks": 2186,
+        "language": "Rust"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Residential proxies detected on White House network",
+        "url": "https://layer3intel.com/blog/residential-proxies-white-house-network",
+        "score": 918,
+        "comments": 278,
+        "discuss_url": "https://news.ycombinator.com/item?id=50371246"
+      },
+      {
+        "title": "Lemmings CSS Animation",
+        "url": "https://markblah.github.io/lemmings/",
+        "score": 68,
+        "comments": 11,
+        "discuss_url": "https://news.ycombinator.com/item?id=50375354"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-qj3v-fq33-546m",
+        "cve_id": "CVE-2026-122992",
+        "summary": "In G4KLX DStarGateway and F4FXL DStarGateway before 7b75de6, dstarCallsignToAPRS in APRSUtils.cpp...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-qj3v-fq33-546m"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
