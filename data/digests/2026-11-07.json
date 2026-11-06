@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-11-07",
+  "text": "技术雷达 · 2026-11-07\n\n开源精选：deepseek-ai/dsh-superagent-prototype\n\nTowards a More Autonomous Agent System\n\n今日热议：Firecracker VM Escape: PwnEscape Part 2\n\n安全关注：GHSA-47w9-6r3f-938g LXD has restricted project bypass leading to arbitrary command execution\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-07.html",
+  "brief": {
+    "date": "2026-11-07",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-07.html",
+    "repos": [
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 20204,
+        "forks": 2349,
+        "language": "TypeScript"
+      },
+      {
+        "name": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "description": "Craft Anything: understand how any software works, and craft your own.",
+        "stars": 17718,
+        "forks": 3245,
+        "language": "Rust"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Firecracker VM Escape: PwnEscape Part 2",
+        "url": "https://pwn.ai/blog/firecracker-escape",
+        "score": 57,
+        "comments": 18,
+        "discuss_url": "https://news.ycombinator.com/item?id=50397219"
+      },
+      {
+        "title": "A Jev that can ask Opus for help gives Opus accuracy at 4x lower cost",
+        "url": "https://hightouch.com/blog/llm-judges-identity-resolution",
+        "score": 44,
+        "comments": 9,
+        "discuss_url": "https://news.ycombinator.com/item?id=50397429"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-47w9-6r3f-938g",
+        "cve_id": "N/A",
+        "summary": "LXD has restricted project bypass leading to arbitrary command execution",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-47w9-6r3f-938g"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
