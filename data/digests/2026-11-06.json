@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-11-06",
+  "text": "技术雷达 · 2026-11-06\n\n开源精选：deepseek-ai/dsh-superagent-prototype\n\nTowards a More Autonomous Agent System\n\n今日热议：Claude Code sends your email address to websites\n\n安全关注：GHSA-m3vg-mr9j-3fv3 Incorrect authorization in PowerSYSTEM Center allows a low-privileged, authenticated user to...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-06.html",
+  "brief": {
+    "date": "2026-11-06",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-06.html",
+    "repos": [
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 19784,
+        "forks": 2280,
+        "language": "TypeScript"
+      },
+      {
+        "name": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "description": "Craft Anything: understand how any software works, and craft your own.",
+        "stars": 15943,
+        "forks": 2814,
+        "language": "Rust"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Claude Code sends your email address to websites",
+        "url": "https://github.com/anthropics/claude-code/issues/107757",
+        "score": 906,
+        "comments": 300,
+        "discuss_url": "https://news.ycombinator.com/item?id=50385272"
+      },
+      {
+        "title": "sshole",
+        "url": "https://sshhole.com",
+        "score": 2570,
+        "comments": 626,
+        "discuss_url": "https://news.ycombinator.com/item?id=50378228"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-m3vg-mr9j-3fv3",
+        "cve_id": "CVE-2026-63017",
+        "summary": "Incorrect authorization in PowerSYSTEM Center allows a low-privileged, authenticated user to...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-m3vg-mr9j-3fv3"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
