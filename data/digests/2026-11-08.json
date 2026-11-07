@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-11-08",
+  "text": "技术雷达 · 2026-11-08\n\n开源精选：deepseek-ai/dsh-superagent-prototype\n\nTowards a More Autonomous Agent System\n\n今日热议：Microsoft Researcher John Langford Exits. AI Frontiers Group Declared Finished\n\n安全关注：GHSA-2539-2x8g-x597 A flaw was found in the Keycloak server's client management component. When a client is created...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-08.html",
+  "brief": {
+    "date": "2026-11-08",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-08.html",
+    "repos": [
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 20768,
+        "forks": 2448,
+        "language": "TypeScript"
+      },
+      {
+        "name": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "description": "Craft Anything: understand how any software works, and craft your own.",
+        "stars": 20241,
+        "forks": 3865,
+        "language": "Rust"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Microsoft Researcher John Langford Exits. AI Frontiers Group Declared Finished",
+        "url": "https://businessexaminer.ca/victoria-articles/item/microsoft-researcher-john-langford-exits-as-ai-frontiers-group-is-declared/",
+        "score": 59,
+        "comments": 14,
+        "discuss_url": "https://news.ycombinator.com/item?id=50406563"
+      },
+      {
+        "title": "What I run on my $10 USD OpenStick, Linux, Homelab",
+        "url": "https://blog.bosscher.ch/posts/openstick/",
+        "score": 41,
+        "comments": 7,
+        "discuss_url": "https://news.ycombinator.com/item?id=50406670"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-2539-2x8g-x597",
+        "cve_id": "CVE-2026-120984",
+        "summary": "A flaw was found in the Keycloak server's client management component. When a client is created...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-2539-2x8g-x597"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
