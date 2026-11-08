@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-11-09",
+  "text": "技术雷达 · 2026-11-09\n\n开源精选：storytold/craft-anything\n\nCraft Anything: understand how any software works, and craft your own.\n\n今日热议：Goldman Sachs Is Pulling Claude Code from Its Bankers and Traders\n\n安全关注：GHSA-ch6v-4qpm-9f34 IBM Optim 1.0.0, 1.1.0, and 1.2.0 could allow a remote authenticated attacker to obtain sensitive...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-09.html",
+  "brief": {
+    "date": "2026-11-09",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-09.html",
+    "repos": [
+      {
+        "name": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "description": "Craft Anything: understand how any software works, and craft your own.",
+        "stars": 22344,
+        "forks": 4408,
+        "language": "Rust"
+      },
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 21154,
+        "forks": 2527,
+        "language": "TypeScript"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Goldman Sachs Is Pulling Claude Code from Its Bankers and Traders",
+        "url": "https://www.thestateofai.com/news/goldman-sachs-claude-code-traders-bankers",
+        "score": 92,
+        "comments": 36,
+        "discuss_url": "https://news.ycombinator.com/item?id=50415628"
+      },
+      {
+        "title": "Llama-modchip: 284B DeepSeek on 64GB RAM, no GPU",
+        "url": "https://github.com/synchopate/llama-modchip",
+        "score": 264,
+        "comments": 85,
+        "discuss_url": "https://news.ycombinator.com/item?id=50411961"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-ch6v-4qpm-9f34",
+        "cve_id": "CVE-2026-17466",
+        "summary": "IBM Optim 1.0.0, 1.1.0, and 1.2.0 could allow a remote authenticated attacker to obtain sensitive...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-ch6v-4qpm-9f34"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
