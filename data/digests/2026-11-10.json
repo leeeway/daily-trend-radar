@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-11-10",
+  "text": "技术雷达 · 2026-11-10\n\n开源精选：storytold/craft-anything\n\nCraft Anything: understand how any software works, and craft your own.\n\n今日热议：Payments Canada announces launch of Canada's Real-Time Rail (RTR) payment system\n\n安全关注：GHSA-chv8-5vwm-w6cj rConfig Core 8.0.0 before 8.2.19 and rConfig Pro before 8.4.1 contain a deserialization of...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-10.html",
+  "brief": {
+    "date": "2026-11-10",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-10.html",
+    "repos": [
+      {
+        "name": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "description": "Craft Anything: understand how any software works, and craft your own.",
+        "stars": 24109,
+        "forks": 4803,
+        "language": "Rust"
+      },
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 21682,
+        "forks": 2604,
+        "language": "TypeScript"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Payments Canada announces launch of Canada's Real-Time Rail (RTR) payment system",
+        "url": "https://www.payments.ca/canada-launches-real-time-rail-bringing-247-payment-infrastructure-national-economy",
+        "score": 40,
+        "comments": 24,
+        "discuss_url": "https://news.ycombinator.com/item?id=50427362"
+      },
+      {
+        "title": "I Saw Your HN Comment",
+        "url": "https://joshstrange.com/2026/11/09/i-saw-your-hn-comment/",
+        "score": 206,
+        "comments": 121,
+        "discuss_url": "https://news.ycombinator.com/item?id=50426582"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-chv8-5vwm-w6cj",
+        "cve_id": "CVE-2026-124079",
+        "summary": "rConfig Core 8.0.0 before 8.2.19 and rConfig Pro before 8.4.1 contain a deserialization of...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-chv8-5vwm-w6cj"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
