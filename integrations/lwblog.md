@@ -52,3 +52,18 @@ try {
 静态 Astro 只在构建时读取 JSON，需要每日重新构建主站才会刷新；因此当前主站优先使用 iframe。RSS 阅读器也可订阅 `https://leeeway.github.io/daily-trend-radar/feed.xml`。
 
 后续若想用 `radar.lwblog.cn`，可单独给该子域名配置 GitHub Pages，再修改本仓库 `SITE_URL` 和主站入口；不需要更改 `lwblog.cn` 根域名或服务器上的代理配置。此处仅提供接入方案，未更改线上主站。
+
+## 4. 直达某类技术资讯
+
+主站可以直接链接带筛选条件的资讯库，无需嵌入新脚本或重新部署日报内容：
+
+```astro
+<a href="https://leeeway.github.io/daily-trend-radar/explore.html?q=Python&source=repos" target="_blank" rel="noopener noreferrer">
+  {zh ? 'Python 开源发现 ↗' : 'Python open source ↗'}
+</a>
+<a href="https://leeeway.github.io/daily-trend-radar/explore.html?source=advisories" target="_blank" rel="noopener noreferrer">
+  {zh ? '安全动态 ↗' : 'Security updates ↗'}
+</a>
+```
+
+支持 `q`、`source`（`repos` / `stories` / `advisories`）、`from` / `to`（`YYYY-MM-DD`）。`latest.json` 新增 `explore_url`、`catalog_url`、`entry_count`，原有字段保持兼容，方便主站展示“查看全部 N 条资讯”。收藏保存在资讯库域名下的浏览器存储；推荐新标签页打开，避免第三方 iframe 存储限制。

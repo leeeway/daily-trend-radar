@@ -11,6 +11,7 @@ import xml.etree.ElementTree as ET
 from email.utils import format_datetime
 import markdown
 import bleach
+from radar_catalog import build_catalog
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_URL = 'https://leeeway.github.io/daily-trend-radar'
@@ -29,7 +30,7 @@ def page(title, body, base, canonical, compact=False):
 <meta name="description" content="leeway 的技术日报与每周回顾：开源项目、开发者话题与安全动态。">
 <link rel="canonical" href="{esc(canonical)}"><link rel="alternate" type="application/rss+xml" title="技术雷达" href="{base}/feed.xml">
 <link rel="stylesheet" href="{base}/assets/style.css"></head><body class="{'compact' if compact else ''}">
-<header><a class="brand" href="{base}/">leeway<span> / RADAR</span></a><nav><a href="{base}/">日报与周报</a><a href="{base}/feed.xml">RSS ↗</a><a href="https://lwblog.cn/" target="_top">个人主页 ↗</a></nav></header>
+<header><a class="brand" href="{base}/">leeway<span> / RADAR</span></a><nav><a href="{base}/">日报与周报</a><a href="{base}/explore.html">发现与收藏</a><a href="{base}/feed.xml">RSS ↗</a><a href="https://lwblog.cn/" target="_top">个人主页 ↗</a></nav></header>
 <main>{body}</main><footer>持续学习，保持好奇。<span>GitHub & Hacker News · 自动汇编，原始来源见各条链接</span></footer></body></html>'''
 
 
@@ -56,6 +57,22 @@ def build(output=None, site_url=None):
         target.write_text(page(post['title'], f'<article>{render(source)}</article>', '..', post['url']), encoding='utf-8')
     if not posts:
         raise ValueError('No daily archives to publish')
+    catalog = build_catalog(ROOT, posts)
+    (out / 'search-index.json').write_text(json.dumps({'version': 1, 'latest_date': posts[0]['date'], 'entries': catalog}, ensure_ascii=False, indent=2), encoding='utf-8')
+    explore = '''<section class="explore-heading"><p class="eyebrow">YOUR GROWING TECH LIBRARY</p><h1>发现，留存，<em>再回来看。</em></h1><p class="intro">搜索历期资讯，把值得细读的内容收进自己的书签。</p></section>
+<form id="explore-form" class="filter-panel" role="search">
+<label class="search-label" for="query">搜索资讯</label><input id="query" name="q" type="search" placeholder="项目、技术关键词、语言或 CVE 编号…" autocomplete="off">
+<div class="filters"><label>来源<select id="source" name="source"><option value="">全部来源</option><option value="repos">开源项目</option><option value="stories">开发者热议</option><option value="advisories">安全公告</option></select></label>
+<label>收录起始日期<input id="from-date" name="from" type="date"></label><label>收录结束日期<input id="to-date" name="to" type="date"></label>
+<label>排序<select id="sort" name="sort"><option value="newest">最近收录</option><option value="oldest">最早收录</option></select></label></div>
+<div class="filter-actions"><label class="saved-filter"><input type="checkbox" id="saved-only" name="saved" value="1"> 只看收藏 <span id="saved-count">0</span></label><button type="reset" class="text-button">重置筛选</button></div></form>
+<div class="results-heading"><p id="result-count" role="status" aria-live="polite">正在加载资讯库…</p><span>相同来源链接合并展示</span></div>
+<p class="storage-note">日期按实际收录时间筛选；Star、热度和评论数为最近一次收录的快照。</p>
+<p id="storage-note" class="storage-note">收藏仅保存在此浏览器，清除浏览器数据会移除收藏。</p>
+<div id="results" class="results-grid"></div><button id="load-more" class="button" hidden>加载更多</button><button id="retry-load" class="text-button" hidden>重新加载</button>
+<noscript><p>搜索和收藏需要 JavaScript。你仍可<a href="./">浏览全部日报与周报</a>。</p></noscript>
+<script src="./assets/explore-core.js" defer></script><script src="./assets/explore.js" defer></script>'''
+    (out / 'explore.html').write_text(page('发现与收藏', explore, '.', url + '/explore.html'), encoding='utf-8')
     weekly_cards = []
     for week, days in weeks.items():
         # Deduplicate source entries by primary URL, preserving the newest snapshot.
@@ -85,12 +102,13 @@ def build(output=None, site_url=None):
     latest = posts[0]
     daily_cards = ''.join(f'<a class="card" href="daily/{p["date"]}.html"><span>DAILY BRIEF</span><h3>{p["date"]}</h3><p>开源 · 热议 · 安全动态</p><b>阅读早报 ↗</b></a>' for p in posts)
     hero = f'''<section class="hero"><p class="eyebrow">LEEWAY’S FIELD NOTES / TECH & IDEAS</p><h1>每天一点新知。<br><em>每周一次回望。</em></h1><p class="intro">把值得关注的开源项目、开发者话题与安全动态，<br>收进一份持续生长的技术手记。</p><a class="button" href="daily/{latest['date']}.html">阅读最新一期 <span>↗</span></a><p class="meta">最近更新 {latest['date']} · {len(posts)} 份早报已归档</p></section>'''
-    body = hero + '<section><div class="section-title"><h2>每周回顾</h2><span>THE BIGGER PICTURE</span></div><div class="grid">' + ''.join(weekly_cards) + '</div></section><section><div class="section-title"><h2>每日雷达</h2><span>STAY CURIOUS</span></div><div class="grid">' + daily_cards + '</div></section>'
+    library = f'<a class="library-banner" href="explore.html"><div><span class="eyebrow">EXPLORE YOUR ARCHIVE</span><h2>{len(catalog)} 条资讯，一个随时可查的技术库。</h2><p>搜索关键词 · 按来源筛选 · 收藏以后读</p></div><b>打开资讯库 ↗</b></a>'
+    body = hero + library + '<section><div class="section-title"><h2>每周回顾</h2><span>THE BIGGER PICTURE</span></div><div class="grid">' + ''.join(weekly_cards) + '</div></section><section><div class="section-title"><h2>每日雷达</h2><span>STAY CURIOUS</span></div><div class="grid">' + daily_cards + '</div></section>'
     (out / 'index.html').write_text(page('技术早报与每周回顾', body, '.', url + '/'), encoding='utf-8')
     widget = f'<a class="card weekly" target="_top" href="{latest["url"]}"><span>LEEWAY / TECH RADAR</span><h2>技术雷达 · {latest["date"]}</h2><p>今天值得关注的开源项目、开发者热议与安全动态。</p><b>阅读最新一期 ↗</b></a>'
     (out / 'embed.html').write_text(page('最新技术早报', widget, '.', url + '/embed.html', True), encoding='utf-8')
     public = [{k: v for k, v in p.items() if k != 'markdown'} for p in posts]
-    (out / 'latest.json').write_text(json.dumps({'latest': public[0], 'posts': public[:30], 'site_url': url}, ensure_ascii=False, indent=2), encoding='utf-8')
+    (out / 'latest.json').write_text(json.dumps({'latest': public[0], 'posts': public[:30], 'site_url': url, 'explore_url': url + '/explore.html', 'catalog_url': url + '/search-index.json', 'entry_count': len(catalog)}, ensure_ascii=False, indent=2), encoding='utf-8')
     rss = ET.Element('rss', version='2.0')
     channel = ET.SubElement(rss, 'channel')
     for key, value in [('title', 'leeway 技术雷达'), ('link', url + '/'), ('description', '每日技术早报与每周回顾')]:

@@ -71,6 +71,8 @@ jobs:
           python-version: '3.11'
       - run: pip install -r requirements.txt
       - run: python -m unittest discover -s tests -v
+      - name: Test archive search and filters
+        run: node --test tests/explore.test.cjs
       - name: Fetch or recover today's digest
         if: github.event_name != 'push'
         env:

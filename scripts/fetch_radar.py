@@ -207,6 +207,8 @@ def main():
         picks.append("安全关注：" + advisories[0]['ghsa_id'] + " " + advisories[0]['summary'][:100])
     picks.append(f"阅读全文：{site_url}/daily/{today_str}.html")
     notification = {
+        "schema_version": 2,
+        "items": {"repos": repos, "stories": hn_items, "advisories": advisories},
         "title": picks[0],
         "text": "\n\n".join(picks),
         "brief": {

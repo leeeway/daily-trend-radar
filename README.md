@@ -4,6 +4,7 @@
 
 - **站点**：[leeeway.github.io/daily-trend-radar](https://leeeway.github.io/daily-trend-radar/)
 - **个人主页**：[lwblog.cn](https://lwblog.cn/)
+- **资讯库**：[发现与收藏](https://leeeway.github.io/daily-trend-radar/explore.html)
 - **RSS**：[feed.xml](https://leeeway.github.io/daily-trend-radar/feed.xml)
 
 <!-- radar:start -->
@@ -50,6 +51,17 @@ python3 scripts/check_daily.py --repair # 缺失时通过 workflow_dispatch 补�
 - 周报：按 ISO 周聚合已有日报，同一来源链接去重，周内持续更新；是资讯汇编，不冒充人工或 AI 点评。
 - 全部数据源失败时终止，保留已有文章；单个源失败会在当日日报显示缺失。
 
+## 发现与收藏
+
+[资讯库](https://leeeway.github.io/daily-trend-radar/explore.html)聚合全部已归档资讯，同类内容按来源链接合并，保留首次、最近和实际收录日期。
+
+- 关键词搜索覆盖标题、简介、语言、CVE 和链接，支持空格分隔多个关键词（全部匹配）。
+- 按开源／热议／安全、收录日期范围筛选，按最近或最早收录排序，分批加载。
+- 点击卡片的“收藏”，下次打开仍可在“只看收藏”中查看。收藏仅存于当前站点的当前浏览器，不跨设备同步；清理浏览器数据或切换域名会影响收藏。浏览器禁止存储时降级为本页临时收藏。
+- 筛选条件保留在地址栏，可复制链接分享。例如 [Python 开源项目](https://leeeway.github.io/daily-trend-radar/explore.html?q=Python&source=repos)。
+
+旧日报从 Markdown 提取全部条目，并用已有精选数据补充；历史简介可能已被原日报截断，不补造内容。升级后的每日抓取保存 `schema_version: 2` 和完整 `items.repos/stories/advisories`，手机推送继续读取独立的精选 `brief`。指标显示最近一次收录快照，不能当作实时 Star 数或每日增长量。
+
 ## 启用 GitHub Pages
 
 在仓库 **Settings → Pages → Build and deployment → Source** 选择 **GitHub Actions**。工作流位于 `.github/workflows/daily-sync.yml`。
@@ -84,6 +96,8 @@ python3 scripts/check_daily.py --repair # 缺失时通过 workflow_dispatch 补�
 | --- | --- |
 | `/feed.xml` | RSS 订阅，最近 30 期日报 |
 | `/latest.json` | 最新一期标题、日期、URL 及最近 30 期索引 |
+| `/explore.html` | 关键词检索、来源与日期筛选、本机收藏 |
+| `/search-index.json` | 全部历史资讯去重索引（version 1），含实际收录日期与最近快照指标 |
 | `/embed.html` | 响应式最新日报嵌入卡片 |
 | `/daily/YYYY-MM-DD.html` | 每日文章 |
 | `/weekly/YYYY-Www.html` | 周报与本周日报索引 |
@@ -96,6 +110,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python -m unittest discover -s tests -v
+node --test tests/explore.test.cjs # 搜索逻辑测试，Node 18+，无需 npm 依赖
 python scripts/fetch_radar.py  # 联网抓取，可用 GITHUB_TOKEN 提升 GitHub API 配额
 python scripts/build_site.py
 python -m http.server 8000 --directory dist

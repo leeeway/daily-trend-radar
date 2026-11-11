@@ -4,6 +4,7 @@ import importlib.util
 import io
 import json
 import os
+import sys
 from pathlib import Path
 import tempfile
 import unittest
@@ -11,6 +12,7 @@ from unittest.mock import patch
 import xml.etree.ElementTree as ET
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / 'scripts'))
 def module(name):
     spec = importlib.util.spec_from_file_location(name, ROOT / 'scripts' / f'{name}.py')
     obj = importlib.util.module_from_spec(spec)
@@ -29,7 +31,7 @@ class RadarTests(unittest.TestCase):
             root = Path(tmp)
             (root / 'archives').mkdir()
             (root / 'site').mkdir()
-            text = '# Daily\n\n## Repos\n\n| [a](https://example.com/a) | Python | 1 | 0 | hello |\n\n## HN\n\n1. **[Topic](https://example.com/b)**\n\n## Security\n\n| [GHSA](https://example.com/c) | CRITICAL | CVE | desc |\n'
+            text = '# Daily\n\n## Repos\n\n| Project | Language | Stars | Forks | Description |\n| --- | --- | --- | --- | --- |\n| [a](https://example.com/a) | Python | 1 | 0 | hello |\n\n## HN\n\n1. **[Topic](https://example.com/b)**\n\n## Security\n\n| Advisory | Severity | CVE | Description |\n| --- | --- | --- | --- |\n| [GHSA](https://example.com/c) | CRITICAL | CVE | desc |\n'
             for day in ['2026-10-17', '2026-10-18']:
                 (root / 'archives' / f'{day}.md').write_text(text)
             with patch.object(site, 'ROOT', root), contextlib.redirect_stdout(io.StringIO()):
@@ -41,6 +43,11 @@ class RadarTests(unittest.TestCase):
             self.assertIn('../assets/style.css', (out / 'daily/2026-10-18.html').read_text())
             self.assertEqual(json.loads((out / 'latest.json').read_text())['latest']['date'], '2026-10-18')
             self.assertEqual(len(ET.parse(out / 'feed.xml').findall('./channel/item')), 2)
+            catalog = json.loads((out / 'search-index.json').read_text())
+            self.assertEqual(len(catalog['entries']), 3)
+            self.assertIn('explore.html', (out / 'index.html').read_text())
+            self.assertIn('./assets/explore.js', (out / 'explore.html').read_text())
+            self.assertEqual(json.loads((out / 'latest.json').read_text())['explore_url'], 'https://example.com/radar/explore.html')
 
     def test_sanitizes_untrusted_html_and_links(self):
         rendered = site.render('<script>alert(1)</script> [x](javascript:alert(1)) <img src=x onerror=evil()>')
@@ -100,10 +107,14 @@ class RadarTests(unittest.TestCase):
             # A legacy archive alone must not block recovery; create its missing payload.
             Path('archives/2026-10-20.md').write_text('legacy')
             repo = {'name':'owner/repo', 'url':'https://example.com/repo', 'description':'desc', 'stars':1, 'forks':0, 'language':'Python'}
-            with patch.object(fetch, 'get_github_trending', return_value=[repo]), patch.object(fetch, 'get_hackernews_top', return_value=[]), patch.object(fetch, 'get_security_advisories', return_value=[]), contextlib.redirect_stdout(io.StringIO()):
+            repos = [{**repo, 'name': f'owner/repo{i}', 'url': f'https://example.com/repo{i}'} for i in range(3)]
+            with patch.object(fetch, 'get_github_trending', return_value=repos), patch.object(fetch, 'get_hackernews_top', return_value=[]), patch.object(fetch, 'get_security_advisories', return_value=[]), contextlib.redirect_stdout(io.StringIO()):
                 fetch.main()
             stored = Path('data/digests/2026-10-20.json').read_text()
             self.assertEqual(json.loads(stored)['brief']['date'], '2026-10-20')
+            self.assertEqual(len(json.loads(stored)['items']['repos']), 3)
+            self.assertEqual(len(json.loads(stored)['brief']['repos']), 2)
+            self.assertEqual(json.loads(stored)['schema_version'], 2)
             Path('notification.json').unlink()
             with patch.object(fetch, 'get_github_trending', side_effect=AssertionError('must not refetch')), contextlib.redirect_stdout(io.StringIO()):
                 fetch.main()
