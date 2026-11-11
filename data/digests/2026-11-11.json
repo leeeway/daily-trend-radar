@@ -1,0 +1,56 @@
+{
+  "title": "技术雷达 · 2026-11-11",
+  "text": "技术雷达 · 2026-11-11\n\n开源精选：storytold/craft-anything\n\nCraft Anything: understand how any software works, and craft your own.\n\n今日热议：Protecting SSH Keys with macOS Secure Enclave\n\n安全关注：GHSA-mgp5-77q8-6g32 Directus before 12.1.0 contains an authorization bypass vulnerability that allows unauthenticated...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-11.html",
+  "brief": {
+    "date": "2026-11-11",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-11.html",
+    "repos": [
+      {
+        "name": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "description": "Craft Anything: understand how any software works, and craft your own.",
+        "stars": 27049,
+        "forks": 5497,
+        "language": "Rust"
+      },
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 22304,
+        "forks": 2694,
+        "language": "TypeScript"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Protecting SSH Keys with macOS Secure Enclave",
+        "url": "https://gatezh.com/posts/macos-secure-enclave-ssh-keys/",
+        "score": 98,
+        "comments": 36,
+        "discuss_url": "https://news.ycombinator.com/item?id=50449748"
+      },
+      {
+        "title": "Greg Kurtzer's Ginux is now a userspace kernel",
+        "url": "https://github.com/gmkurtzer/ginux",
+        "score": 40,
+        "comments": 10,
+        "discuss_url": "https://news.ycombinator.com/item?id=50450007"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-mgp5-77q8-6g32",
+        "cve_id": "CVE-2026-126539",
+        "summary": "Directus before 12.1.0 contains an authorization bypass vulnerability that allows unauthenticated...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-mgp5-77q8-6g32"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
