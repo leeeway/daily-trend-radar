@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """Optional, independent delivery adapters. Never log webhook URLs or API responses."""
 import base64
+import argparse
+import copy
 import datetime as dt
 import hashlib
 import hmac
@@ -12,6 +14,7 @@ from pathlib import Path
 import time
 import urllib.parse
 import urllib.request
+from personalize import select_digest
 
 
 def signed_dingtalk(url, secret, timestamp):
@@ -56,8 +59,9 @@ def wechat_markdown(digest):
     if not brief:  # Allow artifacts generated before the structured brief format.
         return digest['text']
     counts = brief['counts']
+    heading = '关注精选命中' if brief.get('personalized') else '今日收录'
     lines = [f"## ☀️ 技术雷达 · {label(brief['date'], 10)}",
-             f"> 今日收录：{counts[0]} 个开源项目 · {counts[1]} 条热议 · {counts[2]} 条严重漏洞公告"]
+             f"> {heading}：{counts[0]} 个开源项目 · {counts[1]} 条热议 · {counts[2]} 条严重漏洞公告"]
     # Bound both individual fields and the final UTF-8 payload. Long URLs are
     # omitted from selections rather than truncating a link or markdown syntax.
     sections = []
@@ -92,6 +96,23 @@ def wechat_markdown(digest):
     return '\n'.join(lines) + footer
 
 
+def plain_brief(digest):
+    brief = digest['brief']
+    counts = brief['counts']
+    lines = [digest['title'], f'关注精选命中：{counts[0]} 个开源项目 / {counts[1]} 条热议 / {counts[2]} 条安全公告']
+    for key, heading, title_key in [('repos', '开源发现', 'name'), ('stories', '开发者热议', 'title'), ('advisories', '安全提醒', 'ghsa_id')]:
+        for item in brief.get(key, []):
+            lines.append(f"{heading}：{excerpt(item.get(title_key), 130)}")
+            description = item.get('description') or item.get('summary')
+            if description:
+                lines.append(excerpt(description, 160))
+            url = str(item.get('url') or '')
+            if len(url) <= 500:
+                lines.append(url)
+    lines.append('阅读全文：' + brief['url'])
+    return '\n\n'.join(lines)
+
+
 def deliveries(digest, env):
     title, text = digest['title'], digest['text']
     jobs = []
@@ -114,17 +135,48 @@ def deliveries(digest, env):
     return jobs
 
 
-def send(digest, env=None, receipt_path=None):
-    jobs = deliveries(digest, os.environ if env is None else env)
+def save_receipt(path, receipt):
+    if path:
+        path.parent.mkdir(parents=True, exist_ok=True)
+        temporary = path.with_suffix('.tmp')
+        temporary.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        temporary.replace(path)
+
+
+def send(digest, env=None, receipt_path=None, root=None):
+    env = os.environ if env is None else env
+    jobs = deliveries(digest, env)
     failures = []
     receipt_path = Path(receipt_path) if receipt_path else None
     date = digest.get('brief', {}).get('date')
     receipt = json.loads(receipt_path.read_text(encoding='utf-8')) if receipt_path and receipt_path.exists() else {'date': date, 'delivered': {}}
     if receipt.get('date') != date:
         raise ValueError('Delivery receipt date mismatch')
+    skipped = receipt.setdefault('skipped', {})
+    pending = [name for name, _, _ in jobs if name not in receipt['delivered'] and name not in skipped]
+    if pending:
+        if 'selection' not in receipt:
+            # Pre-upgrade partial receipts had no frozen selection. Preserve their
+            # original digest rather than apply new preferences halfway through delivery.
+            selected = copy.deepcopy(digest) if receipt['delivered'] else select_digest(digest, env, **({'root': root} if root is not None else {}))
+            if selected is not None:
+                if selected.get('brief', {}).get('personalized'):
+                    selected['text'] = plain_brief(selected)
+                # Freeze the selected content before the first network request. Never store credentials or keywords.
+                receipt['selection'] = {key: selected[key] for key in ('title', 'text', 'brief') if key in selected}
+            else:
+                receipt['selection'] = None
+            save_receipt(receipt_path, receipt)
+        if receipt['selection'] is None:
+            for name in pending:
+                skipped[name] = 'no_keyword_match'
+                print(f'[*] {name}: no keyword matches; intentionally skipped')
+            save_receipt(receipt_path, receipt)
+            return []
+        jobs = deliveries(receipt['selection'], env)
     for name, url, payload in jobs:
-        if name in receipt['delivered']:
-            print(f'[*] {name}: already delivered today; skipped')
+        if name in receipt['delivered'] or name in skipped:
+            print(f'[*] {name}: already handled today; skipped')
             continue
         try:
             if not url.startswith('https://'):
@@ -135,11 +187,7 @@ def send(digest, env=None, receipt_path=None):
             if (name == 'Telegram' and result.get('ok') is not True) or any(result.get(k, 0) != 0 for k in ('errcode','code','StatusCode')):
                 raise ValueError('Provider rejected message')
             receipt['delivered'][name] = dt.datetime.now(dt.timezone.utc).isoformat()
-            if receipt_path:
-                receipt_path.parent.mkdir(parents=True, exist_ok=True)
-                temporary = receipt_path.with_suffix('.tmp')
-                temporary.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
-                temporary.replace(receipt_path)
+            save_receipt(receipt_path, receipt)
             print(f'[+] {name}: delivered')
         except Exception:
             # Exceptions can contain access_token or bot token. Do not print them.
@@ -150,7 +198,18 @@ def send(digest, env=None, receipt_path=None):
     return failures
 
 if __name__ == '__main__':
-    digest = json.loads(Path('notification.json').read_text(encoding='utf-8'))
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--digest', type=Path, default=Path('notification.json'))
+    parser.add_argument('--preview', action='store_true', help='Preview keyword selection without sending or writing receipts')
+    args = parser.parse_args()
+    digest = json.loads(args.digest.read_text(encoding='utf-8'))
+    if args.preview:
+        selected = select_digest(digest, os.environ)
+        if selected is None:
+            print(json.dumps({'status': 'no_keyword_match'}, ensure_ascii=False))
+        else:
+            print(wechat_markdown(selected))
+        raise SystemExit(0)
     date = digest['brief']['date']
     failures = send(digest, receipt_path=Path('data/delivery') / f'{date}.json')
     raise SystemExit(1 if failures else 0)

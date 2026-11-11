@@ -103,6 +103,8 @@ jobs:
         id: notification
         if: github.event_name != 'push' && env.NOTIFY_ENABLED == 'true'
         env:
+          RADAR_KEYWORDS: ${{ vars.RADAR_KEYWORDS }}
+          RADAR_EXCLUDE_KEYWORDS: ${{ vars.RADAR_EXCLUDE_KEYWORDS }}
           WECHAT_WEBHOOK: ${{ secrets.WECHAT_WEBHOOK }}
           DINGTALK_WEBHOOK: ${{ secrets.DINGTALK_WEBHOOK }}
           DINGTALK_SECRET: ${{ secrets.DINGTALK_SECRET }}

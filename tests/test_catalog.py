@@ -7,7 +7,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
-from radar_catalog import build_catalog, safe_url
+from radar_catalog import build_catalog, safe_url, star_trend
 
 
 class CatalogTests(unittest.TestCase):
@@ -46,6 +46,10 @@ class CatalogTests(unittest.TestCase):
             self.assertEqual((repo['first_seen'], repo['last_seen']), ('2026-10-18', '2026-10-20'))
             self.assertEqual(repo['stars'], 99)
             self.assertEqual(repo['description'], new['description'])
+            self.assertEqual(repo['star_history'], [{'date': '2026-10-18', 'stars': 1}, {'date': '2026-10-20', 'stars': 99}])
+            self.assertEqual(repo['star_trend']['previous_delta'], 98)
+            self.assertEqual(repo['star_trend']['previous_days'], 2)
+            self.assertIsNone(repo['star_trend']['week_delta'])
             self.assertNotIn('unexpected', repo)
             self.assertEqual(repo['id'], next(e for e in build_catalog(tmp, posts[:1]) if e['kind'] == 'repos')['id'])
 
@@ -56,3 +60,25 @@ class CatalogTests(unittest.TestCase):
         source = '## Repos\n\n| [Unsafe](javascript:alert) | Python | 1 | 2 | X |\n| --- | --- | --- | --- | --- |\n'
         with tempfile.TemporaryDirectory() as tmp:
             self.assertEqual(build_catalog(tmp, [dict(date='2026-10-18', url='https://example.com/daily', markdown=source)]), [])
+
+    def test_star_trend_requires_exact_seven_day_sample_and_keeps_negative_changes(self):
+        history = [{'date': '2026-11-01', 'stars': 100}, {'date': '2026-11-05', 'stars': 120}, {'date': '2026-11-08', 'stars': 115}]
+        trend = star_trend(history)
+        self.assertEqual(trend['week_delta'], 15)
+        self.assertEqual(trend['previous_delta'], -5)
+        self.assertEqual(trend['previous_days'], 3)
+        self.assertIsNone(star_trend(history[1:])['week_delta'])
+        self.assertIsNone(star_trend(history[:1])['previous_delta'])
+        self.assertIsNone(star_trend([])['week_delta'])
+        self.assertEqual(star_trend([{'date': '2026-11-01', 'stars': 0}, {'date': '2026-11-08', 'stars': 0}])['week_delta'], 0)
+
+    def test_missing_metric_is_not_a_zero_sample(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            directory = Path(tmp) / 'data/digests'
+            directory.mkdir(parents=True)
+            for date, stars in [('2026-11-01', 100), ('2026-11-02', None), ('2026-11-04', 120)]:
+                (directory / f'{date}.json').write_text(json.dumps({'items': {'repos': [{'name': 'a/repo', 'url': 'https://example.com/repo', 'stars': stars}]}}))
+            entries = build_catalog(tmp, [dict(date=date, url='https://example.com/daily', markdown='') for date in ('2026-11-01', '2026-11-02', '2026-11-04')])
+            self.assertEqual(len(entries[0]['star_history']), 2)
+            self.assertEqual(entries[0]['star_trend']['previous_delta'], 20)
+            self.assertEqual(entries[0]['star_trend']['previous_days'], 3)

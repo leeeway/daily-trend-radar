@@ -26,7 +26,7 @@
 
 ## 运作方式
 
-北京时间每天 **14:37** 首次发布，**18:37、22:37** 再做补偿检查；日报、线上页面和已配置推送全部成功后，当天后续定时检查自动跳过。代码提交只构建站点；手动运行可选择推送、补偿模式和强制刷新。
+北京时间每天 **14:37** 首次发布，**18:37、22:37** 再做补偿检查；日报和线上页面成功、已配置通道均成功送达或按关注规则静默跳过后，当天后续定时检查自动跳过。代码提交只构建站点；手动运行可选择推送、补偿模式和强制刷新。
 
 GitHub 的 cron 是尽力而为的调度，可能延迟或丢弃事件，不能保证准点或每天必达。[官方说明](https://docs.github.com/en/actions/how-tos/troubleshoot-workflows)。因此提供独立检查脚本，可在已登录 GitHub CLI 的常开设备运行：
 
@@ -41,7 +41,7 @@ python3 scripts/check_daily.py --repair # 缺失时通过 workflow_dispatch 补�
 
 - `data/digests/YYYY-MM-DD.json` 保存当天结构化资讯，补跑可复用，旧日报没有结构化数据时会自动补建。
 - `data/delivery/YYYY-MM-DD.json` 保存各通道的成功回执，失败通道可单独重试，成功通道跳过。
-- `data/status/YYYY-MM-DD.json` 只在公开页面验证成功且所有配置通道发送成功后记录完成，包含运行链接和完成时间。
+- `data/status/YYYY-MM-DD.json` 在公开页面验证成功且所有配置通道送达或按关注规则有意跳过后记录完成，区分送达与跳过，包含运行链接和完成时间。
 - 抓取请求遇到临时错误最多重试三次；任务有超时限制，排队后读取最新 `main` 状态。
 - 发送成功与回执提交不具备跨服务事务：若服务商已接收但返回超时，或 runner 在保存回执前中断，仍可能重复发送；不承诺恰好一次送达。
 
@@ -61,6 +61,14 @@ python3 scripts/check_daily.py --repair # 缺失时通过 workflow_dispatch 补�
 - 筛选条件保留在地址栏，可复制链接分享。例如 [Python 开源项目](https://leeeway.github.io/daily-trend-radar/explore.html?q=Python&source=repos)。
 
 旧日报从 Markdown 提取全部条目，并用已有精选数据补充；历史简介可能已被原日报截断，不补造内容。升级后的每日抓取保存 `schema_version: 2` 和完整 `items.repos/stories/advisories`，手机推送继续读取独立的精选 `brief`。指标显示最近一次收录快照，不能当作实时 Star 数或每日增长量。
+
+### Star 增长趋势
+
+开源卡片展示按真实日期分布的 Star 曲线，可展开采样表逐日核对。`较上次采样`标注实际间隔天数；缺失日期不补零、不插值，也不将多天增长冒充单日增长。Star 下降和零增长按实记录，只有一次采样时提示继续积累。
+
+排序选择 [最新一期 7 日 Star 增长](https://leeeway.github.io/daily-trend-radar/explore.html?sort=growth)：只纳入最新一期收录、且具备当天与恰好 7 天前两次 Star 快照的项目，按实际差值降序排列。旧项目停止收录后不进入当前增长榜；排行榜不等于整个 GitHub 的增长榜。
+
+`search-index.json` 中的开源条目新增 `star_history`（`date`、`stars`）与 `star_trend`（`previous_delta`、`previous_days`、`previous_date`、`week_delta`、`week_start`）。无法比较的指标为 `null`，与零增长区分。现有 version 1 索引字段保持兼容。
 
 ## 启用 GitHub Pages
 
@@ -82,7 +90,30 @@ python3 scripts/check_daily.py --repair # 缺失时通过 workflow_dispatch 补�
 | Telegram | `TELEGRAM_BOT_TOKEN`、`TELEGRAM_CHAT_ID` | Bot token 与接收聊天 ID，先与 Bot 发起对话 |
 | 微信（Server酱） | `SERVERCHAN_SENDKEY` | 自行在 Server酱绑定微信并取得 SendKey，额度和通道规则以服务商为准 |
 
-企微推送使用分区 Markdown：开源与热议各两条、安全一条，附 Star 数、评论量、来源和修复建议链接；描述保留来源原文，长文按词或句子截取。其余通道保持各一条的简版。企微内容按 UTF-8 字节预算控制长度，完整日报链接始终保留。部署成功后才发送，某个通道失败仍继续尝试其他通道，并将工作流标记为失败以便排查。手动运行默认不推送，勾选 notify 后只补发尚未成功的通道；即使日报文件没有变化，也能恢复此前失败的发布和推送。
+企微推送使用分区 Markdown：开源与热议各两条、安全一条，附 Star 数、评论量、来源和修复建议链接；描述保留来源原文，长文按词或句子截取。其余通道默认保持各一条的简版；启用关键词筛选后使用匹配内容的精选摘要。企微内容按 UTF-8 字节预算控制长度，完整日报链接始终保留。部署成功后才发送，某个通道失败仍继续尝试其他通道，并将工作流标记为失败以便排查。手动运行默认不推送，勾选 notify 后只补发尚未成功的通道；即使日报文件没有变化，也能恢复此前失败的发布和推送。
+
+### 关注关键词定制推送
+
+在 [GitHub Actions Variables](https://github.com/leeeway/daily-trend-radar/settings/variables/actions) 设置（不是 Webhook Secrets）：
+
+| Variable | 示例 | 作用 |
+| --- | --- | --- |
+| `RADAR_KEYWORDS` | `Python,Rust,AI Agent,DeepSeek` | 任意一个词命中即可入选 |
+| `RADAR_EXCLUDE_KEYWORDS` | `crypto,招聘` | 任意一个词命中就排除，优先于关注词 |
+
+支持英文／中文逗号、分号或换行分隔，也支持 JSON 字符串数组。空格属于关键词本身，因此 `AI Agent` 是一个短语。按字面子串匹配标题、简介、语言、CVE、项目名和链接，不区分大小写及全半角，不进行语义扩展。筛选范围是当天实际收录的全部资讯，不是全网搜索。
+
+默认配置在 `config/notifications.json`，两个列表均为空，保留综合精选。非空 GitHub Variable 覆盖同名配置；填写 `[]` 可以显式清空列表。只有排除词时，从当天全部资讯中排除。所有已配置通道使用相同偏好；开源、热议、安全各最多精选 2、2、1 条，消息显示总命中数，完整内容仍见日报。没有任何匹配时静默跳过，并在回执的 `skipped` 中记为 `no_keyword_match`，完成记录会列为 `skipped_channels`，不会冒充已送达，也不会反复补发。
+
+第一次投递前将选定的公开内容写入当天回执的 `selection`。补偿重试复用该内容，修改关注词不会改写当天已经开始的投递；已成功或有意跳过的通道仍不重复处理。新偏好从下一天的新投递生效。筛选错误会使任务失败，不会悄悄退回综合推送。关注变量及 Webhook 不写入公开站点或回执；如果直接编辑仓库配置文件，其中的关注词会随公共仓库公开。
+
+先用旧归档预览，不发消息、不写回执：
+
+```sh
+RADAR_KEYWORDS='DeepSeek,AI Agent' python scripts/notify.py --digest data/digests/2026-11-11.json --preview
+```
+
+旧版本数据会从对应 Markdown 日报恢复全部条目；若完整数据和日报均缺失，任务报错。旧日报简介可能已被截断，因此历史关键词预览可能少于完整原文可命中的数量。
 
 协议参考：[飞书](https://open.feishu.cn/document/client-docs/bot-v3/add-custom-bot)、[钉钉](https://open.dingtalk.com/document/robots/customize-robot-security-settings)、[企业微信](https://developer.work.weixin.qq.com/document/path/91770)、[Telegram](https://core.telegram.org/bots/api#sendmessage)。
 

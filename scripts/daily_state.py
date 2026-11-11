@@ -49,13 +49,15 @@ def verify_site(url, date, attempts=6):
 def complete(root=Path('.')):
     date = today()
     receipt = root / 'data/delivery' / f'{date}.json'
-    delivered = json.loads(receipt.read_text(encoding='utf-8')).get('delivered', {}) if receipt.exists() else {}
+    delivery = json.loads(receipt.read_text(encoding='utf-8')) if receipt.exists() else {}
+    delivered = delivery.get('delivered', {})
     marker = root / 'data/status' / f'{date}.json'
     marker.parent.mkdir(parents=True, exist_ok=True)
     marker.write_text(json.dumps({'date': date, 'status': 'complete',
         'completed_at': dt.datetime.now(dt.timezone.utc).isoformat(),
         'run_url': f"https://github.com/{os.getenv('GITHUB_REPOSITORY', 'leeeway/daily-trend-radar')}/actions/runs/{os.getenv('GITHUB_RUN_ID', '')}",
-        'delivered_channels': sorted(delivered)}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+        'delivered_channels': sorted(delivered),
+        'skipped_channels': delivery.get('skipped', {})}, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
 
 
 if __name__ == '__main__':

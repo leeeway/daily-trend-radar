@@ -9,7 +9,7 @@
   const fields = {q: form.elements.q, source: form.elements.source, from: form.elements.from,
     to: form.elements.to, sort: form.elements.sort, saved: form.elements.saved};
   const storageKey = 'radar:bookmarks:v1:' + new URL('.', location.href).pathname;
-  let saved = new Set(), entries = [], limit = 24, loaded = false;
+  let saved = new Set(), entries = [], limit = 24, loaded = false, latestDate = '';
   function storageUnavailable() {
     document.querySelector('#storage-note').textContent = '浏览器存储不可用，收藏仅在本页打开期间保留。';
   }
@@ -58,6 +58,56 @@
     } catch { /* Invalid source links stay inert. */ }
     return el;
   }
+  function signed(value) {
+    return (value > 0 ? '+' : '') + value.toLocaleString();
+  }
+  function starHistory(entry) {
+    const section = node('div', 'star-history');
+    const history = entry.star_history || [];
+    const trend = entry.star_trend || {};
+    if (history.length < 2) {
+      section.append(node('p', 'trend-note', history.length ? '首次采样，积累后展示增长趋势。' : '暂无 Star 采样。'));
+      return section;
+    }
+    if (Number.isFinite(trend.previous_delta)) {
+      section.append(node('p', 'trend-change ' + (trend.previous_delta < 0 ? 'trend-down' : ''),
+        `较上次采样 ${signed(trend.previous_delta)} Star · 间隔 ${trend.previous_days} 天`));
+    }
+    if (Number.isFinite(trend.week_delta)) {
+      section.append(node('p', 'trend-note', `7 日变化 ${signed(trend.week_delta)} · ${trend.week_start} → ${history.at(-1).date}`));
+    }
+    const points = RadarExplore.chartPoints(history);
+    if (points.length) {
+      const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+      svg.setAttribute('viewBox', '0 0 300 60');
+      svg.setAttribute('class', 'sparkline');
+      svg.setAttribute('role', 'img');
+      svg.setAttribute('aria-label', `${history[0].date} 至 ${history.at(-1).date} 的 Star 采样趋势，具体数据见下方表格`);
+      const line = document.createElementNS(svg.namespaceURI, 'polyline');
+      line.setAttribute('points', points.map(point => `${point.x},${point.y}`).join(' '));
+      svg.append(line);
+      section.append(svg, node('p', 'trend-range', `${history[0].date} / ${history[0].stars.toLocaleString()} ★ → ${history.at(-1).date} / ${history.at(-1).stars.toLocaleString()} ★`));
+    }
+    const details = node('details', 'trend-details');
+    details.append(node('summary', '', `查看 ${history.length} 次 Star 采样`));
+    const table = node('table');
+    const head = node('tr');
+    for (const label of ['收录日期', 'Star', '较上次采样']) head.append(node('th', '', label));
+    const thead = node('thead');
+    thead.append(head);
+    const tbody = node('tbody');
+    history.forEach((sample, index) => {
+      const row = node('tr');
+      const previous = history[index - 1];
+      const days = previous ? Math.round((Date.parse(sample.date) - Date.parse(previous.date)) / 86400000) : 0;
+      for (const value of [sample.date, sample.stars.toLocaleString(), previous ? `${signed(sample.stars - previous.stars)} / ${days} 天` : '首次采样']) row.append(node('td', '', value));
+      tbody.append(row);
+    });
+    table.append(thead, tbody);
+    details.append(table);
+    section.append(details);
+    return section;
+  }
   function card(entry) {
     const el = node('article', 'result-card');
     const top = node('div', 'result-top');
@@ -88,6 +138,7 @@
     if (Number.isFinite(entry.comments)) metrics.push(entry.comments + ' 条评论');
     if (entry.cve && entry.cve !== 'N/A') metrics.push(entry.cve);
     el.append(node('p', 'result-metrics', metrics.join(' · ')));
+    if (entry.kind === 'repos') el.append(starHistory(entry));
     const bottom = node('div', 'result-bottom');
     bottom.append(link('收录于 ' + entry.last_seen + ' ↗', entry.daily_url));
     if (entry.dates.length > 1) bottom.append(node('span', '', '共收录 ' + entry.dates.length + ' 天'));
@@ -101,12 +152,13 @@
     const current = filters();
     fields.to.min = current.from;
     fields.from.max = current.to;
-    const matches = RadarExplore.select(entries, current, saved);
+    const matches = RadarExplore.select(entries, {...current, asOf: latestDate}, saved);
     results.replaceChildren(...matches.slice(0, limit).map(card));
     status.textContent = `找到 ${matches.length} 条资讯 · 已展示 ${Math.min(limit, matches.length)} 条`;
     if (!matches.length) {
       results.append(node('p', 'empty-state', current.saved ?
         '还没有符合条件的收藏。取消“只看收藏”，选择内容卡片上的收藏按钮。' :
+        current.sort === 'growth' ? '没有符合条件的项目。7 日增长排序需要最新一期、且具备相隔 7 天采样的开源项目。' :
         '没有找到匹配内容，试试减少关键词或放宽日期范围。'));
     }
     more.hidden = matches.length <= limit;
@@ -119,6 +171,7 @@
       const data = await response.json();
       if (data.version !== 1 || !Array.isArray(data.entries)) throw new Error('invalid index');
       entries = data.entries;
+      latestDate = data.latest_date;
       loaded = true;
       render();
     } catch {

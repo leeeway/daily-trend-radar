@@ -1,5 +1,6 @@
 """Build a searchable, deduplicated catalogue from full snapshots and legacy Markdown."""
 import hashlib
+import datetime as dt
 from html.parser import HTMLParser
 import json
 import re
@@ -9,6 +10,24 @@ from urllib.parse import urlsplit
 import markdown
 
 KINDS = ('repos', 'stories', 'advisories')
+
+
+def star_trend(history):
+    """Compare real dated samples; do not invent missing days or a seven-day baseline."""
+    result = {'previous_delta': None, 'previous_days': None, 'previous_date': None,
+              'week_delta': None, 'week_start': None}
+    if len(history) < 2:
+        return result
+    latest, previous = history[-1], history[-2]
+    result.update(previous_delta=latest['stars'] - previous['stars'],
+                  previous_days=(dt.date.fromisoformat(latest['date']) - dt.date.fromisoformat(previous['date'])).days,
+                  previous_date=previous['date'])
+    baseline = (dt.date.fromisoformat(latest['date']) - dt.timedelta(days=7)).isoformat()
+    for sample in history:
+        if sample['date'] == baseline:
+            result.update(week_delta=latest['stars'] - sample['stars'], week_start=baseline)
+            break
+    return result
 
 
 def safe_url(value):
@@ -95,6 +114,17 @@ def daily_items(root, post):
                 if isinstance(item, dict) and safe_url(item.get('url')):
                     by_url[item['url']] = {**by_url.get(item['url'], {}), **item}
             combined[kind] = list(by_url.values())
+    for items in combined.values():
+        for item in items:
+            for metric in ('stars', 'forks', 'score', 'comments'):
+                if metric in item:
+                    try:
+                        value = int(str(item[metric]).replace(',', ''))
+                        if value < 0:
+                            raise ValueError('Negative count')
+                        item[metric] = value
+                    except (ValueError, TypeError):
+                        item.pop(metric)
     return combined
 
 
@@ -126,5 +156,11 @@ def build_catalog(root, posts):
                         entry[metric] = int(str(item[metric]).replace(',', ''))
                     except (KeyError, ValueError, TypeError):
                         pass
+                if kind == 'repos':
+                    samples = {sample['date']: sample for sample in previous.get('star_history', [])}
+                    if entry.get('stars', -1) >= 0:
+                        samples[post['date']] = {'date': post['date'], 'stars': entry['stars']}
+                    entry['star_history'] = sorted(samples.values(), key=lambda s: s['date'])
+                    entry['star_trend'] = star_trend(entry['star_history'])
                 entries[key] = entry
     return sorted(entries.values(), key=lambda e: (e['last_seen'], e['id']), reverse=True)

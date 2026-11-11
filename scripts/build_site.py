@@ -64,10 +64,10 @@ def build(output=None, site_url=None):
 <label class="search-label" for="query">搜索资讯</label><input id="query" name="q" type="search" placeholder="项目、技术关键词、语言或 CVE 编号…" autocomplete="off">
 <div class="filters"><label>来源<select id="source" name="source"><option value="">全部来源</option><option value="repos">开源项目</option><option value="stories">开发者热议</option><option value="advisories">安全公告</option></select></label>
 <label>收录起始日期<input id="from-date" name="from" type="date"></label><label>收录结束日期<input id="to-date" name="to" type="date"></label>
-<label>排序<select id="sort" name="sort"><option value="newest">最近收录</option><option value="oldest">最早收录</option></select></label></div>
+<label>排序<select id="sort" name="sort"><option value="newest">最近收录</option><option value="oldest">最早收录</option><option value="growth">最新一期 7 日 Star 增长</option></select></label></div>
 <div class="filter-actions"><label class="saved-filter"><input type="checkbox" id="saved-only" name="saved" value="1"> 只看收藏 <span id="saved-count">0</span></label><button type="reset" class="text-button">重置筛选</button></div></form>
 <div class="results-heading"><p id="result-count" role="status" aria-live="polite">正在加载资讯库…</p><span>相同来源链接合并展示</span></div>
-<p class="storage-note">日期按实际收录时间筛选；Star、热度和评论数为最近一次收录的快照。</p>
+<p class="storage-note">日期按实际收录时间筛选；指标为收录快照。7 日增长排序只比较最新一期、且具备相隔 7 天采样的项目。</p>
 <p id="storage-note" class="storage-note">收藏仅保存在此浏览器，清除浏览器数据会移除收藏。</p>
 <div id="results" class="results-grid"></div><button id="load-more" class="button" hidden>加载更多</button><button id="retry-load" class="text-button" hidden>重新加载</button>
 <noscript><p>搜索和收藏需要 JavaScript。你仍可<a href="./">浏览全部日报与周报</a>。</p></noscript>
