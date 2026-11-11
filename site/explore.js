@@ -6,19 +6,31 @@
   const status = document.querySelector('#result-count');
   const more = document.querySelector('#load-more');
   const retry = document.querySelector('#retry-load');
+  const interestForm = document.querySelector('#interest-form');
+  const interestStatus = document.querySelector('#interest-status');
+  const interestInclude = document.querySelector('#interest-include');
+  const interestExclude = document.querySelector('#interest-exclude');
+  // A cached older page can briefly arrive with newer assets during publication.
+  if (!interestForm || typeof globalThis.RadarExplore?.parseInterests !== 'function') {
+    status.textContent = '工作台已更新，请刷新页面加载最新版本。';
+    retry.hidden = false;
+    retry.addEventListener('click', () => location.reload());
+    return;
+  }
   const fields = {q: form.elements.q, source: form.elements.source, from: form.elements.from,
     to: form.elements.to, sort: form.elements.sort, saved: form.elements.saved,
-    unread: form.elements.unread, fresh: form.elements.fresh};
-  const checkboxKeys = new Set(['saved', 'unread', 'fresh']);
+    unread: form.elements.unread, fresh: form.elements.fresh, following: form.elements.following};
+  const checkboxKeys = new Set(['saved', 'unread', 'fresh', 'following']);
   const scope = new URL('.', location.href).pathname;
   const legacyKey = 'radar:bookmarks:v1:' + scope;
   const storageKey = 'radar:reading:v1:' + scope;
   let saved = new Set(), read = new Set(), entries = [], limit = 24, loaded = false, latestDate = '';
+  let interests = RadarExplore.parseInterests();
   function storageUnavailable() {
     document.querySelector('#storage-note').textContent = '浏览器记录不可用，修改仅在本页打开期间保留；可使用备份保存。';
   }
   function readingState() {
-    return {type: RadarExplore.readingType, version: 1, bookmarks: [...saved], read: [...read]};
+    return {type: RadarExplore.readingType, version: 1, bookmarks: [...saved], read: [...read], interests};
   }
   function persistReading() {
     try { localStorage.setItem(storageKey, JSON.stringify(readingState())); }
@@ -29,7 +41,12 @@
       const data = RadarExplore.loadReading(localStorage.getItem(storageKey), localStorage.getItem(legacyKey));
       saved = new Set(data.bookmarks);
       read = new Set(data.read);
+      interests = data.interests;
     } catch { storageUnavailable(); }
+  }
+  function showInterests() {
+    interestInclude.value = interests.include.join(', ');
+    interestExclude.value = interests.exclude.join(', ');
   }
   function readURL() {
     const query = new URLSearchParams(location.search);
@@ -147,6 +164,9 @@
     title.append(link(entry.title, entry.url));
     el.append(top, title);
     if (entry.description) el.append(node('p', 'result-description', entry.description));
+    const match = RadarExplore.interestMatch(entry, interests);
+    if (match.excluded.length) el.append(node('p', 'interest-match interest-excluded', '排除词命中：' + match.excluded.join(' · ')));
+    else if (match.included.length) el.append(node('p', 'interest-match', '关注命中：' + match.included.join(' · ')));
     const metrics = [];
     if (entry.language) metrics.push(entry.language);
     if (Number.isFinite(entry.stars)) metrics.push('★ ' + entry.stars.toLocaleString());
@@ -177,15 +197,25 @@
   }
   function render() {
     document.querySelector('#saved-count').textContent = String(saved.size);
+    const configured = interests.include.length + interests.exclude.length > 0;
+    interestStatus.textContent = configured ? `关注 ${interests.include.length} 个词 · 排除 ${interests.exclude.length} 个词` :
+      '尚未设置关注主题。展开“我的关注主题”，保存后即可筛选。';
+    if (fields.following.checked && !configured) document.querySelector('#interest-panel').open = true;
     if (!loaded) return;
+    if (configured) {
+      const hits = entries.filter(entry => RadarExplore.interestMatch(entry, interests).matches);
+      interestStatus.textContent += ` · 全库匹配 ${hits.length} 条，其中未读 ${hits.filter(entry => !read.has(entry.id)).length} 条`;
+    }
     const current = filters();
     fields.to.min = current.from;
     fields.from.max = current.to;
-    const matches = RadarExplore.select(entries, {...current, asOf: latestDate}, saved, read);
+    const matches = RadarExplore.select(entries, {...current, asOf: latestDate}, saved, read, interests);
     results.replaceChildren(...matches.slice(0, limit).map(card));
     status.textContent = `找到 ${matches.length} 条资讯 · 已展示 ${Math.min(limit, matches.length)} 条`;
     if (!matches.length) {
-      results.append(node('p', 'empty-state', current.unread ?
+      results.append(node('p', 'empty-state', current.following ? (configured ?
+        '没有同时符合关注主题与当前筛选的内容，可调整关注词、排除词或放宽其他条件。' :
+        '请先在“我的关注主题”中保存关键词。关闭“只看关注”可继续浏览全部资讯。') : current.unread ?
         '当前筛选下没有未读内容。可取消“只看未读”，或查看最新一期首次收录。' : current.saved ?
         '还没有符合条件的收藏。取消“只看收藏”，选择内容卡片上的收藏按钮。' :
         current.sort === 'growth' ? '没有符合条件的项目。7 日增长排序需要最新一期、且具备相隔 7 天采样的开源项目。' :
@@ -210,6 +240,20 @@
     }
   }
   form.addEventListener('submit', event => event.preventDefault());
+  interestForm.addEventListener('submit', event => {
+    event.preventDefault();
+    try {
+      const next = RadarExplore.parseInterests({include: interestInclude.value, exclude: interestExclude.value});
+      loadReading();
+      interests = next;
+      persistReading();
+      showInterests();
+      fields.following.checked = interests.include.length + interests.exclude.length > 0;
+      limit = 24;
+      updateURL();
+      render();
+    } catch (error) { interestStatus.textContent = error.message + '，未更改已有设置。'; }
+  });
   form.addEventListener('input', () => { limit = 24; updateURL(); render(); });
   form.addEventListener('reset', event => {
     event.preventDefault();
@@ -237,7 +281,7 @@
       download.click();
       download.remove();
       setTimeout(() => URL.revokeObjectURL(url), 1000);
-      readingStatus.textContent = `已生成备份：${saved.size} 条收藏、${read.size} 条已读记录。`;
+      readingStatus.textContent = `已生成备份：${saved.size} 条收藏、${read.size} 条已读记录，含关注与排除词。`;
     } catch { readingStatus.textContent = '备份生成失败，现有记录未改变。'; }
   });
   document.querySelector('#import-reading').addEventListener('click', () => readingFile.click());
@@ -252,15 +296,24 @@
       const merged = RadarExplore.mergeReading(readingState(), backup);
       saved = new Set(merged.bookmarks);
       read = new Set(merged.read);
+      interests = merged.interests;
       persistReading();
+      showInterests();
       render();
-      readingStatus.textContent = `恢复完成，已合并去重：${saved.size} 条收藏、${read.size} 条已读记录。`;
-    } catch { readingStatus.textContent = '备份文件无效或过大，未导入。请选择技术雷达导出的 JSON 备份（最多 1 MB）。'; }
+      readingStatus.textContent = `恢复完成，已合并去重：${saved.size} 条收藏、${read.size} 条已读记录，以及关注与排除词。`;
+    } catch { readingStatus.textContent = '导入失败，现有记录未改变。请选择有效备份（最多 1 MB），合并后每类词最多 40 个。'; }
     finally { readingFile.value = ''; }
   });
   window.addEventListener('popstate', () => { readURL(); limit = 24; render(); });
-  window.addEventListener('storage', event => { if ([storageKey, legacyKey, null].includes(event.key)) { loadReading(); render(); } });
+  window.addEventListener('storage', event => {
+    if ([storageKey, legacyKey, null].includes(event.key)) {
+      loadReading();
+      if (!interestForm.contains(document.activeElement)) showInterests();
+      render();
+    }
+  });
   loadReading();
+  showInterests();
   readURL();
   load();
 })();

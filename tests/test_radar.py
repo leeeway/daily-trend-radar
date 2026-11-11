@@ -26,6 +26,20 @@ state = module('daily_state')
 watchdog = module('check_daily')
 
 class RadarTests(unittest.TestCase):
+    def test_asset_urls_invalidate_when_content_changes_and_preserve_nested_paths(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'site').mkdir()
+            css = root / 'site/style.css'
+            css.write_text('body {color: blue}')
+            with patch.object(site, 'ROOT', root):
+                first = site.asset('.', 'style.css')
+                self.assertTrue(first.startswith('./assets/style.css?v='))
+                self.assertEqual(first, site.asset('.', 'style.css'))
+                self.assertEqual(site.asset('..', 'style.css'), '.' + first)
+                css.write_text('body {color: green}')
+                self.assertNotEqual(first, site.asset('.', 'style.css'))
+
     def test_build_nested_pages_feeds_and_dedup(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

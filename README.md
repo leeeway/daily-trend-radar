@@ -66,6 +66,14 @@ python3 scripts/check_daily.py --repair # 缺失时通过 workflow_dispatch 补�
 
 可分享组合筛选：`?fresh=1&unread=1` 查看本期新收录且未读内容；`?saved=1&unread=1` 查看收藏中的待读内容。分享的是筛选条件，收藏和已读记录仍属于各自浏览器。
 
+### 网页关注主题
+
+在资讯库展开“我的关注主题”，保存关注词与排除词，即可使用“只看关注”。任一关注词命中即可，排除词优先；只有排除词时展示未命中排除词的内容。匹配标题、简介、语言、CVE、等级和链接中的字面文字，不区分大小写及全半角；短语中的空格保留，不使用正则或语义匹配。每类最多 40 个词，每词最多 80 字符，用中英文逗号、分号或换行分隔。
+
+卡片显示“关注命中”或“排除词命中”，方便核对原因。关注筛选可与搜索、来源、日期、未读、收藏和增长榜组合；“重置筛选”不会删除已保存的关注设置。没有设置主题时，“只看关注”显示设置引导，不把全库当作命中结果。
+
+网页关注设置仅存于浏览器，不读取 GitHub Variables，不改变手机推送偏好，也不写入地址栏。分享 `?following=1` 只分享筛选开关，接收者使用自己的关注设置。阅读备份 version 1 新增可选 `interests.include/exclude` 字段，恢复时与本机词表合并去重；旧备份没有该字段时保留本机设置。合并超过词数上限会整体拒绝，避免部分导入。
+
 旧日报从 Markdown 提取全部条目，并用已有精选数据补充；历史简介可能已被原日报截断，不补造内容。升级后的每日抓取保存 `schema_version: 2` 和完整 `items.repos/stories/advisories`，手机推送继续读取独立的精选 `brief`。指标显示最近一次收录快照，不能当作实时 Star 数或每日增长量。
 
 ### Star 增长趋势
@@ -125,7 +133,7 @@ RADAR_KEYWORDS='DeepSeek,AI Agent' python scripts/notify.py --digest data/digest
 
 ## 挂载到 lwblog.cn
 
-现有主站是 Astro，雷达站可以独立托管，不需要修改代理或主站 DNS。具体接入代码见 [integrations/lwblog.md](integrations/lwblog.md)，包括导航链接、iframe 卡片和 Astro 服务端读取最新一期 JSON。
+现有主站是 Astro，雷达站可以独立托管，不需要修改代理或主站 DNS。具体接入代码见 [integrations/lwblog.md](integrations/lwblog.md)，中英文主站已使用原生卡片连接新增发现、Star 增长榜和阅读工作台，统计随日报自动更新。
 
 公开接口（随 Pages 部署更新）：
 
@@ -147,7 +155,7 @@ python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
 python -m unittest discover -s tests -v
-node --test tests/explore.test.cjs # 搜索逻辑测试，Node 18+，无需 npm 依赖
+node --test tests/*.test.cjs # 阅读工作台与主站接入测试，Node 18+，无需 npm 依赖
 python scripts/fetch_radar.py  # 联网抓取，可用 GITHUB_TOKEN 提升 GitHub API 配额
 python scripts/build_site.py
 python -m http.server 8000 --directory dist

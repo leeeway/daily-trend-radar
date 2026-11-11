@@ -2,6 +2,7 @@
 """Compile archived Markdown into a portable blog, weekly digests and feeds."""
 import datetime as dt
 import html
+import hashlib
 import json
 import os
 from pathlib import Path
@@ -23,13 +24,19 @@ def render(source):
                         attributes={'a': ['href', 'title'], 'code': ['class']}, strip=True)
 
 
+def asset(base, name):
+    source = ROOT / 'site' / name
+    version = '?v=' + hashlib.sha256(source.read_bytes()).hexdigest()[:12] if source.is_file() else ''
+    return f'{base}/assets/{name}{version}'
+
+
 def page(title, body, base, canonical, compact=False):
     esc = html.escape
     return f'''<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1"><title>{esc(title)} · leeway 技术雷达</title>
 <meta name="description" content="leeway 的技术日报与每周回顾：开源项目、开发者话题与安全动态。">
 <link rel="canonical" href="{esc(canonical)}"><link rel="alternate" type="application/rss+xml" title="技术雷达" href="{base}/feed.xml">
-<link rel="stylesheet" href="{base}/assets/style.css"></head><body class="{'compact' if compact else ''}">
+<link rel="stylesheet" href="{asset(base, 'style.css')}"></head><body class="{'compact' if compact else ''}">
 <header><a class="brand" href="{base}/">leeway<span> / RADAR</span></a><nav><a href="{base}/">日报与周报</a><a href="{base}/explore.html">发现与收藏</a><a href="{base}/feed.xml">RSS ↗</a><a href="https://lwblog.cn/" target="_top">个人主页 ↗</a></nav></header>
 <main>{body}</main><footer>持续学习，保持好奇。<span>GitHub & Hacker News · 自动汇编，原始来源见各条链接</span></footer></body></html>'''
 
@@ -62,7 +69,7 @@ def build(output=None, site_url=None):
                    for kind in ('repos', 'stories', 'advisories')}
     discoveries.update(date=posts[0]['date'], total=sum(discoveries.values()))
     (out / 'search-index.json').write_text(json.dumps({'version': 1, 'latest_date': posts[0]['date'], 'entries': catalog}, ensure_ascii=False, indent=2), encoding='utf-8')
-    explore = '''<section class="explore-heading"><p class="eyebrow">YOUR GROWING TECH LIBRARY</p><h1>发现，留存，<em>再回来看。</em></h1><p class="intro">搜索历期资讯，把值得细读的内容收进自己的书签。</p></section>
+    explore = f'''<section class="explore-heading"><p class="eyebrow">YOUR GROWING TECH LIBRARY</p><h1>发现，留存，<em>再回来看。</em></h1><p class="intro">搜索历期资讯，把值得细读的内容收进自己的书签。</p></section>
 <form id="explore-form" class="filter-panel" role="search">
 <label class="search-label" for="query">搜索资讯</label><input id="query" name="q" type="search" placeholder="项目、技术关键词、语言或 CVE 编号…" autocomplete="off">
 <div class="filters"><label>来源<select id="source" name="source"><option value="">全部来源</option><option value="repos">开源项目</option><option value="stories">开发者热议</option><option value="advisories">安全公告</option></select></label>
@@ -70,16 +77,24 @@ def build(output=None, site_url=None):
 <label>排序<select id="sort" name="sort"><option value="newest">最近收录</option><option value="oldest">最早收录</option><option value="growth">最新一期 7 日 Star 增长</option></select></label></div>
 <div class="filter-actions"><div class="reading-filters"><label class="saved-filter"><input type="checkbox" id="saved-only" name="saved" value="1"> 只看收藏 <span id="saved-count">0</span></label>
 <label class="saved-filter"><input type="checkbox" id="unread-only" name="unread" value="1"> 只看未读</label>
-<label class="saved-filter"><input type="checkbox" id="fresh-only" name="fresh" value="1"> 最新一期首次收录</label></div><button type="reset" class="text-button">重置筛选</button></div></form>
+<label class="saved-filter"><input type="checkbox" id="fresh-only" name="fresh" value="1"> 最新一期首次收录</label>
+<label class="saved-filter"><input type="checkbox" id="following-only" name="following" value="1"> 只看关注</label></div><button type="reset" class="text-button">重置筛选</button></div></form>
+<details class="interest-panel" id="interest-panel"><summary>我的关注主题 <span>本地保存 · 可备份迁移</span></summary>
+<p class="storage-note">任一关注词命中即可，排除词优先；按标题、简介、语言和链接等文字匹配。搜索与其他筛选可继续组合。</p>
+<form id="interest-form"><div class="interest-fields"><label for="interest-include">关注词<input type="text" id="interest-include" maxlength="4000" placeholder="例如 Python, Rust, AI Agent" autocomplete="off" aria-describedby="interest-help"></label>
+<label for="interest-exclude">排除词<input type="text" id="interest-exclude" maxlength="4000" placeholder="不希望看到的关键词，可留空" autocomplete="off" aria-describedby="interest-help"></label></div>
+<div class="interest-actions"><p id="interest-help">用逗号或分号分隔，短语中的空格保留；每类最多 40 个词，每词最多 80 字符。清空输入后保存可取消关注设置。</p><button type="submit" class="interest-save">保存关注</button></div></form>
+<p class="interest-privacy">仅保存在此浏览器，不写入分享链接，不改变手机推送设置。</p></details>
+<p id="interest-status" class="storage-note" role="status" aria-live="polite"></p>
 <div class="results-heading"><p id="result-count" role="status" aria-live="polite">正在加载资讯库…</p><span>相同来源链接合并展示</span></div>
 <p class="storage-note">日期按实际收录时间筛选；指标为收录快照。7 日增长排序只比较最新一期、且具备相隔 7 天采样的项目。</p>
-<div class="reading-toolbar"><p id="storage-note" class="storage-note">收藏和已读记录仅保存在此浏览器，可备份后在其他设备恢复。</p>
+<div class="reading-toolbar"><p id="storage-note" class="storage-note">收藏、已读和关注设置保存在此浏览器，可备份后在其他设备恢复。</p>
 <div><button id="export-reading" class="text-button" type="button">备份阅读记录</button><button id="import-reading" class="text-button" type="button">恢复记录</button>
 <input id="reading-file" type="file" accept=".json,application/json" hidden></div></div>
 <p id="reading-status" class="storage-note" role="status" aria-live="polite"></p>
 <div id="results" class="results-grid"></div><button id="load-more" class="button" hidden>加载更多</button><button id="retry-load" class="text-button" hidden>重新加载</button>
 <noscript><p>搜索和收藏需要 JavaScript。你仍可<a href="./">浏览全部日报与周报</a>。</p></noscript>
-<script src="./assets/explore-core.js" defer></script><script src="./assets/explore.js" defer></script>'''
+<script src="{asset('.', 'explore-core.js')}" defer></script><script src="{asset('.', 'explore.js')}" defer></script>'''
     (out / 'explore.html').write_text(page('发现与收藏', explore, '.', url + '/explore.html'), encoding='utf-8')
     weekly_cards = []
     for week, days in weeks.items():
