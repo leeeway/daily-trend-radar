@@ -7,33 +7,45 @@
   const more = document.querySelector('#load-more');
   const retry = document.querySelector('#retry-load');
   const fields = {q: form.elements.q, source: form.elements.source, from: form.elements.from,
-    to: form.elements.to, sort: form.elements.sort, saved: form.elements.saved};
-  const storageKey = 'radar:bookmarks:v1:' + new URL('.', location.href).pathname;
-  let saved = new Set(), entries = [], limit = 24, loaded = false, latestDate = '';
+    to: form.elements.to, sort: form.elements.sort, saved: form.elements.saved,
+    unread: form.elements.unread, fresh: form.elements.fresh};
+  const checkboxKeys = new Set(['saved', 'unread', 'fresh']);
+  const scope = new URL('.', location.href).pathname;
+  const legacyKey = 'radar:bookmarks:v1:' + scope;
+  const storageKey = 'radar:reading:v1:' + scope;
+  let saved = new Set(), read = new Set(), entries = [], limit = 24, loaded = false, latestDate = '';
   function storageUnavailable() {
-    document.querySelector('#storage-note').textContent = '浏览器存储不可用，收藏仅在本页打开期间保留。';
+    document.querySelector('#storage-note').textContent = '浏览器记录不可用，修改仅在本页打开期间保留；可使用备份保存。';
   }
-  function loadSaved() {
+  function readingState() {
+    return {type: RadarExplore.readingType, version: 1, bookmarks: [...saved], read: [...read]};
+  }
+  function persistReading() {
+    try { localStorage.setItem(storageKey, JSON.stringify(readingState())); }
+    catch { storageUnavailable(); }
+  }
+  function loadReading() {
     try {
-      const data = JSON.parse(localStorage.getItem(storageKey) || '[]');
-      saved = new Set(Array.isArray(data) ? data.filter(id => typeof id === 'string') : []);
+      const data = RadarExplore.loadReading(localStorage.getItem(storageKey), localStorage.getItem(legacyKey));
+      saved = new Set(data.bookmarks);
+      read = new Set(data.read);
     } catch { storageUnavailable(); }
   }
   function readURL() {
     const query = new URLSearchParams(location.search);
     for (const [key, field] of Object.entries(fields)) {
-      if (key === 'saved') field.checked = query.get(key) === '1';
+      if (checkboxKeys.has(key)) field.checked = query.get(key) === '1';
       else field.value = query.get(key) || (key === 'sort' ? 'newest' : '');
     }
   }
   function filters() {
     return Object.fromEntries(Object.entries(fields).map(([key, field]) =>
-      [key, key === 'saved' ? field.checked : field.value]));
+      [key, checkboxKeys.has(key) ? field.checked : field.value]));
   }
   function updateURL() {
     const query = new URLSearchParams();
     for (const [key, value] of Object.entries(filters())) {
-      if (value && !(key === 'sort' && value === 'newest')) query.set(key, key === 'saved' ? '1' : value);
+      if (value && !(key === 'sort' && value === 'newest')) query.set(key, checkboxKeys.has(key) ? '1' : value);
     }
     const url = new URL(location.href);
     url.search = query.toString();
@@ -110,16 +122,20 @@
   }
   function card(entry) {
     const el = node('article', 'result-card');
+    if (read.has(entry.id)) el.classList.add('is-read');
     const top = node('div', 'result-top');
-    top.append(node('span', 'source-tag source-' + entry.kind,
+    const badges = node('div', 'entry-badges');
+    badges.append(node('span', 'source-tag source-' + entry.kind,
       {repos: '开源项目', stories: '开发者热议', advisories: '安全公告'}[entry.kind]));
+    if (entry.first_seen === latestDate) badges.append(node('span', 'source-tag new-tag', '本期首次收录'));
+    top.append(badges);
     const bookmark = node('button', 'bookmark', saved.has(entry.id) ? '已收藏' : '＋ 收藏');
     bookmark.type = 'button';
     bookmark.setAttribute('aria-pressed', String(saved.has(entry.id)));
     bookmark.setAttribute('aria-label', (saved.has(entry.id) ? '取消收藏：' : '收藏：') + entry.title);
     bookmark.addEventListener('click', () => {
       if (saved.has(entry.id)) saved.delete(entry.id); else saved.add(entry.id);
-      try { localStorage.setItem(storageKey, JSON.stringify([...saved])); } catch { storageUnavailable(); }
+      persistReading();
       // Preserve focus after replacing the result list.
       const position = [...results.children].indexOf(el);
       render();
@@ -143,6 +159,19 @@
     bottom.append(link('收录于 ' + entry.last_seen + ' ↗', entry.daily_url));
     if (entry.dates.length > 1) bottom.append(node('span', '', '共收录 ' + entry.dates.length + ' 天'));
     if (entry.discuss_url) bottom.append(link('查看讨论 ↗', entry.discuss_url));
+    const readButton = node('button', 'read-toggle', read.has(entry.id) ? '已读 · 标为未读' : '标记已读');
+    readButton.type = 'button';
+    readButton.setAttribute('aria-pressed', String(read.has(entry.id)));
+    readButton.setAttribute('aria-label', (read.has(entry.id) ? '标为未读：' : '标记已读：') + entry.title);
+    readButton.addEventListener('click', () => {
+      if (read.has(entry.id)) read.delete(entry.id); else read.add(entry.id);
+      persistReading();
+      const position = [...results.children].indexOf(el);
+      render();
+      const button = results.children[Math.min(position, results.children.length - 1)]?.querySelector('.read-toggle');
+      (button || fields.unread).focus();
+    });
+    bottom.append(readButton);
     el.append(bottom);
     return el;
   }
@@ -152,11 +181,12 @@
     const current = filters();
     fields.to.min = current.from;
     fields.from.max = current.to;
-    const matches = RadarExplore.select(entries, {...current, asOf: latestDate}, saved);
+    const matches = RadarExplore.select(entries, {...current, asOf: latestDate}, saved, read);
     results.replaceChildren(...matches.slice(0, limit).map(card));
     status.textContent = `找到 ${matches.length} 条资讯 · 已展示 ${Math.min(limit, matches.length)} 条`;
     if (!matches.length) {
-      results.append(node('p', 'empty-state', current.saved ?
+      results.append(node('p', 'empty-state', current.unread ?
+        '当前筛选下没有未读内容。可取消“只看未读”，或查看最新一期首次收录。' : current.saved ?
         '还没有符合条件的收藏。取消“只看收藏”，选择内容卡片上的收藏按钮。' :
         current.sort === 'growth' ? '没有符合条件的项目。7 日增长排序需要最新一期、且具备相隔 7 天采样的开源项目。' :
         '没有找到匹配内容，试试减少关键词或放宽日期范围。'));
@@ -184,7 +214,7 @@
   form.addEventListener('reset', event => {
     event.preventDefault();
     for (const [key, field] of Object.entries(fields)) {
-      if (key === 'saved') field.checked = false;
+      if (checkboxKeys.has(key)) field.checked = false;
       else field.value = key === 'sort' ? 'newest' : '';
     }
     limit = 24;
@@ -193,9 +223,44 @@
   });
   more.addEventListener('click', () => { limit += 24; render(); });
   retry.addEventListener('click', load);
+  const readingStatus = document.querySelector('#reading-status');
+  const readingFile = document.querySelector('#reading-file');
+  document.querySelector('#export-reading').addEventListener('click', () => {
+    try {
+      const data = RadarExplore.parseBackup(JSON.stringify(readingState()));
+      const blob = new Blob([JSON.stringify({...data, created_at: new Date().toISOString()}, null, 2)], {type: 'application/json'});
+      const url = URL.createObjectURL(blob);
+      const download = document.createElement('a');
+      download.href = url;
+      download.download = 'radar-reading-' + new Date().toISOString().slice(0, 10) + '.json';
+      document.body.append(download);
+      download.click();
+      download.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+      readingStatus.textContent = `已生成备份：${saved.size} 条收藏、${read.size} 条已读记录。`;
+    } catch { readingStatus.textContent = '备份生成失败，现有记录未改变。'; }
+  });
+  document.querySelector('#import-reading').addEventListener('click', () => readingFile.click());
+  readingFile.addEventListener('change', async () => {
+    const file = readingFile.files[0];
+    if (!file) return;
+    try {
+      if (file.size > 1048576) throw new Error('Backup is too large');
+      const backup = RadarExplore.parseBackup(await file.text());
+      // Other tabs may have added records while the file chooser was open.
+      loadReading();
+      const merged = RadarExplore.mergeReading(readingState(), backup);
+      saved = new Set(merged.bookmarks);
+      read = new Set(merged.read);
+      persistReading();
+      render();
+      readingStatus.textContent = `恢复完成，已合并去重：${saved.size} 条收藏、${read.size} 条已读记录。`;
+    } catch { readingStatus.textContent = '备份文件无效或过大，未导入。请选择技术雷达导出的 JSON 备份（最多 1 MB）。'; }
+    finally { readingFile.value = ''; }
+  });
   window.addEventListener('popstate', () => { readURL(); limit = 24; render(); });
-  window.addEventListener('storage', event => { if (event.key === storageKey || event.key === null) { loadSaved(); render(); } });
-  loadSaved();
+  window.addEventListener('storage', event => { if ([storageKey, legacyKey, null].includes(event.key)) { loadReading(); render(); } });
+  loadReading();
   readURL();
   load();
 })();

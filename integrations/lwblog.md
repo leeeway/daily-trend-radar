@@ -67,3 +67,15 @@ try {
 ```
 
 支持 `q`、`source`（`repos` / `stories` / `advisories`）、`from` / `to`（`YYYY-MM-DD`）。`latest.json` 新增 `explore_url`、`catalog_url`、`entry_count`，原有字段保持兼容，方便主站展示“查看全部 N 条资讯”。收藏保存在资讯库域名下的浏览器存储；推荐新标签页打开，避免第三方 iframe 存储限制。
+
+## 5. 首页直达本期新发现与待读列表
+
+资讯库支持 `fresh=1`（最新一期首次本站收录）、`unread=1`（当前浏览器未读）、`saved=1`（当前浏览器收藏），均可与前述筛选组合。主站可直接链接：
+
+```astro
+<a href="https://leeeway.github.io/daily-trend-radar/explore.html?fresh=1&unread=1" target="_blank" rel="noopener noreferrer">
+  {zh ? '本期新发现 ↗' : 'New discoveries ↗'}
+</a>
+```
+
+`latest.json.latest_discoveries` 提供 `date`、`total`、`repos`、`stories`、`advisories`，统计最新一期首次本站收录数量，供主站展示“本期 N 条新发现”。所有统计均为公开归档统计，接口不包含用户的收藏或已读状态。跨设备迁移阅读记录时使用资讯库内的 JSON 备份恢复功能。

@@ -48,6 +48,21 @@ class RadarTests(unittest.TestCase):
             self.assertIn('explore.html', (out / 'index.html').read_text())
             self.assertIn('./assets/explore.js', (out / 'explore.html').read_text())
             self.assertEqual(json.loads((out / 'latest.json').read_text())['explore_url'], 'https://example.com/radar/explore.html')
+            discoveries = json.loads((out / 'latest.json').read_text())['latest_discoveries']
+            self.assertEqual(discoveries, {'date': '2026-10-18', 'total': 0, 'repos': 0, 'stories': 0, 'advisories': 0})
+            self.assertIn('最新一期新增发现', (out / 'index.html').read_text())
+
+    def test_latest_discoveries_count_first_observations_not_repeated_items(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'archives').mkdir()
+            (root / 'site').mkdir()
+            (root / 'archives/2026-10-17.md').write_text('## Repos\n\n## HN\n\n1. **[Old](https://example.com/old)**\n')
+            (root / 'archives/2026-10-18.md').write_text('## Repos\n\n## HN\n\n1. **[Old](https://example.com/old)**\n2. **[New](https://example.com/new)**\n')
+            with patch.object(site, 'ROOT', root), contextlib.redirect_stdout(io.StringIO()):
+                site.build(root / 'dist', 'https://example.com/radar')
+            discoveries = json.loads((root / 'dist/latest.json').read_text())['latest_discoveries']
+            self.assertEqual(discoveries, {'date':'2026-10-18', 'total':1, 'repos':0, 'stories':1, 'advisories':0})
 
     def test_sanitizes_untrusted_html_and_links(self):
         rendered = site.render('<script>alert(1)</script> [x](javascript:alert(1)) <img src=x onerror=evil()>')
