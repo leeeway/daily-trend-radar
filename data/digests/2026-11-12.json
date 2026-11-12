@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "items": {
+    "repos": [
+      {
+        "name": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "description": "Craft Anything: understand how any software works, and craft your own.",
+        "stars": 29479,
+        "forks": 5997,
+        "language": "Rust"
+      },
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 22693,
+        "forks": 2759,
+        "language": "TypeScript"
+      },
+      {
+        "name": "zortos293/Lichii",
+        "url": "https://github.com/zortos293/Lichii",
+        "description": "VERY experimental Nintendo Switch 2 emulator",
+        "stars": 8678,
+        "forks": 1394,
+        "language": "C++"
+      },
+      {
+        "name": "Minireel/HGhub",
+        "url": "https://github.com/Minireel/HGhub",
+        "description": "YellowFruit third-party client",
+        "stars": 8518,
+        "forks": 4700,
+        "language": "Other"
+      },
+      {
+        "name": "NotRexed/Hookshot",
+        "url": "https://github.com/NotRexed/Hookshot",
+        "description": "A Native Recompilation Of The Legend Of Zelda: Ocarina Of Time Nintendo Switch 2 Remake",
+        "stars": 8445,
+        "forks": 766,
+        "language": "C++"
+      },
+      {
+        "name": "janestreet/agent_skills",
+        "url": "https://github.com/janestreet/agent_skills",
+        "description": "Agent skills",
+        "stars": 7269,
+        "forks": 488,
+        "language": "Other"
+      },
+      {
+        "name": "patch-gg/pixelfx",
+        "url": "https://github.com/patch-gg/pixelfx",
+        "description": "244 pixel art effects, every one a small piece of code. Plus a Claude Code skill to make your own.",
+        "stars": 7130,
+        "forks": 922,
+        "language": "JavaScript"
+      },
+      {
+        "name": "huamidev/GestaltX",
+        "url": "https://github.com/huamidev/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 6833,
+        "forks": 2522,
+        "language": "Swift"
+      }
+    ],
+    "stories": [
+      {
+        "title": "NVIDIA Announces CEO Transition",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
+        "score": 846,
+        "comments": 651,
+        "discuss_url": "https://news.ycombinator.com/item?id=50467087"
+      },
+      {
+        "title": "Abandoned Quake 4 expansion finished by modders and now playable",
+        "url": "https://www.moddb.com/mods/openq4/downloads/openq4-0141-windows-x64",
+        "score": 34,
+        "comments": 7,
+        "discuss_url": "https://news.ycombinator.com/item?id=50467618"
+      },
+      {
+        "title": "Talking Zen 6 with Mike Clark at AMD In-Depth",
+        "url": "https://chipsandcheese.com/p/talking-zen-6-with-mike-clark-at",
+        "score": 26,
+        "comments": 0,
+        "discuss_url": "https://news.ycombinator.com/item?id=50467460"
+      },
+      {
+        "title": "Why Writing Correct Software Is Hard",
+        "url": "https://pron.github.io/posts/correctness-and-complexity",
+        "score": 204,
+        "comments": 85,
+        "discuss_url": "https://news.ycombinator.com/item?id=50465352"
+      },
+      {
+        "title": "Jensen Huang resigns as Nvidia CEO immediately",
+        "url": "https://www.reuters.com/live/nvidia-live-board-meets-fate-ceo-jensen-huang-after-affair-reports-2026-11-12/",
+        "score": 255,
+        "comments": 127,
+        "discuss_url": "https://news.ycombinator.com/item?id=50467132"
+      },
+      {
+        "title": "Jane Street – Our software engineering interviews are changing (a little)",
+        "url": "https://blog.janestreet.com/software-engineering-interviews-are-changing-a-little/",
+        "score": 27,
+        "comments": 11,
+        "discuss_url": "https://news.ycombinator.com/item?id=50467297"
+      },
+      {
+        "title": "Libreagi – Save OSS Models",
+        "url": "https://libreagi.com/",
+        "score": 19,
+        "comments": 7,
+        "discuss_url": "https://news.ycombinator.com/item?id=50467439"
+      },
+      {
+        "title": "Nvidia CEO Jensen Huang resigns after reports of second affair deepened scandal",
+        "url": "https://www.bbc.co.uk/news/live/c6zjry11v8w1t",
+        "score": 122,
+        "comments": 57,
+        "discuss_url": "https://news.ycombinator.com/item?id=50467139"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-45x6-9mh2-48pq",
+        "cve_id": "CVE-2026-127046",
+        "summary": "The MISP Modules website component contains an information disclosure vulnerability in the...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-45x6-9mh2-48pq"
+      },
+      {
+        "ghsa_id": "GHSA-h3wj-j4hx-vx4c",
+        "cve_id": "CVE-2026-127016",
+        "summary": "The MISP Modules website component exposes external tool management endpoints (add, delete,...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-h3wj-j4hx-vx4c"
+      },
+      {
+        "ghsa_id": "GHSA-qcx2-v78c-8gq4",
+        "cve_id": "CVE-2026-90908",
+        "summary": "A vulnerability in the GenericAdminAuthenticator component of Azul Payara Server and Azul Payara...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-qcx2-v78c-8gq4"
+      },
+      {
+        "ghsa_id": "GHSA-gv3m-v36g-qfr6",
+        "cve_id": "CVE-2026-110003",
+        "summary": "A vulnerability in the administration REST interface of Azul Payara allows a remote,...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-gv3m-v36g-qfr6"
+      },
+      {
+        "ghsa_id": "GHSA-2hfc-fw5x-vjm9",
+        "cve_id": "CVE-2026-8333",
+        "summary": "A stored cross-site scripting vulnerability in Microchip the TimePictra platform could allow an...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-2hfc-fw5x-vjm9"
+      },
+      {
+        "ghsa_id": "GHSA-4cwf-239q-xjfq",
+        "cve_id": "CVE-2026-12507",
+        "summary": "Zohocorp ManageEngine AssetExplorer versions below 7860, ServiceDesk Plus versions below 15290,...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-4cwf-239q-xjfq"
+      }
+    ]
+  },
+  "title": "技术雷达 · 2026-11-12",
+  "text": "技术雷达 · 2026-11-12\n\n开源精选：storytold/craft-anything\n\nCraft Anything: understand how any software works, and craft your own.\n\n今日热议：NVIDIA Announces CEO Transition\n\n安全关注：GHSA-45x6-9mh2-48pq The MISP Modules website component contains an information disclosure vulnerability in the...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-12.html",
+  "brief": {
+    "date": "2026-11-12",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-12.html",
+    "repos": [
+      {
+        "name": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "description": "Craft Anything: understand how any software works, and craft your own.",
+        "stars": 29479,
+        "forks": 5997,
+        "language": "Rust"
+      },
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 22693,
+        "forks": 2759,
+        "language": "TypeScript"
+      }
+    ],
+    "stories": [
+      {
+        "title": "NVIDIA Announces CEO Transition",
+        "url": "https://nvidianews.nvidia.com/news/nvidia-announces-ceo-transition",
+        "score": 846,
+        "comments": 651,
+        "discuss_url": "https://news.ycombinator.com/item?id=50467087"
+      },
+      {
+        "title": "Abandoned Quake 4 expansion finished by modders and now playable",
+        "url": "https://www.moddb.com/mods/openq4/downloads/openq4-0141-windows-x64",
+        "score": 34,
+        "comments": 7,
+        "discuss_url": "https://news.ycombinator.com/item?id=50467618"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-45x6-9mh2-48pq",
+        "cve_id": "CVE-2026-127046",
+        "summary": "The MISP Modules website component contains an information disclosure vulnerability in the...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-45x6-9mh2-48pq"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
