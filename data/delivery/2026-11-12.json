@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-12",
+  "delivered": {
+    "企业微信": "2026-11-12T15:15:45.440573+00:00"
+  },
+  "skipped": {},
+  "selection": {
+    "title": "技术雷达 · 2026-11-12",
+    "text": "技术雷达 · 2026-11-12\n\n关注精选命中：2 个开源项目 / 0 条热议 / 0 条安全公告\n\n开源发现：storytold/craft-anything\n\nCraft Anything: understand how any software works, and craft your own.\n\nhttps://github.com/storytold/craft-anything\n\n开源发现：deepseek-ai/dsh-superagent-prototype\n\nTowards a More Autonomous Agent System\n\nhttps://github.com/deepseek-ai/dsh-superagent-prototype\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-12.html",
+    "brief": {
+      "date": "2026-11-12",
+      "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-12.html",
+      "repos": [
+        {
+          "name": "storytold/craft-anything",
+          "url": "https://github.com/storytold/craft-anything",
+          "description": "Craft Anything: understand how any software works, and craft your own.",
+          "stars": 29479,
+          "forks": 5997,
+          "language": "Rust"
+        },
+        {
+          "name": "deepseek-ai/dsh-superagent-prototype",
+          "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+          "description": "Towards a More Autonomous Agent System",
+          "stars": 22693,
+          "forks": 2759,
+          "language": "TypeScript"
+        }
+      ],
+      "stories": [],
+      "advisories": [],
+      "counts": [
+        2,
+        0,
+        0
+      ],
+      "personalized": true
+    }
+  }
+}
