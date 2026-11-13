@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-13",
+  "delivered": {
+    "企业微信": "2026-11-13T07:28:11.968795+00:00"
+  },
+  "skipped": {},
+  "selection": {
+    "title": "技术雷达 · 2026-11-13",
+    "text": "技术雷达 · 2026-11-13\n\n关注精选命中：2 个开源项目 / 1 条热议 / 0 条安全公告\n\n开源发现：storytold/craft-anything\n\nCraft Anything: understand how any software works, and craft your own.\n\nhttps://github.com/storytold/craft-anything\n\n开源发现：deepseek-ai/dsh-superagent-prototype\n\nTowards a More Autonomous Agent System\n\nhttps://github.com/deepseek-ai/dsh-superagent-prototype\n\n开发者热议：Rust 1.100\n\nhttps://blog.rust-lang.org/2026/11/12/Rust-1.100.0/\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-13.html",
+    "brief": {
+      "date": "2026-11-13",
+      "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-13.html",
+      "repos": [
+        {
+          "name": "storytold/craft-anything",
+          "url": "https://github.com/storytold/craft-anything",
+          "description": "Craft Anything: understand how any software works, and craft your own.",
+          "stars": 30494,
+          "forks": 6228,
+          "language": "Rust"
+        },
+        {
+          "name": "deepseek-ai/dsh-superagent-prototype",
+          "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+          "description": "Towards a More Autonomous Agent System",
+          "stars": 22862,
+          "forks": 2779,
+          "language": "TypeScript"
+        }
+      ],
+      "stories": [
+        {
+          "title": "Rust 1.100",
+          "url": "https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/",
+          "score": 617,
+          "comments": 231,
+          "discuss_url": "https://news.ycombinator.com/item?id=50472038"
+        }
+      ],
+      "advisories": [],
+      "counts": [
+        2,
+        1,
+        0
+      ],
+      "personalized": true
+    }
+  }
+}
