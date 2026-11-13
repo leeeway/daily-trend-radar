@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "items": {
+    "repos": [
+      {
+        "name": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "description": "Craft Anything: understand how any software works, and craft your own.",
+        "stars": 30494,
+        "forks": 6228,
+        "language": "Rust"
+      },
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 22862,
+        "forks": 2779,
+        "language": "TypeScript"
+      },
+      {
+        "name": "NotRexed/Hookshot",
+        "url": "https://github.com/NotRexed/Hookshot",
+        "description": "A Native Recompilation Of The Legend Of Zelda: Ocarina Of Time Nintendo Switch 2 Remake",
+        "stars": 9010,
+        "forks": 822,
+        "language": "C++"
+      },
+      {
+        "name": "zortos293/Lichii",
+        "url": "https://github.com/zortos293/Lichii",
+        "description": "VERY experimental Nintendo Switch 2 emulator",
+        "stars": 8832,
+        "forks": 1412,
+        "language": "C++"
+      },
+      {
+        "name": "Minireel/HGhub",
+        "url": "https://github.com/Minireel/HGhub",
+        "description": "YellowFruit third-party client",
+        "stars": 8727,
+        "forks": 5586,
+        "language": "Other"
+      },
+      {
+        "name": "janestreet/agent_skills",
+        "url": "https://github.com/janestreet/agent_skills",
+        "description": "Agent skills",
+        "stars": 7938,
+        "forks": 516,
+        "language": "Other"
+      },
+      {
+        "name": "huamidev/GestaltX",
+        "url": "https://github.com/huamidev/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 7070,
+        "forks": 2576,
+        "language": "Swift"
+      },
+      {
+        "name": "Lee-xeo/Claude-Cage",
+        "url": "https://github.com/Lee-xeo/Claude-Cage",
+        "description": "Cage：为 Claude 特化的轻量化虚拟机，彻底杜绝网络泄露。多平台适配，支持多账号管理、远程部署、移动端操控。",
+        "stars": 5037,
+        "forks": 556,
+        "language": "Go"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Jensen Huang resigns",
+        "url": "https://apnews.com/article/nvidia-megaspeed-china-singapore-huang-5403f152a601cf82ce939f1d24fffa0f",
+        "score": 3373,
+        "comments": 3045,
+        "discuss_url": "https://news.ycombinator.com/item?id=50467087"
+      },
+      {
+        "title": "IceWM",
+        "url": "https://ice-wm.org/",
+        "score": 94,
+        "comments": 37,
+        "discuss_url": "https://news.ycombinator.com/item?id=50478515"
+      },
+      {
+        "title": "Scientists claim the universe is twice as old as believed",
+        "url": "https://geekspin.co/scientists-claim-the-universe-is-twice-as-old-as-believed/",
+        "score": 46,
+        "comments": 32,
+        "discuss_url": "https://news.ycombinator.com/item?id=50478635"
+      },
+      {
+        "title": "Rust 1.100",
+        "url": "https://blog.rust-lang.org/2026/11/12/Rust-1.100.0/",
+        "score": 617,
+        "comments": 231,
+        "discuss_url": "https://news.ycombinator.com/item?id=50472038"
+      },
+      {
+        "title": "Brave Search API now accepts agentic payments via the x402 protocol",
+        "url": "https://brave.com/blog/search-api-agentic-payments/",
+        "score": 65,
+        "comments": 24,
+        "discuss_url": "https://news.ycombinator.com/item?id=50477649"
+      },
+      {
+        "title": "Switcher (2004)",
+        "url": "https://folklore.org/Switcher.html",
+        "score": 84,
+        "comments": 20,
+        "discuss_url": "https://news.ycombinator.com/item?id=50477714"
+      },
+      {
+        "title": "Nvidia employees petition to bring back Jensen Huang",
+        "url": "https://www.wired.com/story/nvidia-employees-petition-for-jensen-huangs-return/",
+        "score": 448,
+        "comments": 333,
+        "discuss_url": "https://news.ycombinator.com/item?id=50477231"
+      },
+      {
+        "title": "Gemini 4 Hydrogen and Orchestrator",
+        "url": "https://antigravity.google/blog/gemini-4-hydrogen-in-google-antigravity/",
+        "score": 394,
+        "comments": 106,
+        "discuss_url": "https://news.ycombinator.com/item?id=50472260"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-2ffh-vrgc-q849",
+        "cve_id": "CVE-2026-107415",
+        "summary": "Memory overflow in Email OTP authentication can lead to unpredictable or erroneous behavior or...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-2ffh-vrgc-q849"
+      },
+      {
+        "ghsa_id": "GHSA-9qgc-v9gw-wm22",
+        "cve_id": "CVE-2026-107412",
+        "summary": "Multiple Memory overflow vulnerabilities can lead to unpredictable or erroneous behavior and...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-9qgc-v9gw-wm22"
+      },
+      {
+        "ghsa_id": "GHSA-vp98-45w4-xm4m",
+        "cve_id": "CVE-2026-127277",
+        "summary": "A security flaw has been discovered in Linksys EA8100 1.0.3.216940. The affected element is an...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-vp98-45w4-xm4m"
+      },
+      {
+        "ghsa_id": "GHSA-vj3g-h4q4-mr86",
+        "cve_id": "CVE-2026-107410",
+        "summary": "Memory overflow in NetScaler Push can lead to unpredictable or erroneous behavior or Denial of...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-vj3g-h4q4-mr86"
+      },
+      {
+        "ghsa_id": "GHSA-2w9r-x33f-6fj5",
+        "cve_id": "CVE-2026-107407",
+        "summary": "Memory overflow in SMPP traffic can lead to unpredictable or erroneous behavior or Denial of...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-2w9r-x33f-6fj5"
+      },
+      {
+        "ghsa_id": "GHSA-9422-f2gf-7vvw",
+        "cve_id": "CVE-2026-107408",
+        "summary": "Memory corruption in DNS / DNS-over-HTTPS (DoH) can lead to unpredictable or erroneous behavior...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-9422-f2gf-7vvw"
+      }
+    ]
+  },
+  "title": "技术雷达 · 2026-11-13",
+  "text": "技术雷达 · 2026-11-13\n\n开源精选：storytold/craft-anything\n\nCraft Anything: understand how any software works, and craft your own.\n\n今日热议：Jensen Huang resigns\n\n安全关注：GHSA-2ffh-vrgc-q849 Memory overflow in Email OTP authentication can lead to unpredictable or erroneous behavior or...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-13.html",
+  "brief": {
+    "date": "2026-11-13",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-13.html",
+    "repos": [
+      {
+        "name": "storytold/craft-anything",
+        "url": "https://github.com/storytold/craft-anything",
+        "description": "Craft Anything: understand how any software works, and craft your own.",
+        "stars": 30494,
+        "forks": 6228,
+        "language": "Rust"
+      },
+      {
+        "name": "deepseek-ai/dsh-superagent-prototype",
+        "url": "https://github.com/deepseek-ai/dsh-superagent-prototype",
+        "description": "Towards a More Autonomous Agent System",
+        "stars": 22862,
+        "forks": 2779,
+        "language": "TypeScript"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Jensen Huang resigns",
+        "url": "https://apnews.com/article/nvidia-megaspeed-china-singapore-huang-5403f152a601cf82ce939f1d24fffa0f",
+        "score": 3373,
+        "comments": 3045,
+        "discuss_url": "https://news.ycombinator.com/item?id=50467087"
+      },
+      {
+        "title": "IceWM",
+        "url": "https://ice-wm.org/",
+        "score": 94,
+        "comments": 37,
+        "discuss_url": "https://news.ycombinator.com/item?id=50478515"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-2ffh-vrgc-q849",
+        "cve_id": "CVE-2026-107415",
+        "summary": "Memory overflow in Email OTP authentication can lead to unpredictable or erroneous behavior or...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-2ffh-vrgc-q849"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
