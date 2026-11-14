@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "items": {
+    "repos": [
+      {
+        "name": "Minireel/HGhub",
+        "url": "https://github.com/Minireel/HGhub",
+        "description": "YellowFruit third-party client",
+        "stars": 8830,
+        "forks": 6544,
+        "language": "Other"
+      },
+      {
+        "name": "janestreet/agent_skills",
+        "url": "https://github.com/janestreet/agent_skills",
+        "description": "Agent skills",
+        "stars": 8363,
+        "forks": 546,
+        "language": "Other"
+      },
+      {
+        "name": "huamidev/GestaltX",
+        "url": "https://github.com/huamidev/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 7414,
+        "forks": 2610,
+        "language": "Swift"
+      },
+      {
+        "name": "KKKKhazix/agent-autoloop",
+        "url": "https://github.com/KKKKhazix/agent-autoloop",
+        "description": "让你的命令行 Agent 在后台自己接活、自己跟进到底；平时不烦你，遇到拿不准的事才发卡片找你拍板。",
+        "stars": 5196,
+        "forks": 946,
+        "language": "TypeScript"
+      },
+      {
+        "name": "expo/exact",
+        "url": "https://github.com/expo/exact",
+        "description": "Write an app once. It runs natively on the web, macOS, iOS, and Linux, and an AI agent can build it, run it, see it, and test it on every one of them.",
+        "stars": 4061,
+        "forks": 98,
+        "language": "Rust"
+      },
+      {
+        "name": "tangerineturtle1/NX2navi",
+        "url": "https://github.com/tangerineturtle1/NX2navi",
+        "description": "暂无项目描述",
+        "stars": 3966,
+        "forks": 301,
+        "language": "C"
+      },
+      {
+        "name": "mromidev/claude-animated-shorts",
+        "url": "https://github.com/mromidev/claude-animated-shorts",
+        "description": "Free Claude skill: viral animated story shorts (2D characters in a 3D world) with three.js + Remotion",
+        "stars": 3298,
+        "forks": 706,
+        "language": "TypeScript"
+      },
+      {
+        "name": "shanselman/gputaskman",
+        "url": "https://github.com/shanselman/gputaskman",
+        "description": "A GPU task manager for Windows, Linux, and WSL: per-process VRAM, GPU activity, and LLM model/KV-cache insights (Windows AMD and NVIDIA).",
+        "stars": 3119,
+        "forks": 151,
+        "language": "Python"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Ggml v1.0.0",
+        "url": "https://github.com/ggml-org/ggml/releases/tag/v1.0.0",
+        "score": 174,
+        "comments": 29,
+        "discuss_url": "https://news.ycombinator.com/item?id=50493062"
+      },
+      {
+        "title": "Nvidia Allegedly Engineered Scarcity by Funding AI Startups to Buy Its GPUs",
+        "url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+        "score": 365,
+        "comments": 191,
+        "discuss_url": "https://news.ycombinator.com/item?id=50493251"
+      },
+      {
+        "title": "FAA issues national ground stop – lifted 4.5 hours later",
+        "url": "https://www.nbcnews.com/news/us-news/faa-orders-nationwide-ground-stop-departing-flights-reasons-safety-rcna609247",
+        "score": 1487,
+        "comments": 1142,
+        "discuss_url": "https://news.ycombinator.com/item?id=50489641"
+      },
+      {
+        "title": "Terminal borders that don't cost a cell",
+        "url": "https://www.joshka.net/cell-borders/",
+        "score": 193,
+        "comments": 84,
+        "discuss_url": "https://news.ycombinator.com/item?id=50491423"
+      },
+      {
+        "title": "Unsloth Qwen3.8-27B Quantizations – Dynamic v3.1 Update",
+        "url": "https://unsloth.ai/docs/models/qwen3.8",
+        "score": 97,
+        "comments": 16,
+        "discuss_url": "https://news.ycombinator.com/item?id=50491980"
+      },
+      {
+        "title": "Show HN: Live map of U.S. flights during tonight's FAA nationwide ground stop",
+        "url": "https://grounds.top/",
+        "score": 115,
+        "comments": 13,
+        "discuss_url": "https://news.ycombinator.com/item?id=50491545"
+      },
+      {
+        "title": "What Happened to 3Com?",
+        "url": "https://dfarq.homeip.net/what-happened-to-3com/",
+        "score": 115,
+        "comments": 61,
+        "discuss_url": "https://news.ycombinator.com/item?id=50491830"
+      },
+      {
+        "title": "Live airband on all frequencies from KORS. Victoria, CA also ground stopped",
+        "url": "https://orcasairband.com/",
+        "score": 253,
+        "comments": 60,
+        "discuss_url": "https://news.ycombinator.com/item?id=50490593"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-4c36-pqmf-xhhf",
+        "cve_id": "CVE-2026-126173",
+        "summary": "The AutomatorWP Pro plugin for WordPress' webhook addon is vulnerable to authorization bypass in...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-4c36-pqmf-xhhf"
+      },
+      {
+        "ghsa_id": "GHSA-mgcx-hxxw-4q57",
+        "cve_id": "CVE-2026-124021",
+        "summary": "Control Web Panel (CWP) before webpanel_version 1.30.6 contains an authorization bypass...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-mgcx-hxxw-4q57"
+      },
+      {
+        "ghsa_id": "GHSA-w6f7-3p76-2m93",
+        "cve_id": "CVE-2026-124020",
+        "summary": "Control Web Panel (CWP) before webpanel_version 1.30.6 contains a host header injection...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-w6f7-3p76-2m93"
+      },
+      {
+        "ghsa_id": "GHSA-f97p-h5rh-vp5p",
+        "cve_id": "CVE-2026-82504",
+        "summary": "VITEC EZ TV Platform Server before 8.5.0 contains an unrestricted file upload vulnerability in...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-f97p-h5rh-vp5p"
+      },
+      {
+        "ghsa_id": "GHSA-pfpf-25qg-8vx8",
+        "cve_id": "CVE-2026-129167",
+        "summary": "Seafile SeaDoc converter 2.0.4 before 2.0.11 and 3.0.0 before 3.0.8 contains an absolute path...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-pfpf-25qg-8vx8"
+      },
+      {
+        "ghsa_id": "GHSA-jqh3-8vc6-rjxr",
+        "cve_id": "CVE-2026-129171",
+        "summary": "NginxPulse 1.5.0 before 1.6.26 contains an unauthenticated sql injection vulnerability that...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-jqh3-8vc6-rjxr"
+      }
+    ]
+  },
+  "title": "技术雷达 · 2026-11-14",
+  "text": "技术雷达 · 2026-11-14\n\n开源精选：Minireel/HGhub\n\nYellowFruit third-party client\n\n今日热议：Ggml v1.0.0\n\n安全关注：GHSA-4c36-pqmf-xhhf The AutomatorWP Pro plugin for WordPress' webhook addon is vulnerable to authorization bypass in...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-14.html",
+  "brief": {
+    "date": "2026-11-14",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-14.html",
+    "repos": [
+      {
+        "name": "Minireel/HGhub",
+        "url": "https://github.com/Minireel/HGhub",
+        "description": "YellowFruit third-party client",
+        "stars": 8830,
+        "forks": 6544,
+        "language": "Other"
+      },
+      {
+        "name": "janestreet/agent_skills",
+        "url": "https://github.com/janestreet/agent_skills",
+        "description": "Agent skills",
+        "stars": 8363,
+        "forks": 546,
+        "language": "Other"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Ggml v1.0.0",
+        "url": "https://github.com/ggml-org/ggml/releases/tag/v1.0.0",
+        "score": 174,
+        "comments": 29,
+        "discuss_url": "https://news.ycombinator.com/item?id=50493062"
+      },
+      {
+        "title": "Nvidia Allegedly Engineered Scarcity by Funding AI Startups to Buy Its GPUs",
+        "url": "https://www.techpowerup.com/354814/nvidia-allegedly-engineered-scarcity-by-funding-ai-startups-to-buy-its-gpus",
+        "score": 365,
+        "comments": 191,
+        "discuss_url": "https://news.ycombinator.com/item?id=50493251"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-4c36-pqmf-xhhf",
+        "cve_id": "CVE-2026-126173",
+        "summary": "The AutomatorWP Pro plugin for WordPress' webhook addon is vulnerable to authorization bypass in...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-4c36-pqmf-xhhf"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
