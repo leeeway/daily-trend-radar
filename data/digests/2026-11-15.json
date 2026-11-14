@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "items": {
+    "repos": [
+      {
+        "name": "Minireel/HGhub",
+        "url": "https://github.com/Minireel/HGhub",
+        "description": "YellowFruit third-party client",
+        "stars": 8849,
+        "forks": 6665,
+        "language": "Other"
+      },
+      {
+        "name": "janestreet/agent_skills",
+        "url": "https://github.com/janestreet/agent_skills",
+        "description": "Agent skills",
+        "stars": 8563,
+        "forks": 562,
+        "language": "Other"
+      },
+      {
+        "name": "huamidev/GestaltX",
+        "url": "https://github.com/huamidev/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 7542,
+        "forks": 2635,
+        "language": "Swift"
+      },
+      {
+        "name": "KKKKhazix/agent-autoloop",
+        "url": "https://github.com/KKKKhazix/agent-autoloop",
+        "description": "让你的命令行 Agent 在后台自己接活、自己跟进到底；平时不烦你，遇到拿不准的事才发卡片找你拍板。",
+        "stars": 5326,
+        "forks": 973,
+        "language": "TypeScript"
+      },
+      {
+        "name": "expo/exact",
+        "url": "https://github.com/expo/exact",
+        "description": "Write an app once. It runs natively on the web, macOS, iOS, and Linux, and an AI agent can build it, run it, see it, and test it on every one of them.",
+        "stars": 4156,
+        "forks": 100,
+        "language": "Rust"
+      },
+      {
+        "name": "tangerineturtle1/NX2navi",
+        "url": "https://github.com/tangerineturtle1/NX2navi",
+        "description": "暂无项目描述",
+        "stars": 4068,
+        "forks": 314,
+        "language": "C"
+      },
+      {
+        "name": "libracoder/kiri",
+        "url": "https://github.com/libracoder/kiri",
+        "description": "A small, fast container runtime for macOS, Windows and Linux with free Ngrok alternative",
+        "stars": 3483,
+        "forks": 175,
+        "language": "Rust"
+      },
+      {
+        "name": "shanselman/gputaskman",
+        "url": "https://github.com/shanselman/gputaskman",
+        "description": "A GPU task manager for Windows, Linux, and WSL: per-process VRAM, GPU activity, and LLM model/KV-cache insights (Windows AMD and NVIDIA).",
+        "stars": 3202,
+        "forks": 157,
+        "language": "Python"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Lovable apps expose passport details and more than 200K private messages",
+        "url": "https://www.crissyfield.de/research/lovable-en/",
+        "score": 216,
+        "comments": 56,
+        "discuss_url": "https://news.ycombinator.com/item?id=50499017"
+      },
+      {
+        "title": "A Family Tree of Software Job Titles",
+        "url": "https://zwischenzugs.com/2026/11/03/a-family-tree-of-software-job-titles/",
+        "score": 49,
+        "comments": 16,
+        "discuss_url": "https://news.ycombinator.com/item?id=50499038"
+      },
+      {
+        "title": "PyPI's redesigned project pages with clearer security signals are now live",
+        "url": "https://blog.pypi.org/posts/2026-11-06-ui-updates-complete/",
+        "score": 135,
+        "comments": 48,
+        "discuss_url": "https://news.ycombinator.com/item?id=50497892"
+      },
+      {
+        "title": "KDE: The documentary [video]",
+        "url": "https://tube.kockatoo.org/w/fFinNHfanLT7aBEb2B8y4c",
+        "score": 245,
+        "comments": 40,
+        "discuss_url": "https://news.ycombinator.com/item?id=50496976"
+      },
+      {
+        "title": "Why get an expensive Pi when I have an old phone?",
+        "url": "https://so.long.thanks.fish/why-pi-when-i-have-an-old-phone/",
+        "score": 412,
+        "comments": 244,
+        "discuss_url": "https://news.ycombinator.com/item?id=50440709"
+      },
+      {
+        "title": "Advancing science and engineering with Antigravity's /teamwork",
+        "url": "https://research.google/blog/advancing-science-engineering-with-antigravitys-teamwork-feature/",
+        "score": 98,
+        "comments": 27,
+        "discuss_url": "https://news.ycombinator.com/item?id=50496811"
+      },
+      {
+        "title": "US IRS free online tax filing open source repo",
+        "url": "https://github.com/IRS-Public/direct-file",
+        "score": 17,
+        "comments": 2,
+        "discuss_url": "https://news.ycombinator.com/item?id=50499083"
+      },
+      {
+        "title": "Reverse engineering a vintage diode-transistor logic chip",
+        "url": "https://www.righto.com/2026/11/signetics-st680a-dtl-nand.html",
+        "score": 46,
+        "comments": 1,
+        "discuss_url": "https://news.ycombinator.com/item?id=50416011"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-rqw6-6jvc-7q36",
+        "cve_id": "CVE-2026-129261",
+        "summary": "A vulnerability was found in Kingston FURY CTRL RGB Control Software up to 2.0.66.0. The impacted...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-rqw6-6jvc-7q36"
+      },
+      {
+        "ghsa_id": "GHSA-8269-9p52-9cvv",
+        "cve_id": "CVE-2026-19907",
+        "summary": "The Shipo plugin for WordPress is vulnerable to Authentication Bypass in versions 1.6 through 1.8...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-8269-9p52-9cvv"
+      },
+      {
+        "ghsa_id": "GHSA-gfc5-hfj7-fjwc",
+        "cve_id": "CVE-2026-129433",
+        "summary": "Dokploy before 0.31.1 contains an OS command injection vulnerability in...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-gfc5-hfj7-fjwc"
+      },
+      {
+        "ghsa_id": "GHSA-hfjg-wrx8-4h72",
+        "cve_id": "CVE-2026-129255",
+        "summary": "A vulnerability was identified in CoolerMaster MASTERPLUS+ 1.9.6. This affects the function...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-hfjg-wrx8-4h72"
+      },
+      {
+        "ghsa_id": "GHSA-7rh5-mv9f-p27q",
+        "cve_id": "CVE-2026-120522",
+        "summary": "The Cloud Storage Manager for Fluent Forms – Google Drive, Dropbox, OneDrive, S3 Uploads plugin...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-7rh5-mv9f-p27q"
+      },
+      {
+        "ghsa_id": "GHSA-4c36-pqmf-xhhf",
+        "cve_id": "CVE-2026-126173",
+        "summary": "The AutomatorWP Pro plugin for WordPress' webhook addon is vulnerable to authorization bypass in...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-4c36-pqmf-xhhf"
+      }
+    ]
+  },
+  "title": "技术雷达 · 2026-11-15",
+  "text": "技术雷达 · 2026-11-15\n\n开源精选：Minireel/HGhub\n\nYellowFruit third-party client\n\n今日热议：Lovable apps expose passport details and more than 200K private messages\n\n安全关注：GHSA-rqw6-6jvc-7q36 A vulnerability was found in Kingston FURY CTRL RGB Control Software up to 2.0.66.0. The impacted...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-15.html",
+  "brief": {
+    "date": "2026-11-15",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-15.html",
+    "repos": [
+      {
+        "name": "Minireel/HGhub",
+        "url": "https://github.com/Minireel/HGhub",
+        "description": "YellowFruit third-party client",
+        "stars": 8849,
+        "forks": 6665,
+        "language": "Other"
+      },
+      {
+        "name": "janestreet/agent_skills",
+        "url": "https://github.com/janestreet/agent_skills",
+        "description": "Agent skills",
+        "stars": 8563,
+        "forks": 562,
+        "language": "Other"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Lovable apps expose passport details and more than 200K private messages",
+        "url": "https://www.crissyfield.de/research/lovable-en/",
+        "score": 216,
+        "comments": 56,
+        "discuss_url": "https://news.ycombinator.com/item?id=50499017"
+      },
+      {
+        "title": "A Family Tree of Software Job Titles",
+        "url": "https://zwischenzugs.com/2026/11/03/a-family-tree-of-software-job-titles/",
+        "score": 49,
+        "comments": 16,
+        "discuss_url": "https://news.ycombinator.com/item?id=50499038"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-rqw6-6jvc-7q36",
+        "cve_id": "CVE-2026-129261",
+        "summary": "A vulnerability was found in Kingston FURY CTRL RGB Control Software up to 2.0.66.0. The impacted...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-rqw6-6jvc-7q36"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
