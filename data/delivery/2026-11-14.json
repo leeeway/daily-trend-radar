@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-14",
+  "delivered": {
+    "企业微信": "2026-11-14T07:13:03.583920+00:00"
+  },
+  "skipped": {},
+  "selection": {
+    "title": "技术雷达 · 2026-11-14",
+    "text": "技术雷达 · 2026-11-14\n\n关注精选命中：2 个开源项目 / 0 条热议 / 0 条安全公告\n\n开源发现：expo/exact\n\nWrite an app once. It runs natively on the web, macOS, iOS, and Linux, and an AI agent can build it, run it, see it, and test it on every one of them.\n\nhttps://github.com/expo/exact\n\n开源发现：shanselman/gputaskman\n\nA GPU task manager for Windows, Linux, and WSL: per-process VRAM, GPU activity, and LLM model/KV-cache insights (Windows AMD and NVIDIA).\n\nhttps://github.com/shanselman/gputaskman\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-14.html",
+    "brief": {
+      "date": "2026-11-14",
+      "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-14.html",
+      "repos": [
+        {
+          "name": "expo/exact",
+          "url": "https://github.com/expo/exact",
+          "description": "Write an app once. It runs natively on the web, macOS, iOS, and Linux, and an AI agent can build it, run it, see it, and test it on every one of them.",
+          "stars": 4061,
+          "forks": 98,
+          "language": "Rust"
+        },
+        {
+          "name": "shanselman/gputaskman",
+          "url": "https://github.com/shanselman/gputaskman",
+          "description": "A GPU task manager for Windows, Linux, and WSL: per-process VRAM, GPU activity, and LLM model/KV-cache insights (Windows AMD and NVIDIA).",
+          "stars": 3119,
+          "forks": 151,
+          "language": "Python"
+        }
+      ],
+      "stories": [],
+      "advisories": [],
+      "counts": [
+        2,
+        0,
+        0
+      ],
+      "personalized": true
+    }
+  }
+}
