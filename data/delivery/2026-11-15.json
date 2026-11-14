@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-15",
+  "delivered": {
+    "企业微信": "2026-11-14T19:28:00.415206+00:00"
+  },
+  "skipped": {},
+  "selection": {
+    "title": "技术雷达 · 2026-11-15",
+    "text": "技术雷达 · 2026-11-15\n\n关注精选命中：3 个开源项目 / 0 条热议 / 0 条安全公告\n\n开源发现：expo/exact\n\nWrite an app once. It runs natively on the web, macOS, iOS, and Linux, and an AI agent can build it, run it, see it, and test it on every one of them.\n\nhttps://github.com/expo/exact\n\n开源发现：libracoder/kiri\n\nA small, fast container runtime for macOS, Windows and Linux with free Ngrok alternative\n\nhttps://github.com/libracoder/kiri\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-15.html",
+    "brief": {
+      "date": "2026-11-15",
+      "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-15.html",
+      "repos": [
+        {
+          "name": "expo/exact",
+          "url": "https://github.com/expo/exact",
+          "description": "Write an app once. It runs natively on the web, macOS, iOS, and Linux, and an AI agent can build it, run it, see it, and test it on every one of them.",
+          "stars": 4156,
+          "forks": 100,
+          "language": "Rust"
+        },
+        {
+          "name": "libracoder/kiri",
+          "url": "https://github.com/libracoder/kiri",
+          "description": "A small, fast container runtime for macOS, Windows and Linux with free Ngrok alternative",
+          "stars": 3483,
+          "forks": 175,
+          "language": "Rust"
+        }
+      ],
+      "stories": [],
+      "advisories": [],
+      "counts": [
+        3,
+        0,
+        0
+      ],
+      "personalized": true
+    }
+  }
+}
