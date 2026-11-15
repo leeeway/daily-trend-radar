@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "items": {
+    "repos": [
+      {
+        "name": "Minireel/HGhub",
+        "url": "https://github.com/Minireel/HGhub",
+        "description": "Plug-in media player",
+        "stars": 8976,
+        "forks": 7079,
+        "language": "Rust"
+      },
+      {
+        "name": "janestreet/agent_skills",
+        "url": "https://github.com/janestreet/agent_skills",
+        "description": "Agent skills",
+        "stars": 8916,
+        "forks": 601,
+        "language": "Other"
+      },
+      {
+        "name": "huamidev/GestaltX",
+        "url": "https://github.com/huamidev/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 7726,
+        "forks": 2661,
+        "language": "Swift"
+      },
+      {
+        "name": "KKKKhazix/agent-autoloop",
+        "url": "https://github.com/KKKKhazix/agent-autoloop",
+        "description": "让你的命令行 Agent 在后台自己接活、自己跟进到底；平时不烦你，遇到拿不准的事才发卡片找你拍板。",
+        "stars": 5489,
+        "forks": 1013,
+        "language": "TypeScript"
+      },
+      {
+        "name": "tangerineturtle1/NX2navi",
+        "url": "https://github.com/tangerineturtle1/NX2navi",
+        "description": "暂无项目描述",
+        "stars": 4193,
+        "forks": 330,
+        "language": "C"
+      },
+      {
+        "name": "shanselman/gputaskman",
+        "url": "https://github.com/shanselman/gputaskman",
+        "description": "A GPU task manager for Windows, Linux, and WSL: per-process VRAM, GPU activity, and LLM model/KV-cache insights (Windows AMD and NVIDIA).",
+        "stars": 3323,
+        "forks": 161,
+        "language": "Python"
+      },
+      {
+        "name": "JenkinWoo/sheeridVerify",
+        "url": "https://github.com/JenkinWoo/sheeridVerify",
+        "description": "暂无项目描述",
+        "stars": 3256,
+        "forks": 1534,
+        "language": "JavaScript"
+      },
+      {
+        "name": "jhaizhou-ops/S2Arm",
+        "url": "https://github.com/jhaizhou-ops/S2Arm",
+        "description": "Run your own Switch games natively on iPhone, iPad and Mac: game code rewritten to ARM64, graphics direct to Metal, one app for the whole library. Bring your own games and keys. 把你自己的 Switch 游戏原生带到 iPhone / iPad / Mac。",
+        "stars": 3179,
+        "forks": 561,
+        "language": "C#"
+      }
+    ],
+    "stories": [
+      {
+        "title": "All AI-generated code should be Open Source",
+        "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+        "score": 853,
+        "comments": 457,
+        "discuss_url": "https://news.ycombinator.com/item?id=50507303"
+      },
+      {
+        "title": "A short explainer on how El Niño works [video]",
+        "url": "https://www.youtube.com/watch?v=7_JF3etiAv8",
+        "score": 48,
+        "comments": 3,
+        "discuss_url": "https://news.ycombinator.com/item?id=50509308"
+      },
+      {
+        "title": "The MacBook Pro's OLED PWM Problem: When a 'Better' Display Becomes Worse to Use",
+        "url": "https://macanorak.com/the-macbook-pros-oled-pwm-problem-when-a-better-display-becomes-worse-to-use/",
+        "score": 300,
+        "comments": 167,
+        "discuss_url": "https://news.ycombinator.com/item?id=50506719"
+      },
+      {
+        "title": "Things That Turbo Pascal Is Smaller Than (2011)",
+        "url": "https://prog21.dadgum.com/116.html",
+        "score": 140,
+        "comments": 69,
+        "discuss_url": "https://news.ycombinator.com/item?id=50506894"
+      },
+      {
+        "title": "'Birdbrain' Is a Misnomer. Crows Make Decisions Faster Than We Can",
+        "url": "https://www.nytimes.com/2026/11/15/science/birdbrain-crows-birds-research-decision.html",
+        "score": 41,
+        "comments": 25,
+        "discuss_url": "https://news.ycombinator.com/item?id=50509023"
+      },
+      {
+        "title": "Claude Code and Codex reverse engineered my 1994 Jeep's ECU over a $3 Arduino [video]",
+        "url": "https://www.youtube.com/watch?v=WPj3aQ-xxpI",
+        "score": 183,
+        "comments": 82,
+        "discuss_url": "https://news.ycombinator.com/item?id=50463399"
+      },
+      {
+        "title": "Emacs Is My Browser",
+        "url": "https://joshblais.com/blog/emacs-as-my-browser/",
+        "score": 112,
+        "comments": 62,
+        "discuss_url": "https://news.ycombinator.com/item?id=50507553"
+      },
+      {
+        "title": "SpaceX catches the Starship to end Flight 15",
+        "url": "https://www.spacex.com/launches/starship-flight-15",
+        "score": 1562,
+        "comments": 1095,
+        "discuss_url": "https://news.ycombinator.com/item?id=50500963"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-3cfv-f88w-c563",
+        "cve_id": "CVE-2026-125795",
+        "summary": "Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-3cfv-f88w-c563"
+      },
+      {
+        "ghsa_id": "GHSA-h9fw-9v74-m2cr",
+        "cve_id": "CVE-2026-129483",
+        "summary": "Cyrus SASL through 2.1.28 contains an authentication bypass vulnerability in the SRP server...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-h9fw-9v74-m2cr"
+      },
+      {
+        "ghsa_id": "GHSA-vg24-2rxm-rxwg",
+        "cve_id": "CVE-2026-125769",
+        "summary": "Incorrect Privilege Assignment vulnerability in Nasir Ahmed Advanced Form Integration advanced...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-vg24-2rxm-rxwg"
+      },
+      {
+        "ghsa_id": "GHSA-v4j4-5mx7-gp87",
+        "cve_id": "CVE-2026-122662",
+        "summary": "Deserialization of Untrusted Data vulnerability in Barn2 Plugins Document Library Pro document...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-v4j4-5mx7-gp87"
+      },
+      {
+        "ghsa_id": "GHSA-3j37-vw7v-fxxw",
+        "cve_id": "CVE-2026-129349",
+        "summary": "When authentication caching is enabled on DefaultLdapRealm, after a user logs in successfully...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-3j37-vw7v-fxxw"
+      },
+      {
+        "ghsa_id": "GHSA-32m9-2655-w25q",
+        "cve_id": "CVE-2026-129444",
+        "summary": "A vulnerability was identified in D-Link DSL-6740C 20131126. This affects an unknown function of...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-32m9-2655-w25q"
+      }
+    ]
+  },
+  "title": "技术雷达 · 2026-11-16",
+  "text": "技术雷达 · 2026-11-16\n\n开源精选：Minireel/HGhub\n\nPlug-in media player\n\n今日热议：All AI-generated code should be Open Source\n\n安全关注：GHSA-3cfv-f88w-c563 Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-16.html",
+  "brief": {
+    "date": "2026-11-16",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-16.html",
+    "repos": [
+      {
+        "name": "Minireel/HGhub",
+        "url": "https://github.com/Minireel/HGhub",
+        "description": "Plug-in media player",
+        "stars": 8976,
+        "forks": 7079,
+        "language": "Rust"
+      },
+      {
+        "name": "janestreet/agent_skills",
+        "url": "https://github.com/janestreet/agent_skills",
+        "description": "Agent skills",
+        "stars": 8916,
+        "forks": 601,
+        "language": "Other"
+      }
+    ],
+    "stories": [
+      {
+        "title": "All AI-generated code should be Open Source",
+        "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+        "score": 853,
+        "comments": 457,
+        "discuss_url": "https://news.ycombinator.com/item?id=50507303"
+      },
+      {
+        "title": "A short explainer on how El Niño works [video]",
+        "url": "https://www.youtube.com/watch?v=7_JF3etiAv8",
+        "score": 48,
+        "comments": 3,
+        "discuss_url": "https://news.ycombinator.com/item?id=50509308"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-3cfv-f88w-c563",
+        "cve_id": "CVE-2026-125795",
+        "summary": "Improper Control of Filename for Include/Require Statement in PHP Program ('PHP Remote File...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-3cfv-f88w-c563"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
