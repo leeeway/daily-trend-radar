@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-16",
+  "delivered": {
+    "企业微信": "2026-11-15T19:56:41.316500+00:00"
+  },
+  "skipped": {},
+  "selection": {
+    "title": "技术雷达 · 2026-11-16",
+    "text": "技术雷达 · 2026-11-16\n\n关注精选命中：2 个开源项目 / 0 条热议 / 1 条安全公告\n\n开源发现：Minireel/HGhub\n\nPlug-in media player\n\nhttps://github.com/Minireel/HGhub\n\n开源发现：shanselman/gputaskman\n\nA GPU task manager for Windows, Linux, and WSL: per-process VRAM, GPU activity, and LLM model/KV-cache insights (Windows AMD and NVIDIA).\n\nhttps://github.com/shanselman/gputaskman\n\n安全提醒：GHSA-v4j4-5mx7-gp87\n\nDeserialization of Untrusted Data vulnerability in Barn2 Plugins Document Library Pro document...\n\nhttps://github.com/advisories/GHSA-v4j4-5mx7-gp87\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-16.html",
+    "brief": {
+      "date": "2026-11-16",
+      "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-16.html",
+      "repos": [
+        {
+          "name": "Minireel/HGhub",
+          "url": "https://github.com/Minireel/HGhub",
+          "description": "Plug-in media player",
+          "stars": 8976,
+          "forks": 7079,
+          "language": "Rust"
+        },
+        {
+          "name": "shanselman/gputaskman",
+          "url": "https://github.com/shanselman/gputaskman",
+          "description": "A GPU task manager for Windows, Linux, and WSL: per-process VRAM, GPU activity, and LLM model/KV-cache insights (Windows AMD and NVIDIA).",
+          "stars": 3323,
+          "forks": 161,
+          "language": "Python"
+        }
+      ],
+      "stories": [],
+      "advisories": [
+        {
+          "ghsa_id": "GHSA-v4j4-5mx7-gp87",
+          "cve_id": "CVE-2026-122662",
+          "summary": "Deserialization of Untrusted Data vulnerability in Barn2 Plugins Document Library Pro document...",
+          "severity": "CRITICAL",
+          "url": "https://github.com/advisories/GHSA-v4j4-5mx7-gp87"
+        }
+      ],
+      "counts": [
+        2,
+        0,
+        1
+      ],
+      "personalized": true
+    }
+  }
+}
