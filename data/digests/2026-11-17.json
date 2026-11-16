@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "items": {
+    "repos": [
+      {
+        "name": "huamidev/GestaltX",
+        "url": "https://github.com/huamidev/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 7850,
+        "forks": 2679,
+        "language": "Swift"
+      },
+      {
+        "name": "tangerineturtle1/NX2navi",
+        "url": "https://github.com/tangerineturtle1/NX2navi",
+        "description": "暂无项目描述",
+        "stars": 4266,
+        "forks": 337,
+        "language": "C"
+      },
+      {
+        "name": "deepseek-ai/chat-demo",
+        "url": "https://github.com/deepseek-ai/chat-demo",
+        "description": "Chat Demo",
+        "stars": 3956,
+        "forks": 830,
+        "language": "TypeScript"
+      },
+      {
+        "name": "jhaizhou-ops/S2Arm",
+        "url": "https://github.com/jhaizhou-ops/S2Arm",
+        "description": "Run your own Switch games natively on iPhone, iPad and Mac: game code rewritten to ARM64, graphics direct to Metal, one app for the whole library. Bring your own games and keys. 把你自己的 Switch 游戏原生带到 iPhone / iPad / Mac。",
+        "stars": 3351,
+        "forks": 574,
+        "language": "C#"
+      },
+      {
+        "name": "JenkinWoo/sheeridVerify",
+        "url": "https://github.com/JenkinWoo/sheeridVerify",
+        "description": "暂无项目描述",
+        "stars": 3333,
+        "forks": 1570,
+        "language": "JavaScript"
+      },
+      {
+        "name": "jamesondh/chimera-vocal-synth",
+        "url": "https://github.com/jamesondh/chimera-vocal-synth",
+        "description": "the ultimate vocal synthesizer - sing, speak, beatbox, and more",
+        "stars": 2539,
+        "forks": 317,
+        "language": "Rust"
+      },
+      {
+        "name": "apex-compute/ANR",
+        "url": "https://github.com/apex-compute/ANR",
+        "description": "Apex Neural Rendering (ANR) by Apex Compute",
+        "stars": 2415,
+        "forks": 53,
+        "language": "C++"
+      },
+      {
+        "name": "DIYgod/pinky",
+        "url": "https://github.com/DIYgod/pinky",
+        "description": "Let AI use your iPhone or Android phone, with you in the loop: any MCP agent from macOS, Windows or Linux, or Pinky itself, right on the phone.",
+        "stars": 2281,
+        "forks": 245,
+        "language": "Go"
+      }
+    ],
+    "stories": [
+      {
+        "title": "The Secret ThinkPad Powerbutton Code to Bring Dead Laptops Back to Life (2007)",
+        "url": "https://masnick.com/posts/the-secret-thinkpad-powerbutton-code-to-bring-dead-laptops-back-to-life/",
+        "score": 161,
+        "comments": 71,
+        "discuss_url": "https://news.ycombinator.com/item?id=50516473"
+      },
+      {
+        "title": "Many of Amazon’s Black Friday and Cyber Monday “Deals” Offered No Savings",
+        "url": "http://groundworkcollaborative.org/news/amazons-decoy-deals-groundwork-investigation-reveals-nearly-1-in-3-black-friday-and-cyber-monday-deals-advertised-by-amazon-offered-no-savings-to-shoppers-nearly-1-in-10-w/",
+        "score": 281,
+        "comments": 143,
+        "discuss_url": "https://news.ycombinator.com/item?id=50517488"
+      },
+      {
+        "title": "How to make almost anything",
+        "url": "https://pub.cba.mit.edu/863.26/site/",
+        "score": 613,
+        "comments": 102,
+        "discuss_url": "https://news.ycombinator.com/item?id=50514470"
+      },
+      {
+        "title": "Universal XSS in uBlock Origin from website-driven element picker",
+        "url": "https://iter.ca/post/ubo-uxss/",
+        "score": 516,
+        "comments": 148,
+        "discuss_url": "https://news.ycombinator.com/item?id=50513160"
+      },
+      {
+        "title": "What is w2rt6byl5nf1opmc-a.com?",
+        "url": "https://jack.cab/blog/siterate",
+        "score": 240,
+        "comments": 100,
+        "discuss_url": "https://news.ycombinator.com/item?id=50517602"
+      },
+      {
+        "title": "Interpreting claims that a theorem is correct because it was checked in Lean",
+        "url": "https://xenaproject.wordpress.com/2026/11/12/and-the-proof-is-checked-in-lean/",
+        "score": 178,
+        "comments": 67,
+        "discuss_url": "https://news.ycombinator.com/item?id=50515058"
+      },
+      {
+        "title": "OOS – an open operating system for the Rigol Scopes",
+        "url": "https://www.eevblog.com/forum/testgear/oos-an-open-operating-system-for-the-rigol-scopes/",
+        "score": 72,
+        "comments": 24,
+        "discuss_url": "https://news.ycombinator.com/item?id=50490159"
+      },
+      {
+        "title": "Show HN: OpenTodo – a self-hosted, local-first task manager in one Go binary",
+        "url": "https://github.com/OpenTodoApp/OpenTodo",
+        "score": 11,
+        "comments": 3,
+        "discuss_url": "https://news.ycombinator.com/item?id=50517352"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-m928-26mr-w8c4",
+        "cve_id": "CVE-2026-129955",
+        "summary": "NodePress through 8.5.1 contains an authentication bypass vulnerability that allows...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-m928-26mr-w8c4"
+      },
+      {
+        "ghsa_id": "GHSA-qx88-2qcv-6gvh",
+        "cve_id": "CVE-2026-129952",
+        "summary": "NodePress through 8.5.1 contains an authentication bypass vulnerability that allows...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-qx88-2qcv-6gvh"
+      },
+      {
+        "ghsa_id": "GHSA-6w4x-mrhx-c9r3",
+        "cve_id": "CVE-2026-129941",
+        "summary": "Prime CMS (@primecms/core) through 0.4.0-beta.0 contains an authentication bypass vulnerability...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-6w4x-mrhx-c9r3"
+      },
+      {
+        "ghsa_id": "GHSA-mrhv-72r4-4gp3",
+        "cve_id": "CVE-2026-77033",
+        "summary": "An OS Command Injection vulnerability affecting Station Launcher App in 3DEXPERIENCE platform...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-mrhv-72r4-4gp3"
+      },
+      {
+        "ghsa_id": "GHSA-vmc3-vfjx-x6pj",
+        "cve_id": "CVE-2026-19732",
+        "summary": "An OS Command Injection vulnerability affecting Station Launcher App in 3DEXPERIENCE platform...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-vmc3-vfjx-x6pj"
+      },
+      {
+        "ghsa_id": "GHSA-26cr-jv3x-43fw",
+        "cve_id": "CVE-2026-93664",
+        "summary": "A Deserialization of Untrusted Data vulnerability affecting Station Launcher App in 3DEXPERIENCE...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-26cr-jv3x-43fw"
+      }
+    ]
+  },
+  "title": "技术雷达 · 2026-11-17",
+  "text": "技术雷达 · 2026-11-17\n\n开源精选：huamidev/GestaltX\n\nAn MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.\n\n今日热议：The Secret ThinkPad Powerbutton Code to Bring Dead Laptops Back to Life (2007)\n\n安全关注：GHSA-m928-26mr-w8c4 NodePress through 8.5.1 contains an authentication bypass vulnerability that allows...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-17.html",
+  "brief": {
+    "date": "2026-11-17",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-17.html",
+    "repos": [
+      {
+        "name": "huamidev/GestaltX",
+        "url": "https://github.com/huamidev/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 7850,
+        "forks": 2679,
+        "language": "Swift"
+      },
+      {
+        "name": "tangerineturtle1/NX2navi",
+        "url": "https://github.com/tangerineturtle1/NX2navi",
+        "description": "暂无项目描述",
+        "stars": 4266,
+        "forks": 337,
+        "language": "C"
+      }
+    ],
+    "stories": [
+      {
+        "title": "The Secret ThinkPad Powerbutton Code to Bring Dead Laptops Back to Life (2007)",
+        "url": "https://masnick.com/posts/the-secret-thinkpad-powerbutton-code-to-bring-dead-laptops-back-to-life/",
+        "score": 161,
+        "comments": 71,
+        "discuss_url": "https://news.ycombinator.com/item?id=50516473"
+      },
+      {
+        "title": "Many of Amazon’s Black Friday and Cyber Monday “Deals” Offered No Savings",
+        "url": "http://groundworkcollaborative.org/news/amazons-decoy-deals-groundwork-investigation-reveals-nearly-1-in-3-black-friday-and-cyber-monday-deals-advertised-by-amazon-offered-no-savings-to-shoppers-nearly-1-in-10-w/",
+        "score": 281,
+        "comments": 143,
+        "discuss_url": "https://news.ycombinator.com/item?id=50517488"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-m928-26mr-w8c4",
+        "cve_id": "CVE-2026-129955",
+        "summary": "NodePress through 8.5.1 contains an authentication bypass vulnerability that allows...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-m928-26mr-w8c4"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
