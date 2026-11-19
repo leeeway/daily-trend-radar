@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "items": {
+    "repos": [
+      {
+        "name": "huami1314/GestaltX",
+        "url": "https://github.com/huami1314/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 8435,
+        "forks": 2733,
+        "language": "Swift"
+      },
+      {
+        "name": "deepseek-ai/chat-demo",
+        "url": "https://github.com/deepseek-ai/chat-demo",
+        "description": "Chat Demo",
+        "stars": 4911,
+        "forks": 1110,
+        "language": "TypeScript"
+      },
+      {
+        "name": "tangerineturtle1/NX2navi",
+        "url": "https://github.com/tangerineturtle1/NX2navi",
+        "description": "暂无项目描述",
+        "stars": 4324,
+        "forks": 351,
+        "language": "C"
+      },
+      {
+        "name": "krisgfx9/Wireless-Device-Battery-Monitor",
+        "url": "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor",
+        "description": "Show the battery level of wireless mice, headsets, keyboards and controllers on the Windows 10/11 taskbar. Lightweight tray app, no vendor software needed. Supports Logitech, Razer, SteelSeries, Corsair, HyperX, Glorious, PS4/PS5 DualSense, Xbox and Bluetooth devices.",
+        "stars": 4174,
+        "forks": 363,
+        "language": "C++"
+      },
+      {
+        "name": "erkamyaman/rust-anything",
+        "url": "https://github.com/erkamyaman/rust-anything",
+        "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+        "stars": 3824,
+        "forks": 318,
+        "language": "Rust"
+      },
+      {
+        "name": "jhaizhou-ops/S2Arm",
+        "url": "https://github.com/jhaizhou-ops/S2Arm",
+        "description": "Run your own Switch games natively on iPhone, iPad and Mac: game code rewritten to ARM64, graphics direct to Metal, one app for the whole library. Bring your own games and keys. 把你自己的 Switch 游戏原生带到 iPhone / iPad / Mac。",
+        "stars": 3624,
+        "forks": 623,
+        "language": "C#"
+      },
+      {
+        "name": "JenkinWoo/sheeridVerify",
+        "url": "https://github.com/JenkinWoo/sheeridVerify",
+        "description": "暂无项目描述",
+        "stars": 3533,
+        "forks": 1638,
+        "language": "JavaScript"
+      },
+      {
+        "name": "ersinkoc/phonebox",
+        "url": "https://github.com/ersinkoc/phonebox",
+        "description": "Turn an old Android phone into a customizable desk panel and touch control deck for Windows, Linux and macOS. 124 widgets and 30 templates for system stats, AI coding, media and automation, in 12 languages. USB or paired Wi-Fi. No cloud required.",
+        "stars": 3357,
+        "forks": 459,
+        "language": "C#"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Gemini 4 Neon",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+        "score": 709,
+        "comments": 600,
+        "discuss_url": "https://news.ycombinator.com/item?id=50552424"
+      },
+      {
+        "title": "Unauthenticated remote code execution in Nginx",
+        "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities",
+        "score": 1289,
+        "comments": 564,
+        "discuss_url": "https://news.ycombinator.com/item?id=50547374"
+      },
+      {
+        "title": "Multiple vulnerabilities in Regexp and String case conversion",
+        "url": "https://www.ruby-lang.org/en/news/2026/11/18/multiple-vulnerabilities-in-regexp-and-string/",
+        "score": 198,
+        "comments": 63,
+        "discuss_url": "https://news.ycombinator.com/item?id=50554038"
+      },
+      {
+        "title": "15M web servers on one VM – smoltcp, DPDK, AF_XDP",
+        "url": "https://kapteko.com/15-million-webservers/",
+        "score": 20,
+        "comments": 3,
+        "discuss_url": "https://news.ycombinator.com/item?id=50556533"
+      },
+      {
+        "title": "Seven new models at scalable price-performance",
+        "url": "https://microsoft.ai/news/microsoft-ignite-2026/",
+        "score": 513,
+        "comments": 338,
+        "discuss_url": "https://news.ycombinator.com/item?id=50548021"
+      },
+      {
+        "title": "Axelera Titania Brings Native FP8 and FP4 to In-Memory Compute",
+        "url": "https://futurumgroup.com/insights/axelera-titania-brings-native-fp8-and-fp4-to-in-memory-compute/",
+        "score": 19,
+        "comments": 0,
+        "discuss_url": "https://news.ycombinator.com/item?id=50518303"
+      },
+      {
+        "title": "Inside Deutsche Bank",
+        "url": "https://www.inside-db.com/",
+        "score": 642,
+        "comments": 206,
+        "discuss_url": "https://news.ycombinator.com/item?id=50547620"
+      },
+      {
+        "title": "Anthropic prices initial public offering",
+        "url": "https://www.anthropic.com/news/anthropic-prices-initial-public-offering",
+        "score": 147,
+        "comments": 127,
+        "discuss_url": "https://news.ycombinator.com/item?id=50553843"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-7c5c-qrrc-p845",
+        "cve_id": "CVE-2026-132804",
+        "summary": "A malicious actor with access to the network and low privileges could exploit a Server-Side...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-7c5c-qrrc-p845"
+      },
+      {
+        "ghsa_id": "GHSA-q5g9-hj2c-8qfv",
+        "cve_id": "CVE-2026-132808",
+        "summary": "A malicious actor with access to the network and low privileges could exploit an Incorrect...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-q5g9-hj2c-8qfv"
+      },
+      {
+        "ghsa_id": "GHSA-5676-q49r-865f",
+        "cve_id": "CVE-2026-132807",
+        "summary": "A malicious actor with access to the network and under certain conditions could exploit an...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-5676-q49r-865f"
+      },
+      {
+        "ghsa_id": "GHSA-q67f-w5x4-xjp3",
+        "cve_id": "CVE-2026-132802",
+        "summary": "A malicious actor with access to the network and low privileges could exploit an Improper Link...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-q67f-w5x4-xjp3"
+      },
+      {
+        "ghsa_id": "GHSA-9jf9-r4jx-4wf4",
+        "cve_id": "CVE-2026-132803",
+        "summary": "A malicious actor with access to the network and low privileges could exploit a series of...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-9jf9-r4jx-4wf4"
+      },
+      {
+        "ghsa_id": "GHSA-mghg-3mm2-qpm7",
+        "cve_id": "CVE-2026-132622",
+        "summary": "A vulnerability was found in GearUP Hyperev up to 20261020. This impacts the function...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-mghg-3mm2-qpm7"
+      }
+    ]
+  },
+  "title": "技术雷达 · 2026-11-19",
+  "text": "技术雷达 · 2026-11-19\n\n开源精选：huami1314/GestaltX\n\nAn MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.\n\n今日热议：Gemini 4 Neon\n\n安全关注：GHSA-7c5c-qrrc-p845 A malicious actor with access to the network and low privileges could exploit a Server-Side...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-19.html",
+  "brief": {
+    "date": "2026-11-19",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-19.html",
+    "repos": [
+      {
+        "name": "huami1314/GestaltX",
+        "url": "https://github.com/huami1314/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 8435,
+        "forks": 2733,
+        "language": "Swift"
+      },
+      {
+        "name": "deepseek-ai/chat-demo",
+        "url": "https://github.com/deepseek-ai/chat-demo",
+        "description": "Chat Demo",
+        "stars": 4911,
+        "forks": 1110,
+        "language": "TypeScript"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Gemini 4 Neon",
+        "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-neon/",
+        "score": 709,
+        "comments": 600,
+        "discuss_url": "https://news.ycombinator.com/item?id=50552424"
+      },
+      {
+        "title": "Unauthenticated remote code execution in Nginx",
+        "url": "https://www.wiz.io/blog/nginx-http2-rce-vulnerabilities",
+        "score": 1289,
+        "comments": 564,
+        "discuss_url": "https://news.ycombinator.com/item?id=50547374"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-7c5c-qrrc-p845",
+        "cve_id": "CVE-2026-132804",
+        "summary": "A malicious actor with access to the network and low privileges could exploit a Server-Side...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-7c5c-qrrc-p845"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
