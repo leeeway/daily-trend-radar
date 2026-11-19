@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "items": {
+    "repos": [
+      {
+        "name": "huami1314/GestaltX",
+        "url": "https://github.com/huami1314/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 8510,
+        "forks": 2739,
+        "language": "Swift"
+      },
+      {
+        "name": "deepseek-ai/chat-demo",
+        "url": "https://github.com/deepseek-ai/chat-demo",
+        "description": "Chat Demo",
+        "stars": 5003,
+        "forks": 1128,
+        "language": "TypeScript"
+      },
+      {
+        "name": "erkamyaman/rust-anything",
+        "url": "https://github.com/erkamyaman/rust-anything",
+        "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+        "stars": 4657,
+        "forks": 387,
+        "language": "Rust"
+      },
+      {
+        "name": "krisgfx9/Wireless-Device-Battery-Monitor",
+        "url": "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor",
+        "description": "Show the battery level of wireless mice, headsets, keyboards and controllers on the Windows 10/11 taskbar. Lightweight tray app, no vendor software needed. Supports Logitech, Razer, SteelSeries, Corsair, HyperX, Glorious, PS4/PS5 DualSense, Xbox and Bluetooth devices.",
+        "stars": 4457,
+        "forks": 381,
+        "language": "C++"
+      },
+      {
+        "name": "tangerineturtle1/NX2navi",
+        "url": "https://github.com/tangerineturtle1/NX2navi",
+        "description": "暂无项目描述",
+        "stars": 4326,
+        "forks": 349,
+        "language": "C"
+      },
+      {
+        "name": "jhaizhou-ops/S2Arm",
+        "url": "https://github.com/jhaizhou-ops/S2Arm",
+        "description": "Run your own Switch games natively on iPhone, iPad and Mac: game code rewritten to ARM64, graphics direct to Metal, one app for the whole library. Bring your own games and keys. 把你自己的 Switch 游戏原生带到 iPhone / iPad / Mac。",
+        "stars": 3663,
+        "forks": 628,
+        "language": "C#"
+      },
+      {
+        "name": "ersinkoc/phonebox",
+        "url": "https://github.com/ersinkoc/phonebox",
+        "description": "Turn an old Android phone into a customizable desk panel and touch control deck for Windows, Linux and macOS. 124 widgets and 30 templates for system stats, AI coding, media and automation, in 13 languages. USB or paired Wi-Fi. No cloud required.",
+        "stars": 3658,
+        "forks": 491,
+        "language": "C#"
+      },
+      {
+        "name": "apex-compute/ANR",
+        "url": "https://github.com/apex-compute/ANR",
+        "description": "Apex Neural Rendering (ANR) by Apex Compute",
+        "stars": 2689,
+        "forks": 59,
+        "language": "C++"
+      }
+    ],
+    "stories": [
+      {
+        "title": "How the European Commission rolled out Matrix to more than 40k staff",
+        "url": "https://element.io/blog/how-the-european-commission-rolled-out-matrix-to-more-than-40-000-staff/",
+        "score": 439,
+        "comments": 222,
+        "discuss_url": "https://news.ycombinator.com/item?id=50558533"
+      },
+      {
+        "title": "Everything you need to survive and rebuild society",
+        "url": "https://lastbook.org/",
+        "score": 46,
+        "comments": 24,
+        "discuss_url": "https://news.ycombinator.com/item?id=50560822"
+      },
+      {
+        "title": "Garage Door Spam",
+        "url": "https://blog.harrison.page/garage-door-spam/",
+        "score": 366,
+        "comments": 157,
+        "discuss_url": "https://news.ycombinator.com/item?id=50519231"
+      },
+      {
+        "title": "Why AI Wants to Be Local – With Pete Warden (Creator of Moonshine Voice)",
+        "url": "https://thedataexchange.media/pete-warden-moonshine/",
+        "score": 14,
+        "comments": 2,
+        "discuss_url": "https://news.ycombinator.com/item?id=50561508"
+      },
+      {
+        "title": "Cooling buildings is overtaking heating them as an energy need, IEA says",
+        "url": "https://maccus.fr/en/cooling-overtaking-heating/",
+        "score": 23,
+        "comments": 7,
+        "discuss_url": "https://news.ycombinator.com/item?id=50560955"
+      },
+      {
+        "title": "Making 8-page foldable zines from a single A4 sheet in the browser",
+        "url": "https://krthr.co/paper-folds-and-whats-new-in-fanzines-app/",
+        "score": 83,
+        "comments": 25,
+        "discuss_url": "https://news.ycombinator.com/item?id=50559719"
+      },
+      {
+        "title": "Show HN: Foolscap – a writing app that reads your book and never writes for you",
+        "url": "https://foolscap.works/",
+        "score": 75,
+        "comments": 36,
+        "discuss_url": "https://news.ycombinator.com/item?id=50559749"
+      },
+      {
+        "title": "Nintendo takes Picofly firmware down from GitHub [video]",
+        "url": "https://www.youtube.com/watch?v=-TLCGUpoD6c",
+        "score": 138,
+        "comments": 41,
+        "discuss_url": "https://news.ycombinator.com/item?id=50547048"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-6fp4-hqc8-g8px",
+        "cve_id": "CVE-2026-133185",
+        "summary": "Goproxy before 1.9.4 contains a weak key generation vulnerability in...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-6fp4-hqc8-g8px"
+      },
+      {
+        "ghsa_id": "GHSA-hxhc-xqhg-6gr5",
+        "cve_id": "CVE-2026-123890",
+        "summary": "VMware vCenter contains an authentication bypass vulnerability in the VMware Directory Service....",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-hxhc-xqhg-6gr5"
+      },
+      {
+        "ghsa_id": "GHSA-xgqh-qx8q-2qg7",
+        "cve_id": "CVE-2026-116439",
+        "summary": "Dell PowerStore SDNAS contains a path traversal vulnerability that could allow an unauthenticated...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-xgqh-qx8q-2qg7"
+      },
+      {
+        "ghsa_id": "GHSA-hwjq-9c97-px4j",
+        "cve_id": "CVE-2026-116440",
+        "summary": "Dell PowerStore SDNAS contains a buffer overflow vulnerability that could allow an...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-hwjq-9c97-px4j"
+      },
+      {
+        "ghsa_id": "GHSA-vmrc-27xm-26fj",
+        "cve_id": "CVE-2026-111509",
+        "summary": "Dell PowerStore SDNAS contains a cryptographically weak PRNG vulnerability that could allow a...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-vmrc-27xm-26fj"
+      },
+      {
+        "ghsa_id": "GHSA-2f69-qhmw-ww6m",
+        "cve_id": "CVE-2026-123058",
+        "summary": "The web installer of JTL-Shop executes its\nstate-changing installation tasks without checking...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-2f69-qhmw-ww6m"
+      }
+    ]
+  },
+  "title": "技术雷达 · 2026-11-20",
+  "text": "技术雷达 · 2026-11-20\n\n开源精选：huami1314/GestaltX\n\nAn MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.\n\n今日热议：How the European Commission rolled out Matrix to more than 40k staff\n\n安全关注：GHSA-6fp4-hqc8-g8px Goproxy before 1.9.4 contains a weak key generation vulnerability in...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-20.html",
+  "brief": {
+    "date": "2026-11-20",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-20.html",
+    "repos": [
+      {
+        "name": "huami1314/GestaltX",
+        "url": "https://github.com/huami1314/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 8510,
+        "forks": 2739,
+        "language": "Swift"
+      },
+      {
+        "name": "deepseek-ai/chat-demo",
+        "url": "https://github.com/deepseek-ai/chat-demo",
+        "description": "Chat Demo",
+        "stars": 5003,
+        "forks": 1128,
+        "language": "TypeScript"
+      }
+    ],
+    "stories": [
+      {
+        "title": "How the European Commission rolled out Matrix to more than 40k staff",
+        "url": "https://element.io/blog/how-the-european-commission-rolled-out-matrix-to-more-than-40-000-staff/",
+        "score": 439,
+        "comments": 222,
+        "discuss_url": "https://news.ycombinator.com/item?id=50558533"
+      },
+      {
+        "title": "Everything you need to survive and rebuild society",
+        "url": "https://lastbook.org/",
+        "score": 46,
+        "comments": 24,
+        "discuss_url": "https://news.ycombinator.com/item?id=50560822"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-6fp4-hqc8-g8px",
+        "cve_id": "CVE-2026-133185",
+        "summary": "Goproxy before 1.9.4 contains a weak key generation vulnerability in...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-6fp4-hqc8-g8px"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
