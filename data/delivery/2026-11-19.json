@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-19",
+  "delivered": {
+    "企业微信": "2026-11-19T07:13:57.940478+00:00"
+  },
+  "skipped": {},
+  "selection": {
+    "title": "技术雷达 · 2026-11-19",
+    "text": "技术雷达 · 2026-11-19\n\n关注精选命中：2 个开源项目 / 0 条热议 / 0 条安全公告\n\n开源发现：deepseek-ai/chat-demo\n\nChat Demo\n\nhttps://github.com/deepseek-ai/chat-demo\n\n开源发现：erkamyaman/rust-anything\n\nRewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step.\n\nhttps://github.com/erkamyaman/rust-anything\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-19.html",
+    "brief": {
+      "date": "2026-11-19",
+      "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-19.html",
+      "repos": [
+        {
+          "name": "deepseek-ai/chat-demo",
+          "url": "https://github.com/deepseek-ai/chat-demo",
+          "description": "Chat Demo",
+          "stars": 4911,
+          "forks": 1110,
+          "language": "TypeScript"
+        },
+        {
+          "name": "erkamyaman/rust-anything",
+          "url": "https://github.com/erkamyaman/rust-anything",
+          "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+          "stars": 3824,
+          "forks": 318,
+          "language": "Rust"
+        }
+      ],
+      "stories": [],
+      "advisories": [],
+      "counts": [
+        2,
+        0,
+        0
+      ],
+      "personalized": true
+    }
+  }
+}
