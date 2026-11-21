@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "items": {
+    "repos": [
+      {
+        "name": "huami1314/GestaltX",
+        "url": "https://github.com/huami1314/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 8669,
+        "forks": 2747,
+        "language": "Swift"
+      },
+      {
+        "name": "erkamyaman/rust-anything",
+        "url": "https://github.com/erkamyaman/rust-anything",
+        "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+        "stars": 6857,
+        "forks": 544,
+        "language": "Rust"
+      },
+      {
+        "name": "krisgfx9/Wireless-Device-Battery-Monitor",
+        "url": "https://github.com/krisgfx9/Wireless-Device-Battery-Monitor",
+        "description": "Show the battery level of wireless mice, headsets, keyboards and controllers on the Windows 10/11 taskbar. Lightweight tray app, no vendor software needed. Supports Logitech, Razer, SteelSeries, Corsair, HyperX, Glorious, PS4/PS5 DualSense, Xbox and Bluetooth devices.",
+        "stars": 5439,
+        "forks": 455,
+        "language": "C++"
+      },
+      {
+        "name": "deepseek-ai/chat-demo",
+        "url": "https://github.com/deepseek-ai/chat-demo",
+        "description": "Chat Demo",
+        "stars": 5156,
+        "forks": 1181,
+        "language": "TypeScript"
+      },
+      {
+        "name": "jhaizhou-ops/S2Arm",
+        "url": "https://github.com/jhaizhou-ops/S2Arm",
+        "description": "Run your own Switch games natively on iPhone, iPad and Mac: game code rewritten to ARM64, graphics direct to Metal, one app for the whole library. Bring your own games and keys. 把你自己的 Switch 游戏原生带到 iPhone / iPad / Mac。",
+        "stars": 3746,
+        "forks": 641,
+        "language": "C#"
+      },
+      {
+        "name": "simplexai-labs/linger",
+        "url": "https://github.com/simplexai-labs/linger",
+        "description": "Linger is An Open-Source Personal Agent That Runs Fully on Your PC.  We aim to break Big Tech’s grip on AI by bringing powerful local AI to everyday computers through efficient model–harness co-design, so everyone can run their own.",
+        "stars": 3039,
+        "forks": 281,
+        "language": "TypeScript"
+      },
+      {
+        "name": "FrigadeHQ/yogurt",
+        "url": "https://github.com/FrigadeHQ/yogurt",
+        "description": "Private AI meeting notes that stay on your computer. No meeting bot. Free and open source for Mac, Windows and Linux. An alternative to Granola, Otter and Fireflies.",
+        "stars": 2797,
+        "forks": 230,
+        "language": "TypeScript"
+      },
+      {
+        "name": "Immortal-Protocols/lastbook",
+        "url": "https://github.com/Immortal-Protocols/lastbook",
+        "description": "Offline knowledge AI, maps and videos for survival and rebuilding",
+        "stars": 2783,
+        "forks": 342,
+        "language": "Python"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Hurried Announcement: Alessandro Masullo GRH",
+        "url": "https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh/",
+        "score": 1880,
+        "comments": 863,
+        "discuss_url": "https://news.ycombinator.com/item?id=50579568"
+      },
+      {
+        "title": "Levent Alpöge claims proof of the Generalized Riemann Hypothesis [pdf]",
+        "url": "https://alpo.ge/remark.pdf",
+        "score": 2528,
+        "comments": 1746,
+        "discuss_url": "https://news.ycombinator.com/item?id=50574968"
+      },
+      {
+        "title": "Inkling 2 Mini",
+        "url": "https://thinkingmachines.ai/news/inkling-2-mini/",
+        "score": 893,
+        "comments": 168,
+        "discuss_url": "https://news.ycombinator.com/item?id=50581260"
+      },
+      {
+        "title": "ClawDOS – An AI coding agent for DOS",
+        "url": "http://ricapar.net/ClawDOS/",
+        "score": 16,
+        "comments": 2,
+        "discuss_url": "https://news.ycombinator.com/item?id=50586292"
+      },
+      {
+        "title": "NINLIVE: The Nine Inch Nails live archive",
+        "url": "https://ninlive.com/",
+        "score": 214,
+        "comments": 56,
+        "discuss_url": "https://news.ycombinator.com/item?id=50583274"
+      },
+      {
+        "title": "We promoted developers into architects without informing them",
+        "url": "https://manidoraisamy.com/developer-to-architect.html",
+        "score": 384,
+        "comments": 221,
+        "discuss_url": "https://news.ycombinator.com/item?id=50579331"
+      },
+      {
+        "title": "Unforced Navier-Stokes Singularity and the Generalized Riemann Hypothesis",
+        "url": "https://terrytao.wordpress.com/2026/11/20/unforced-euler-singularity-unforced-navier-stokes-singularity-and-the-generalized-riemann-hypothesis/",
+        "score": 404,
+        "comments": 171,
+        "discuss_url": "https://news.ycombinator.com/item?id=50578358"
+      },
+      {
+        "title": "Clojure will affect the way you think about programming (2017)",
+        "url": "https://eli.thegreenplace.net/2017/clojure-the-perfect-language-to-expand-your-brain/",
+        "score": 49,
+        "comments": 14,
+        "discuss_url": "https://news.ycombinator.com/item?id=50585376"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-j47j-q6m5-x2fg",
+        "cve_id": "CVE-2026-120539",
+        "summary": "The Restrictions for BuddyPress plugin for WordPress is vulnerable to Remote Code Execution in...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-j47j-q6m5-x2fg"
+      },
+      {
+        "ghsa_id": "GHSA-8rqw-mpp3-5wvc",
+        "cve_id": "CVE-2026-129175",
+        "summary": "U.S Department of the Interior Unstable Slope Management Program allows an unauthenticated user...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-8rqw-mpp3-5wvc"
+      },
+      {
+        "ghsa_id": "GHSA-jg88-vh4g-v698",
+        "cve_id": "CVE-2026-133949",
+        "summary": "pip prior to v26.2.2 the certifi bundled with pip contains the compromised eMudhra certificates. ...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-jg88-vh4g-v698"
+      },
+      {
+        "ghsa_id": "GHSA-2f43-rwqm-6h67",
+        "cve_id": "CVE-2026-133968",
+        "summary": "monailabel (aka MONAI Label) through 0.8.5 allows directory traversal, with resultant remote code...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-2f43-rwqm-6h67"
+      },
+      {
+        "ghsa_id": "GHSA-g94p-r7pp-9gpp",
+        "cve_id": "CVE-2026-133872",
+        "summary": "LessPass self-hosted sync server backend before commit 9469b0c lacks rate limiting on the JWT...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-g94p-r7pp-9gpp"
+      },
+      {
+        "ghsa_id": "GHSA-9q64-h4f4-jp28",
+        "cve_id": "CVE-2026-115407",
+        "summary": "In `github.com/eclipse-keypont/crypto11/v2` versions `<= 2.0.0-rc8` (and the deprecated v1 module...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-9q64-h4f4-jp28"
+      }
+    ]
+  },
+  "title": "技术雷达 · 2026-11-21",
+  "text": "技术雷达 · 2026-11-21\n\n开源精选：huami1314/GestaltX\n\nAn MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.\n\n今日热议：Hurried Announcement: Alessandro Masullo GRH\n\n安全关注：GHSA-j47j-q6m5-x2fg The Restrictions for BuddyPress plugin for WordPress is vulnerable to Remote Code Execution in...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-21.html",
+  "brief": {
+    "date": "2026-11-21",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-21.html",
+    "repos": [
+      {
+        "name": "huami1314/GestaltX",
+        "url": "https://github.com/huami1314/GestaltX",
+        "description": "An MobileGestalt editor for iOS 27.x, featuring region-code tweaks, device presets, backups.",
+        "stars": 8669,
+        "forks": 2747,
+        "language": "Swift"
+      },
+      {
+        "name": "erkamyaman/rust-anything",
+        "url": "https://github.com/erkamyaman/rust-anything",
+        "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+        "stars": 6857,
+        "forks": 544,
+        "language": "Rust"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Hurried Announcement: Alessandro Masullo GRH",
+        "url": "https://math216.wordpress.com/2026/11/20/hurried-announcement-alessandro-masullo-grh/",
+        "score": 1880,
+        "comments": 863,
+        "discuss_url": "https://news.ycombinator.com/item?id=50579568"
+      },
+      {
+        "title": "Levent Alpöge claims proof of the Generalized Riemann Hypothesis [pdf]",
+        "url": "https://alpo.ge/remark.pdf",
+        "score": 2528,
+        "comments": 1746,
+        "discuss_url": "https://news.ycombinator.com/item?id=50574968"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-j47j-q6m5-x2fg",
+        "cve_id": "CVE-2026-120539",
+        "summary": "The Restrictions for BuddyPress plugin for WordPress is vulnerable to Remote Code Execution in...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-j47j-q6m5-x2fg"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
