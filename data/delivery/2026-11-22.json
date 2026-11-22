@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-22",
+  "delivered": {
+    "企业微信": "2026-11-22T07:10:58.738131+00:00"
+  },
+  "skipped": {},
+  "selection": {
+    "title": "技术雷达 · 2026-11-22",
+    "text": "技术雷达 · 2026-11-22\n\n关注精选命中：4 个开源项目 / 0 条热议 / 0 条安全公告\n\n开源发现：ItsNotRexed/Leonida\n\nLeonida Is A Native PC Recompilation Of The Xbox Version Of Grand Theft Auto 6\n\nhttps://github.com/ItsNotRexed/Leonida\n\n开源发现：erkamyaman/rust-anything\n\nRewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step.\n\nhttps://github.com/erkamyaman/rust-anything\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-22.html",
+    "brief": {
+      "date": "2026-11-22",
+      "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-22.html",
+      "repos": [
+        {
+          "name": "ItsNotRexed/Leonida",
+          "url": "https://github.com/ItsNotRexed/Leonida",
+          "description": "Leonida Is A Native PC Recompilation Of The Xbox Version Of Grand Theft Auto 6",
+          "stars": 7676,
+          "forks": 606,
+          "language": "Python"
+        },
+        {
+          "name": "erkamyaman/rust-anything",
+          "url": "https://github.com/erkamyaman/rust-anything",
+          "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+          "stars": 7568,
+          "forks": 605,
+          "language": "Rust"
+        }
+      ],
+      "stories": [],
+      "advisories": [],
+      "counts": [
+        4,
+        0,
+        0
+      ],
+      "personalized": true
+    }
+  }
+}
