@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "items": {
+    "repos": [
+      {
+        "name": "Marvisak/VIctory",
+        "url": "https://github.com/Marvisak/VIctory",
+        "description": "An attempt at running GTA VI on PC",
+        "stars": 10327,
+        "forks": 1485,
+        "language": "Rust"
+      },
+      {
+        "name": "erkamyaman/rust-anything",
+        "url": "https://github.com/erkamyaman/rust-anything",
+        "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+        "stars": 9138,
+        "forks": 744,
+        "language": "Rust"
+      },
+      {
+        "name": "xcl-dev/xcl",
+        "url": "https://github.com/xcl-dev/xcl",
+        "description": "Xbox Series compatibility layer for Windows - runs console game code natively, reimplements the console system libraries and recompiles RDNA2 shaders to DXIL",
+        "stars": 7395,
+        "forks": 938,
+        "language": "Rust"
+      },
+      {
+        "name": "deepseek-ai/chat-demo",
+        "url": "https://github.com/deepseek-ai/chat-demo",
+        "description": "Chat Demo",
+        "stars": 5394,
+        "forks": 1285,
+        "language": "TypeScript"
+      },
+      {
+        "name": "Hut-hzf/ung220z-tool",
+        "url": "https://github.com/Hut-hzf/ung220z-tool",
+        "description": "ung220z-tool 是一个针对 UNG220Z，另含中兴/烽火/华为/九联多厂商适配、固件指纹识别与分家族排障建议的一键凭据提取工具，仅限在你自己的设备上用于找回忘记的管理密码、迁移宽带配置或安全自查。",
+        "stars": 4365,
+        "forks": 955,
+        "language": "Python"
+      },
+      {
+        "name": "EL4CTEO/fast-anything",
+        "url": "https://github.com/EL4CTEO/fast-anything",
+        "description": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, prove they behave the same.",
+        "stars": 3539,
+        "forks": 252,
+        "language": "Rust"
+      },
+      {
+        "name": "AFK-surf/xnulinux",
+        "url": "https://github.com/AFK-surf/xnulinux",
+        "description": "XNU as a loadable kernel module inside Linux (macOS personality for arm64 Linux)",
+        "stars": 3165,
+        "forks": 134,
+        "language": "Objective-C++"
+      },
+      {
+        "name": "Immortal-Protocols/lastbook",
+        "url": "https://github.com/Immortal-Protocols/lastbook",
+        "description": "Offline knowledge AI, maps and videos for survival and rebuilding",
+        "stars": 3045,
+        "forks": 372,
+        "language": "Python"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Cyberattack campaign compromising Check Point servers across 22 organizations",
+        "url": "https://www.greynoise.io/blog/check-point-security-management-servers-intrusion-campaign",
+        "score": 138,
+        "comments": 47,
+        "discuss_url": "https://news.ycombinator.com/item?id=50630594"
+      },
+      {
+        "title": "Jetty Pro",
+        "url": "http://hypercritical.co/2026/11/23/jetty-pro",
+        "score": 102,
+        "comments": 39,
+        "discuss_url": "https://news.ycombinator.com/item?id=50630462"
+      },
+      {
+        "title": "Mechanical Pencil: Spray Bottle",
+        "url": "https://mechanical-pencil.com/products/spray-bottle",
+        "score": 108,
+        "comments": 21,
+        "discuss_url": "https://news.ycombinator.com/item?id=50598555"
+      },
+      {
+        "title": "Splitting USB-C: USB 3 and USB 2 on One Port",
+        "url": "https://www.frankchiarulli.com/blog/splitting-usb-c/",
+        "score": 55,
+        "comments": 32,
+        "discuss_url": "https://news.ycombinator.com/item?id=50629106"
+      },
+      {
+        "title": "How to Make a Lovable City",
+        "url": "https://www.worksinprogress.news/p/how-to-make-a-lovable-city",
+        "score": 49,
+        "comments": 11,
+        "discuss_url": "https://news.ycombinator.com/item?id=50630423"
+      },
+      {
+        "title": "2035 came early",
+        "url": "https://fzakaria.com/2026/11/23/2035-came-early",
+        "score": 803,
+        "comments": 299,
+        "discuss_url": "https://news.ycombinator.com/item?id=50624497"
+      },
+      {
+        "title": "A training engine for your local model, using your idle compute",
+        "url": "https://github.com/sous-labs/songe",
+        "score": 74,
+        "comments": 9,
+        "discuss_url": "https://news.ycombinator.com/item?id=50629231"
+      },
+      {
+        "title": "Weave (YC W25) is hiring ML, AI, product, & design engineers",
+        "url": "https://jobs.ashbyhq.com/weave-os",
+        "score": 1,
+        "comments": 0,
+        "discuss_url": "https://news.ycombinator.com/item?id=50631041"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-f27m-m9m6-cf77",
+        "cve_id": "CVE-2026-65320",
+        "summary": "fastcore through 2.2.44 contains a path traversal vulnerability in the fastcore.xtras.untar_dir()...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-f27m-m9m6-cf77"
+      },
+      {
+        "ghsa_id": "GHSA-cw45-rgf6-pg79",
+        "cve_id": "CVE-2026-136165",
+        "summary": "Fider before 0.40.0 contains an account takeover vulnerability that allows unauthenticated...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-cw45-rgf6-pg79"
+      },
+      {
+        "ghsa_id": "GHSA-vg9w-pr99-7q53",
+        "cve_id": "CVE-2026-136132",
+        "summary": "Pangolin before 1.21.0 contains an authentication bypass vulnerability in isPathAllowed() in...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-vg9w-pr99-7q53"
+      },
+      {
+        "ghsa_id": "GHSA-pvw5-hqrm-5j3m",
+        "cve_id": "CVE-2026-130411",
+        "summary": "Deserialization of Untrusted Data vulnerability in woylie flop allows a remote attacker to...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-pvw5-hqrm-5j3m"
+      },
+      {
+        "ghsa_id": "GHSA-7f42-7xr6-v2xj",
+        "cve_id": "CVE-2026-65175",
+        "summary": "NVIDIA AIStore contains a vulnerability in storage-target node-control authorization where an...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-7f42-7xr6-v2xj"
+      },
+      {
+        "ghsa_id": "GHSA-qqr3-5f8g-fp66",
+        "cve_id": "CVE-2026-65135",
+        "summary": "NVIDIA Video Codec SDK for Linux contains a vulnerability where a user may cause a heap-based...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-qqr3-5f8g-fp66"
+      }
+    ]
+  },
+  "title": "技术雷达 · 2026-11-25",
+  "text": "技术雷达 · 2026-11-25\n\n开源精选：Marvisak/VIctory\n\nAn attempt at running GTA VI on PC\n\n今日热议：Cyberattack campaign compromising Check Point servers across 22 organizations\n\n安全关注：GHSA-f27m-m9m6-cf77 fastcore through 2.2.44 contains a path traversal vulnerability in the fastcore.xtras.untar_dir()...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-25.html",
+  "brief": {
+    "date": "2026-11-25",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-25.html",
+    "repos": [
+      {
+        "name": "Marvisak/VIctory",
+        "url": "https://github.com/Marvisak/VIctory",
+        "description": "An attempt at running GTA VI on PC",
+        "stars": 10327,
+        "forks": 1485,
+        "language": "Rust"
+      },
+      {
+        "name": "erkamyaman/rust-anything",
+        "url": "https://github.com/erkamyaman/rust-anything",
+        "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+        "stars": 9138,
+        "forks": 744,
+        "language": "Rust"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Cyberattack campaign compromising Check Point servers across 22 organizations",
+        "url": "https://www.greynoise.io/blog/check-point-security-management-servers-intrusion-campaign",
+        "score": 138,
+        "comments": 47,
+        "discuss_url": "https://news.ycombinator.com/item?id=50630594"
+      },
+      {
+        "title": "Jetty Pro",
+        "url": "http://hypercritical.co/2026/11/23/jetty-pro",
+        "score": 102,
+        "comments": 39,
+        "discuss_url": "https://news.ycombinator.com/item?id=50630462"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-f27m-m9m6-cf77",
+        "cve_id": "CVE-2026-65320",
+        "summary": "fastcore through 2.2.44 contains a path traversal vulnerability in the fastcore.xtras.untar_dir()...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-f27m-m9m6-cf77"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
