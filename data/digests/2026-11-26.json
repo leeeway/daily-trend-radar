@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "items": {
+    "repos": [
+      {
+        "name": "Marvisak/VIctory",
+        "url": "https://github.com/Marvisak/VIctory",
+        "description": "An attempt at running GTA VI on PC",
+        "stars": 12343,
+        "forks": 1920,
+        "language": "Rust"
+      },
+      {
+        "name": "erkamyaman/rust-anything",
+        "url": "https://github.com/erkamyaman/rust-anything",
+        "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+        "stars": 9520,
+        "forks": 780,
+        "language": "Rust"
+      },
+      {
+        "name": "xcl-dev/xcl",
+        "url": "https://github.com/xcl-dev/xcl",
+        "description": "Xbox Series compatibility layer for Windows - runs console game code natively, reimplements the console system libraries and recompiles RDNA2 shaders to DXIL",
+        "stars": 8207,
+        "forks": 1110,
+        "language": "Rust"
+      },
+      {
+        "name": "Hut-hzf/ung220z-tool",
+        "url": "https://github.com/Hut-hzf/ung220z-tool",
+        "description": "ung220z-tool 是一个针对 UNG220Z，另含中兴/烽火/华为/九联多厂商适配、固件指纹识别与分家族排障建议的一键凭据提取工具，仅限在你自己的设备上用于找回忘记的管理密码、迁移宽带配置或安全自查。",
+        "stars": 4783,
+        "forks": 1044,
+        "language": "Python"
+      },
+      {
+        "name": "EL4CTEO/fast-anything",
+        "url": "https://github.com/EL4CTEO/fast-anything",
+        "description": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, prove they behave the same.",
+        "stars": 3888,
+        "forks": 278,
+        "language": "Rust"
+      },
+      {
+        "name": "AFK-surf/xnulinux",
+        "url": "https://github.com/AFK-surf/xnulinux",
+        "description": "XNU as a loadable kernel module inside Linux (macOS personality for arm64 Linux)",
+        "stars": 3831,
+        "forks": 181,
+        "language": "C"
+      },
+      {
+        "name": "4lwayz/portwatch-vi",
+        "url": "https://github.com/4lwayz/portwatch-vi",
+        "description": "Does GTA VI run on PC yet? A live tracker of community recompilation and emulation efforts, updated daily.",
+        "stars": 3645,
+        "forks": 106,
+        "language": "JavaScript"
+      },
+      {
+        "name": "fxceless/victory-fork",
+        "url": "https://github.com/fxceless/victory-fork",
+        "description": "Work-in-progress fork of VIctory: getting an Xbox Series title to render and run on a Windows PC. No game files.",
+        "stars": 2873,
+        "forks": 790,
+        "language": "Rust"
+      }
+    ],
+    "stories": [
+      {
+        "title": "A few questions for the guy who went snorkeling in a Home Depot retention pond",
+        "url": "https://www.vox.com/down-to-earth/511999/home-depot-retention-pond-snorkel-joseph-ricketts",
+        "score": 233,
+        "comments": 66,
+        "discuss_url": "https://news.ycombinator.com/item?id=50643129"
+      },
+      {
+        "title": "Investigating degraded experiences across GitHub products",
+        "url": "https://www.githubstatus.com/incidents/qn8mfv6q5hlx",
+        "score": 113,
+        "comments": 58,
+        "discuss_url": "https://news.ycombinator.com/item?id=50643720"
+      },
+      {
+        "title": "Windows Loudness Equalization, reverse-engineered and ported to PipeWire",
+        "url": "https://github.com/xoxorwr/pw-loudness-eq",
+        "score": 242,
+        "comments": 135,
+        "discuss_url": "https://news.ycombinator.com/item?id=50641171"
+      },
+      {
+        "title": "Google Releases Cogentic Papers on Integer Factorization, Discrete Logs and More",
+        "url": "https://github.com/google-research/google-research/tree/master/cogentic_research_papers",
+        "score": 274,
+        "comments": 225,
+        "discuss_url": "https://news.ycombinator.com/item?id=50642086"
+      },
+      {
+        "title": "Predicting LoRA size for any dataset",
+        "url": "https://engram.com/blog/lora-size",
+        "score": 35,
+        "comments": 1,
+        "discuss_url": "https://news.ycombinator.com/item?id=50635783"
+      },
+      {
+        "title": "I checked Clojure's core with Lean and found unreported bugs",
+        "url": "https://s.conao3.com/blog/2026/e4f733",
+        "score": 39,
+        "comments": 11,
+        "discuss_url": "https://news.ycombinator.com/item?id=50642939"
+      },
+      {
+        "title": "Button Sounds – collection of professionally-recorded button clicks and presses",
+        "url": "https://buttons.joshwcomeau.com/",
+        "score": 711,
+        "comments": 115,
+        "discuss_url": "https://news.ycombinator.com/item?id=50638032"
+      },
+      {
+        "title": "Matrix Multiplication is Θ(n^2.25) [pdf]",
+        "url": "https://github.com/openai/math/blob/main/preprints/The-matrix-multiplication-exponent-is-nine-fourths-November-24-2026/paper.pdf",
+        "score": 892,
+        "comments": 502,
+        "discuss_url": "https://news.ycombinator.com/item?id=50637220"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-69fj-g6j2-4qrq",
+        "cve_id": "CVE-2026-82489",
+        "summary": "openIMIS before 2026-10 contains an unauthenticated remote code execution vulnerability in the...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-69fj-g6j2-4qrq"
+      },
+      {
+        "ghsa_id": "GHSA-r2r4-23cp-8cjm",
+        "cve_id": "CVE-2026-114346",
+        "summary": "The phsuperpack module for PrestaShop is vulnerable to a missing authorization check. The...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-r2r4-23cp-8cjm"
+      },
+      {
+        "ghsa_id": "GHSA-4fj7-c5w2-p633",
+        "cve_id": "CVE-2026-97180",
+        "summary": "ASSA ABLOY Seawing SC-1000 WebConfig is vulnerable to remote command injection via HTTP request....",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-4fj7-c5w2-p633"
+      },
+      {
+        "ghsa_id": "GHSA-m7ch-r8mq-9r4q",
+        "cve_id": "CVE-2026-129968",
+        "summary": "LiteSpeed Cache Plugin for Prestashop does not verify authenticity of \"pd\" parameter and uses it...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-m7ch-r8mq-9r4q"
+      },
+      {
+        "ghsa_id": "GHSA-jp9r-h8vj-r627",
+        "cve_id": "CVE-2026-135888",
+        "summary": "Directory traversal vulnerability in the custom-homepage asset endpoint (/__api__/custom/home/) ...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-jp9r-h8vj-r627"
+      },
+      {
+        "ghsa_id": "GHSA-hgwq-x88p-q8gj",
+        "cve_id": "CVE-2026-125812",
+        "summary": "Improper Limitation of a Pathname to a Restricted Directory ('Path Traversal') vulnerability in...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-hgwq-x88p-q8gj"
+      }
+    ]
+  },
+  "title": "技术雷达 · 2026-11-26",
+  "text": "技术雷达 · 2026-11-26\n\n开源精选：Marvisak/VIctory\n\nAn attempt at running GTA VI on PC\n\n今日热议：A few questions for the guy who went snorkeling in a Home Depot retention pond\n\n安全关注：GHSA-69fj-g6j2-4qrq openIMIS before 2026-10 contains an unauthenticated remote code execution vulnerability in the...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-26.html",
+  "brief": {
+    "date": "2026-11-26",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-26.html",
+    "repos": [
+      {
+        "name": "Marvisak/VIctory",
+        "url": "https://github.com/Marvisak/VIctory",
+        "description": "An attempt at running GTA VI on PC",
+        "stars": 12343,
+        "forks": 1920,
+        "language": "Rust"
+      },
+      {
+        "name": "erkamyaman/rust-anything",
+        "url": "https://github.com/erkamyaman/rust-anything",
+        "description": "Rewrite your whole app in Rust, one piece at a time, checked against the original's recorded behavior at every step. CLIs, HTTP servers and libraries in TypeScript, Python, C, Go, Ruby and Java.",
+        "stars": 9520,
+        "forks": 780,
+        "language": "Rust"
+      }
+    ],
+    "stories": [
+      {
+        "title": "A few questions for the guy who went snorkeling in a Home Depot retention pond",
+        "url": "https://www.vox.com/down-to-earth/511999/home-depot-retention-pond-snorkel-joseph-ricketts",
+        "score": 233,
+        "comments": 66,
+        "discuss_url": "https://news.ycombinator.com/item?id=50643129"
+      },
+      {
+        "title": "Investigating degraded experiences across GitHub products",
+        "url": "https://www.githubstatus.com/incidents/qn8mfv6q5hlx",
+        "score": 113,
+        "comments": 58,
+        "discuss_url": "https://news.ycombinator.com/item?id=50643720"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-69fj-g6j2-4qrq",
+        "cve_id": "CVE-2026-82489",
+        "summary": "openIMIS before 2026-10 contains an unauthenticated remote code execution vulnerability in the...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-69fj-g6j2-4qrq"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
