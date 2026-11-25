@@ -101,8 +101,17 @@ jobs:
           GH_TOKEN: ${{ github.token }}
           PAGES_ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
         run: python scripts/wait_pages_artifact.py
-      - uses: actions/deploy-pages@v5.0.1
+      - name: Deploy verified Pages artifact
+        uses: actions/github-script@v8
         id: deployment
+        env:
+          PAGES_ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
+        with:
+          script: |
+            const deploy = require('./scripts/deploy_pages.cjs');
+            await deploy({github, core, context,
+              artifactId: process.env.PAGES_ARTIFACT_ID,
+              siteUrl: process.env.SITE_URL});
       - name: Verify today's public article and index
         if: github.event_name != 'push'
         run: python scripts/daily_state.py verify
