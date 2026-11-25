@@ -85,10 +85,23 @@ class RadarTests(unittest.TestCase):
         self.assertNotIn('<img', rendered)
 
     def test_all_source_failure_preserves_files(self):
-        with patch.object(fetch, 'get_github_trending', return_value=[]), patch.object(fetch, 'get_hackernews_top', return_value=[]), patch.object(fetch, 'get_security_advisories', return_value=[]), patch('builtins.open') as write:
-            with self.assertRaises(RuntimeError), contextlib.redirect_stdout(io.StringIO()):
-                fetch.main()
-            write.assert_not_called()
+        # Force a fresh fetch in an isolated directory, even in a recovery job
+        # whose checkout already contains today's durable digest.
+        env = {'RADAR_DATE': '2026-10-20', 'RECOVERY': 'true', 'FORCE_REFRESH': 'true'}
+        with tempfile.TemporaryDirectory() as tmp, contextlib.chdir(tmp), patch.dict(os.environ, env):
+            preserved = {'README.md': 'existing readme', 'archives/2026-10-20.md': 'existing archive',
+                         'data/digests/2026-10-20.json': '{}'}
+            for name, content in preserved.items():
+                path = Path(name)
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(content)
+            with patch.object(fetch, 'get_github_trending', return_value=[]), patch.object(fetch, 'get_hackernews_top', return_value=[]), patch.object(fetch, 'get_security_advisories', return_value=[]):
+                with self.assertRaises(RuntimeError), contextlib.redirect_stdout(io.StringIO()):
+                    fetch.main()
+            for name, content in preserved.items():
+                self.assertEqual(Path(name).read_text(), content)
+            self.assertFalse(Path('notification.json').exists())
+            self.assertFalse(Path('commit_summary.txt').exists())
 
     def test_channel_signatures_and_optional_channels(self):
         digest = {'title':'技术雷达', 'text':'Hello'}
