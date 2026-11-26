@@ -1,0 +1,41 @@
+{
+  "date": "2026-11-27",
+  "delivered": {
+    "企业微信": "2026-11-26T17:19:30.314884+00:00"
+  },
+  "skipped": {},
+  "selection": {
+    "title": "技术雷达 · 2026-11-27",
+    "text": "技术雷达 · 2026-11-27\n\n关注精选命中：6 个开源项目 / 0 条热议 / 0 条安全公告\n\n开源发现：Marvisak/VIctory\n\nAn attempt at running GTA VI on PC\n\nhttps://github.com/Marvisak/VIctory\n\n开源发现：erkamyaman/rust-anything\n\nRewrite your app in Rust, piece by piece, checked against the original at every step.\n\nhttps://github.com/erkamyaman/rust-anything\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-27.html",
+    "brief": {
+      "date": "2026-11-27",
+      "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-27.html",
+      "repos": [
+        {
+          "name": "Marvisak/VIctory",
+          "url": "https://github.com/Marvisak/VIctory",
+          "description": "An attempt at running GTA VI on PC",
+          "stars": 13127,
+          "forks": 2182,
+          "language": "Rust"
+        },
+        {
+          "name": "erkamyaman/rust-anything",
+          "url": "https://github.com/erkamyaman/rust-anything",
+          "description": "Rewrite your app in Rust, piece by piece, checked against the original at every step. Works with TypeScript, JavaScript, Python, Go, Ruby, Java, C, PHP, C#, Kotlin and PowerShell.",
+          "stars": 10022,
+          "forks": 817,
+          "language": "Rust"
+        }
+      ],
+      "stories": [],
+      "advisories": [],
+      "counts": [
+        6,
+        0,
+        0
+      ],
+      "personalized": true
+    }
+  }
+}
