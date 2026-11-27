@@ -1,0 +1,49 @@
+{
+  "date": "2026-11-28",
+  "delivered": {
+    "企业微信": "2026-11-27T16:57:58.303814+00:00"
+  },
+  "skipped": {},
+  "selection": {
+    "title": "技术雷达 · 2026-11-28",
+    "text": "技术雷达 · 2026-11-28\n\n关注精选命中：6 个开源项目 / 0 条热议 / 1 条安全公告\n\n开源发现：Marvisak/VIctory\n\nAn attempt at running GTA VI on PC\n\nhttps://github.com/Marvisak/VIctory\n\n开源发现：erkamyaman/rust-anything\n\nRewrite your app in Rust, piece by piece, checked against the original at every step.\n\nhttps://github.com/erkamyaman/rust-anything\n\n安全提醒：GHSA-wfwm-9m29-fw8h\n\nDeserialization of Untrusted Data vulnerability in Nitramix Revertix &#8211; Backup, Migration,...\n\nhttps://github.com/advisories/GHSA-wfwm-9m29-fw8h\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-28.html",
+    "brief": {
+      "date": "2026-11-28",
+      "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-28.html",
+      "repos": [
+        {
+          "name": "Marvisak/VIctory",
+          "url": "https://github.com/Marvisak/VIctory",
+          "description": "An attempt at running GTA VI on PC",
+          "stars": 13703,
+          "forks": 2333,
+          "language": "Rust"
+        },
+        {
+          "name": "erkamyaman/rust-anything",
+          "url": "https://github.com/erkamyaman/rust-anything",
+          "description": "Rewrite your app in Rust, piece by piece, checked against the original at every step. Works with TypeScript, JavaScript, Python, Go, Ruby, Java, C, PHP, C#, Kotlin and PowerShell.",
+          "stars": 10668,
+          "forks": 871,
+          "language": "Rust"
+        }
+      ],
+      "stories": [],
+      "advisories": [
+        {
+          "ghsa_id": "GHSA-wfwm-9m29-fw8h",
+          "cve_id": "CVE-2026-134994",
+          "summary": "Deserialization of Untrusted Data vulnerability in Nitramix Revertix &#8211; Backup, Migration,...",
+          "severity": "CRITICAL",
+          "url": "https://github.com/advisories/GHSA-wfwm-9m29-fw8h"
+        }
+      ],
+      "counts": [
+        6,
+        0,
+        1
+      ],
+      "personalized": true
+    }
+  }
+}
