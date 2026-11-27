@@ -1,0 +1,227 @@
+{
+  "schema_version": 2,
+  "items": {
+    "repos": [
+      {
+        "name": "Marvisak/VIctory",
+        "url": "https://github.com/Marvisak/VIctory",
+        "description": "An attempt at running GTA VI on PC",
+        "stars": 13703,
+        "forks": 2333,
+        "language": "Rust"
+      },
+      {
+        "name": "erkamyaman/rust-anything",
+        "url": "https://github.com/erkamyaman/rust-anything",
+        "description": "Rewrite your app in Rust, piece by piece, checked against the original at every step. Works with TypeScript, JavaScript, Python, Go, Ruby, Java, C, PHP, C#, Kotlin and PowerShell.",
+        "stars": 10668,
+        "forks": 871,
+        "language": "Rust"
+      },
+      {
+        "name": "xcl-dev/xcl",
+        "url": "https://github.com/xcl-dev/xcl",
+        "description": "Xbox Series compatibility layer for Windows - runs console game code natively, reimplements the console system libraries and recompiles RDNA2 shaders to DXIL",
+        "stars": 8696,
+        "forks": 1213,
+        "language": "Rust"
+      },
+      {
+        "name": "4lwayz/portwatch-vi",
+        "url": "https://github.com/4lwayz/portwatch-vi",
+        "description": "Does GTA VI run on PC yet? A live tracker of community recompilation and emulation efforts, updated daily.",
+        "stars": 6457,
+        "forks": 182,
+        "language": "JavaScript"
+      },
+      {
+        "name": "Hut-hzf/ung220z-tool",
+        "url": "https://github.com/Hut-hzf/ung220z-tool",
+        "description": "ung220z-tool 是一个针对 UNG220Z，另含中兴/烽火/华为/九联多厂商适配、固件指纹识别与分家族排障建议的一键凭据提取工具，仅限在你自己的设备上用于找回忘记的管理密码、迁移宽带配置或安全自查。",
+        "stars": 5845,
+        "forks": 1270,
+        "language": "Python"
+      },
+      {
+        "name": "EL4CTEO/fast-anything",
+        "url": "https://github.com/EL4CTEO/fast-anything",
+        "description": "Don't rewrite it in Rust. Rewrite the 5% that's slow: profile Python, Node or Ruby apps, port the hot functions with your coding agent, prove they behave the same.",
+        "stars": 4416,
+        "forks": 316,
+        "language": "Rust"
+      },
+      {
+        "name": "AFK-surf/xnulinux",
+        "url": "https://github.com/AFK-surf/xnulinux",
+        "description": "XNU as a loadable kernel module inside Linux (macOS personality for arm64 Linux)",
+        "stars": 4336,
+        "forks": 224,
+        "language": "C"
+      },
+      {
+        "name": "Belobug/VIctory-Belobug-AMD",
+        "url": "https://github.com/Belobug/VIctory-Belobug-AMD",
+        "description": "暂无项目描述",
+        "stars": 4154,
+        "forks": 1249,
+        "language": "Rust"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Show HN: bouncemarket – a live prediction market game for a bouncing ball",
+        "url": "https://bouncemarket.minhanhday.com/",
+        "score": 154,
+        "comments": 43,
+        "discuss_url": "https://news.ycombinator.com/item?id=50667726"
+      },
+      {
+        "title": "Credit card skimming scripts using WebRTC found on popular shopping sites",
+        "url": "https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer",
+        "score": 57,
+        "comments": 15,
+        "discuss_url": "https://news.ycombinator.com/item?id=50668145"
+      },
+      {
+        "title": "First images of the impact of DART asteroid deflection experiment",
+        "url": "https://arstechnica.com/space/2026/11/europes-hera-mission-returns-to-the-chaotic-scene-of-a-cosmic-smashup/",
+        "score": 101,
+        "comments": 26,
+        "discuss_url": "https://news.ycombinator.com/item?id=50657392"
+      },
+      {
+        "title": "False Computer-Checked Proofs",
+        "url": "https://cr.yp.to/proofs/falseccp.html",
+        "score": 34,
+        "comments": 11,
+        "discuss_url": "https://news.ycombinator.com/item?id=50667989"
+      },
+      {
+        "title": "Kimi for Science: More scientific ideas, made possible",
+        "url": "https://www.kimi.ai/news/kimi-for-science-program",
+        "score": 136,
+        "comments": 91,
+        "discuss_url": "https://news.ycombinator.com/item?id=50665920"
+      },
+      {
+        "title": "The group chat where your AI talks behind your back",
+        "url": "https://construct22.com/",
+        "score": 542,
+        "comments": 239,
+        "discuss_url": "https://news.ycombinator.com/item?id=50663595"
+      },
+      {
+        "title": "A Deterministic Subexponential-Time Algorithm for the Discrete Logarithm Problem [pdf]",
+        "url": "https://eprint.iacr.org/2026/3020.pdf",
+        "score": 167,
+        "comments": 75,
+        "discuss_url": "https://news.ycombinator.com/item?id=50665968"
+      },
+      {
+        "title": "AI made self-hosting fun again",
+        "url": "https://janlukas.blog/posts/ai-self-hosting",
+        "score": 952,
+        "comments": 457,
+        "discuss_url": "https://news.ycombinator.com/item?id=50660180"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-9xxg-pfx4-gxx2",
+        "cve_id": "CVE-2026-110739",
+        "summary": "An Incomplete List of Disallowed Inputs in the namespace onboarding API in Google Cloud GKE Fleet...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-9xxg-pfx4-gxx2"
+      },
+      {
+        "ghsa_id": "GHSA-v8hh-3g3q-46jx",
+        "cve_id": "CVE-2026-85258",
+        "summary": "A Missing Authorization vulnerability in the private console API in Google Cloud Vertex AI ...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-v8hh-3g3q-46jx"
+      },
+      {
+        "ghsa_id": "GHSA-wfwm-9m29-fw8h",
+        "cve_id": "CVE-2026-134994",
+        "summary": "Deserialization of Untrusted Data vulnerability in Nitramix Revertix &#8211; Backup, Migration,...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-wfwm-9m29-fw8h"
+      },
+      {
+        "ghsa_id": "GHSA-85vr-596v-fxx3",
+        "cve_id": "CVE-2026-135009",
+        "summary": "Improper Neutralization of Special Elements used in an SQL Command ('SQL Injection')...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-85vr-596v-fxx3"
+      },
+      {
+        "ghsa_id": "GHSA-jhqq-r4p8-hffj",
+        "cve_id": "CVE-2026-124981",
+        "summary": "A vulnerability has been identified in Mendix OIDC Provider (Mendix 10 compatible) (All versions ...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-jhqq-r4p8-hffj"
+      },
+      {
+        "ghsa_id": "GHSA-gqvq-24q9-q93q",
+        "cve_id": "CVE-2026-135933",
+        "summary": "Incorrect Privilege Assignment vulnerability in Tobias WebinarIgnition webinar-ignition allows...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-gqvq-24q9-q93q"
+      }
+    ]
+  },
+  "title": "技术雷达 · 2026-11-28",
+  "text": "技术雷达 · 2026-11-28\n\n开源精选：Marvisak/VIctory\n\nAn attempt at running GTA VI on PC\n\n今日热议：Show HN: bouncemarket – a live prediction market game for a bouncing ball\n\n安全关注：GHSA-9xxg-pfx4-gxx2 An Incomplete List of Disallowed Inputs in the namespace onboarding API in Google Cloud GKE Fleet...\n\n阅读全文：https://leeeway.github.io/daily-trend-radar/daily/2026-11-28.html",
+  "brief": {
+    "date": "2026-11-28",
+    "url": "https://leeeway.github.io/daily-trend-radar/daily/2026-11-28.html",
+    "repos": [
+      {
+        "name": "Marvisak/VIctory",
+        "url": "https://github.com/Marvisak/VIctory",
+        "description": "An attempt at running GTA VI on PC",
+        "stars": 13703,
+        "forks": 2333,
+        "language": "Rust"
+      },
+      {
+        "name": "erkamyaman/rust-anything",
+        "url": "https://github.com/erkamyaman/rust-anything",
+        "description": "Rewrite your app in Rust, piece by piece, checked against the original at every step. Works with TypeScript, JavaScript, Python, Go, Ruby, Java, C, PHP, C#, Kotlin and PowerShell.",
+        "stars": 10668,
+        "forks": 871,
+        "language": "Rust"
+      }
+    ],
+    "stories": [
+      {
+        "title": "Show HN: bouncemarket – a live prediction market game for a bouncing ball",
+        "url": "https://bouncemarket.minhanhday.com/",
+        "score": 154,
+        "comments": 43,
+        "discuss_url": "https://news.ycombinator.com/item?id=50667726"
+      },
+      {
+        "title": "Credit card skimming scripts using WebRTC found on popular shopping sites",
+        "url": "https://www.infohawk.com/news/2026-11-27-black-friday-webrtc-skimmer",
+        "score": 57,
+        "comments": 15,
+        "discuss_url": "https://news.ycombinator.com/item?id=50668145"
+      }
+    ],
+    "advisories": [
+      {
+        "ghsa_id": "GHSA-9xxg-pfx4-gxx2",
+        "cve_id": "CVE-2026-110739",
+        "summary": "An Incomplete List of Disallowed Inputs in the namespace onboarding API in Google Cloud GKE Fleet...",
+        "severity": "CRITICAL",
+        "url": "https://github.com/advisories/GHSA-9xxg-pfx4-gxx2"
+      }
+    ],
+    "counts": [
+      8,
+      8,
+      6
+    ]
+  }
+}
